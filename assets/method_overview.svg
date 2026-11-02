@@ -1,0 +1,302 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1672" height="941" viewBox="0 0 1672 941" role="img" aria-labelledby="title desc">
+<title id="title">Dependency-grounded process supervision</title>
+<desc id="desc">Vector reconstruction of the method overview. Editable text, paths and icons; no embedded bitmap.</desc>
+<defs>
+<linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1faff"/><stop offset="1" stop-color="#cee9ff"/></linearGradient>
+<linearGradient id="red" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fffafa"/><stop offset="1" stop-color="#ffecec"/></linearGradient>
+<linearGradient id="orange" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fffaf1"/><stop offset="1" stop-color="#ffedd7"/></linearGradient>
+<linearGradient id="green" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8fff6"/><stop offset="1" stop-color="#e8f7e3"/></linearGradient>
+</defs>
+<rect x="0" y="0" width="1672" height="941" rx="0" fill="#ffffff" stroke="none" stroke-width="1"/>
+<g id="annotation-panel">
+<rect x="13" y="11" width="1648" height="571" rx="7" fill="none" stroke="#777777" stroke-width="1"/>
+<text x="22" y="46" font-family="Times New Roman, Liberation Serif, serif" font-size="34.000" font-weight="bold" font-style="normal" fill="#000000" text-anchor="start">(a) Evidence-Preserving Annotation</text>
+<rect x="21" y="60" width="482" height="515" rx="7" fill="none" stroke="#a6a6a6" stroke-width="1" stroke-dasharray="4 3"/>
+<rect x="510" y="60" width="696" height="515" rx="7" fill="none" stroke="#a6a6a6" stroke-width="1" stroke-dasharray="4 3"/>
+<rect x="1213" y="60" width="440" height="515" rx="7" fill="none" stroke="#a6a6a6" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="262" y="89" font-family="Times New Roman, Liberation Serif, serif" font-size="29.000" font-weight="bold" font-style="italic" fill="#0000ed" text-anchor="middle">Preserve Evidence</text>
+<text x="858" y="88" font-family="Times New Roman, Liberation Serif, serif" font-size="29.000" font-weight="bold" font-style="italic" fill="#0000ed" text-anchor="middle">Attribute Errors via Consumed Content</text>
+<text x="1433" y="89" font-family="Times New Roman, Liberation Serif, serif" font-size="29.000" font-weight="bold" font-style="italic" fill="#0000ed" text-anchor="middle">Construct Supervision</text>
+<g id="preserve-evidence">
+<rect x="36" y="126" width="172" height="96" rx="7" fill="url(#blue)" stroke="#59aeff" stroke-width="1"/>
+<g id="problem-icon">
+<path d="M 56 148 L 83.25 148 L 94 158.75 L 94 199 C 94 204 92 204 89 204 L 56 204 C 51 204 51 202 51 199 L 51 153 C 51 148 53 148 56 148 Z " fill="#ffffff" stroke="#263d99" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 83.25 148 L 83.25 158.75 L 94 158.75" fill="#d6ecff" stroke="#263d99" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 60.03 173.76 L 82.39 173.76" fill="none" stroke="#263d99" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 60.03 184.4 L 82.39 184.4" fill="none" stroke="#263d99" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 60.03 194.48 L 75.50999999999999 194.48" fill="none" stroke="#263d99" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<text x="106" y="191" font-family="Times New Roman, Liberation Serif, serif" font-size="22.960" font-weight="normal" font-style="italic" fill="#0000ed" text-anchor="start">Problem x</text>
+<rect x="36" y="236" width="172" height="96" rx="7" fill="url(#blue)" stroke="#59aeff" stroke-width="1"/>
+<g id="solution-icon">
+<path d="M 56 258 L 83.25 258 L 94 268.75 L 94 309 C 94 314 92 314 89 314 L 56 314 C 51 314 51 312 51 309 L 51 263 C 51 258 53 258 56 258 Z " fill="#ffffff" stroke="#263d99" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 83.25 258 L 83.25 268.75 L 94 268.75" fill="#d6ecff" stroke="#263d99" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 60.03 283.76 L 82.39 283.76" fill="none" stroke="#263d99" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 60.03 294.4 L 82.39 294.4" fill="none" stroke="#263d99" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 60.03 304.48 L 75.50999999999999 304.48" fill="none" stroke="#263d99" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<text x="106" y="301" font-family="Times New Roman, Liberation Serif, serif" font-size="22.650" font-weight="normal" font-style="italic" fill="#0000ed" text-anchor="start">Solution R</text>
+<path d="M 210 166 L 220 166 C 228 166 228 174 228 183 L 228 207 C 228 215 233 216 241 216" fill="none" stroke="#ababab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 210 281 L 220 281 C 228 281 228 274 228 264 L 228 229 C 228 221 233 216 241 216" fill="none" stroke="#ababab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 241 216 L 278 216" fill="none" stroke="#ababab" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 278 216 L 263.0 208.5 L 263.0 223.5 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="283" y="165" width="203" height="89" rx="7" fill="url(#blue)" stroke="#59aeff" stroke-width="1"/>
+<text x="384.5" y="204" font-family="Times New Roman, Liberation Serif, serif" font-size="27.000" font-weight="bold" font-style="normal" fill="#000000" text-anchor="middle">SaT spans</text>
+<text x="384.5" y="234" font-family="Times New Roman, Liberation Serif, serif" font-size="26.000" font-weight="bold" font-style="normal" fill="#000000" text-anchor="middle">→ fixed steps</text>
+<rect x="32" y="353" width="52" height="46" rx="3" fill="#fff0db" stroke="#ffc27c" stroke-width="1"/>
+<text x="58" y="382" font-family="Times New Roman, Liberation Serif, serif" font-size="23.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="middle">…</text>
+<rect x="84" y="353" width="52" height="46" rx="3" fill="#e3f4ff" stroke="#68baff" stroke-width="1"/>
+<text x="110" y="382" font-family="Times New Roman, Liberation Serif, serif" font-size="23.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="middle">…</text>
+<rect x="136" y="353" width="52" height="46" rx="3" fill="#e6f5e1" stroke="#9aca8d" stroke-width="1"/>
+<text x="162" y="382" font-family="Times New Roman, Liberation Serif, serif" font-size="23.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="middle">…</text>
+<rect x="188" y="353" width="52" height="46" rx="3" fill="#fff1e8" stroke="#ffaaaa" stroke-width="1"/>
+<text x="214" y="382" font-family="Times New Roman, Liberation Serif, serif" font-size="23.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="middle">…</text>
+<path d="M 245 375 L 273 375" fill="none" stroke="#ababab" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 273 375 L 259.0 368.0 L 259.0 382.0 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="278" y="350" width="47" height="49" rx="5" fill="url(#blue)" stroke="#5bb0ff" stroke-width="1"/>
+<text x="301.5" y="382" font-family="Times New Roman, Liberation Serif, serif" font-size="28.000" font-weight="bold" font-style="italic" fill="#000000" text-anchor="middle">s₁</text>
+<rect x="331" y="350" width="47" height="49" rx="5" fill="url(#blue)" stroke="#5bb0ff" stroke-width="1"/>
+<text x="354.5" y="382" font-family="Times New Roman, Liberation Serif, serif" font-size="28.000" font-weight="bold" font-style="italic" fill="#000000" text-anchor="middle">s₂</text>
+<rect x="384" y="350" width="47" height="49" rx="5" fill="url(#blue)" stroke="#5bb0ff" stroke-width="1"/>
+<text x="407.5" y="382" font-family="Times New Roman, Liberation Serif, serif" font-size="28.000" font-weight="bold" font-style="italic" fill="#000000" text-anchor="middle">s₃</text>
+<rect x="437" y="350" width="56" height="49" rx="5" fill="url(#blue)" stroke="#5bb0ff" stroke-width="1"/>
+<text x="465.0" y="382" font-family="Times New Roman, Liberation Serif, serif" font-size="28.000" font-weight="bold" font-style="italic" fill="#000000" text-anchor="middle"><tspan font-family="Segoe UI Symbol, DejaVu Sans, sans-serif" font-style="normal" font-weight="normal">⋯</tspan></text>
+<text x="132" y="427" font-family="Times New Roman, Liberation Serif, serif" font-size="23.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="middle">Contiguous text spans</text>
+<text x="385" y="427" font-family="Times New Roman, Liberation Serif, serif" font-size="21.411" font-weight="normal" font-style="normal" fill="#000000" text-anchor="middle">Numbered semantic steps</text>
+<rect x="32" y="491" width="462" height="70" rx="7" fill="url(#blue)" stroke="none" stroke-width="1"/>
+<text x="263" y="533" font-family="Times New Roman, Liberation Serif, serif" font-size="29.000" font-weight="bold" font-style="italic" fill="#0000ed" text-anchor="middle">Preserve text · Fix boundaries</text>
+</g>
+<g id="consumed-content-attribution">
+<rect x="527" y="96" width="665" height="92" rx="7" fill="url(#blue)" stroke="#59aeff" stroke-width="1"/>
+<text x="544" y="123" font-family="Times New Roman, Liberation Serif, serif" font-size="25.000" font-weight="bold" font-style="italic" fill="#0000ed" text-anchor="start">Thin-film interference · real trace excerpt</text>
+<text x="543" y="151" font-family="Times New Roman, Liberation Serif, serif" font-size="22.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="start">Normal incidence: air / oil (n = 1.5, t = 500 nm) / water (n = 1.33)</text>
+<text x="543" y="177" font-family="Times New Roman, Liberation Serif, serif" font-size="23.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="start">Which wavelength is most strongly reflected?</text>
+<text x="1181" y="181" font-family="Times New Roman, Liberation Serif, serif" font-size="17.552" font-weight="normal" font-style="italic" fill="#000000" text-anchor="end">Selected steps; text condensed</text>
+<rect x="528" y="197" width="664" height="90" rx="6" fill="url(#red)" stroke="#ff9898" stroke-width="1"/>
+<text x="548" y="232" font-family="Times New Roman, Liberation Serif, serif" font-size="25.000" font-weight="bold" font-style="italic" fill="#000000" text-anchor="start">s₂:</text>
+<rect x="600" y="210" width="269" height="40" rx="5" fill="url(#blue)" stroke="#59aeff" stroke-width="1"/>
+<text x="734.5" y="238" font-family="Times New Roman, Liberation Serif, serif" font-size="21.988" font-weight="normal" font-style="normal" fill="#000000" text-anchor="middle">Optical length = n × distance</text>
+<rect x="888" y="207" width="294" height="57" rx="5" fill="url(#red)" stroke="#ff7777" stroke-width="1"/>
+<text x="1035" y="231" font-family="Times New Roman, Liberation Serif, serif" font-size="20.540" font-weight="normal" font-style="normal" fill="#000000" text-anchor="middle">Constructive interference: Δ = mλ</text>
+<rect x="964" y="238" width="142" height="24" rx="5" fill="#ff2020" stroke="none" stroke-width="1"/>
+<text x="1035" y="257" font-family="Times New Roman, Liberation Serif, serif" font-size="21.000" font-weight="normal" font-style="normal" fill="#ffffff" text-anchor="middle">New error</text>
+<text x="1035" y="283" font-family="Times New Roman, Liberation Serif, serif" font-size="21.000" font-weight="normal" font-style="normal" fill="#ff2020" text-anchor="middle">omits reflection phase shift</text>
+<path d="M 710 251 L 710 312" fill="none" stroke="#ababab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 710 312 L 717.5 297.0 L 702.5 297.0 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 1027 287 L 1027 312" fill="none" stroke="#ff2020" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 3"/>
+<path d="M 1027 312 L 1034.0 298.0 L 1020.0 298.0 Z " fill="#ff2020" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="584" y="315" width="240" height="65" rx="6" fill="url(#blue)" stroke="#59aeff" stroke-width="1"/>
+<text x="704" y="342" font-family="Times New Roman, Liberation Serif, serif" font-size="24.000" font-weight="normal" font-style="italic" fill="#000000" text-anchor="middle">s₃:  L = nt = 750 nm</text>
+<rect x="642" y="350" width="125" height="25" rx="5" fill="#219fff" stroke="none" stroke-width="1"/>
+<text x="704" y="370" font-family="Times New Roman, Liberation Serif, serif" font-size="22.000" font-weight="normal" font-style="normal" fill="#ffffff" text-anchor="middle">Correct</text>
+<rect x="911" y="315" width="229" height="65" rx="6" fill="url(#orange)" stroke="#ffb455" stroke-width="1"/>
+<text x="1025" y="342" font-family="Times New Roman, Liberation Serif, serif" font-size="24.000" font-weight="normal" font-style="italic" fill="#000000" text-anchor="middle">s₄:  2L = mλ</text>
+<rect x="963" y="350" width="133" height="25" rx="5" fill="#ff900c" stroke="none" stroke-width="1"/>
+<text x="1029" y="370" font-family="Times New Roman, Liberation Serif, serif" font-size="21.000" font-weight="normal" font-style="normal" fill="#ffffff" text-anchor="middle">Propagated</text>
+<path d="M 686 381 L 686 419" fill="none" stroke="#ababab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 686 419 L 693.5 404.0 L 678.5 404.0 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 909 364 L 808 422" fill="none" stroke="#ff2020" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 3"/>
+<path d="M 808 422 L 821.3941358454391 421.22726139353233 L 815.4182906220893 410.8210481597682 Z " fill="#ff2020" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 1034 381 L 1034 410" fill="none" stroke="#ff2020" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 3"/>
+<path d="M 1034 410 L 1041.0 396.0 L 1027.0 396.0 Z " fill="#ff2020" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="530" y="422" width="279" height="69" rx="6" fill="url(#orange)" stroke="#ffb455" stroke-width="1"/>
+<text x="669" y="451" font-family="Times New Roman, Liberation Serif, serif" font-size="24.000" font-weight="normal" font-style="italic" fill="#000000" text-anchor="middle">s₆:  λ = 500 nm <tspan font-family="Segoe UI Symbol, DejaVu Sans, sans-serif" font-style="normal" font-weight="normal">⇒</tspan> m = 3</text>
+<rect x="613" y="459" width="113" height="26" rx="5" fill="#ff900c" stroke="none" stroke-width="1"/>
+<text x="669.5" y="480" font-family="Times New Roman, Liberation Serif, serif" font-size="21.000" font-weight="normal" font-style="normal" fill="#ffffff" text-anchor="middle">Propagated</text>
+<rect x="859" y="411" width="333" height="86" rx="6" fill="url(#red)" stroke="#ff9191" stroke-width="1"/>
+<text x="1025.5" y="440" font-family="Times New Roman, Liberation Serif, serif" font-size="20.809" font-weight="normal" font-style="normal" fill="#000000" text-anchor="middle">s₅:  Smallest m <tspan font-family="Segoe UI Symbol, DejaVu Sans, sans-serif" font-style="normal" font-weight="normal">⇒</tspan> strongest reflection</text>
+<rect x="941" y="447" width="175" height="25" rx="5" fill="#ff2020" stroke="none" stroke-width="1"/>
+<text x="1028.5" y="467" font-family="Times New Roman, Liberation Serif, serif" font-size="21.000" font-weight="normal" font-style="normal" fill="#ffffff" text-anchor="middle">New error (mixed)</text>
+<text x="1026" y="489" font-family="Times New Roman, Liberation Serif, serif" font-size="16.016" font-weight="normal" font-style="italic" fill="#ff2020" text-anchor="middle">inherits wrong condition + adds invalid criterion</text>
+<rect x="548" y="508" width="616" height="31" rx="4" fill="none" stroke="#bababa" stroke-width="1" stroke-dasharray="4 3"/>
+<path d="M 583 524 L 641 524" fill="none" stroke="#ababab" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 641 524 L 629.0 518.0 L 629.0 530.0 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="649" y="532" font-family="Times New Roman, Liberation Serif, serif" font-size="21.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="start">Consumed content</text>
+<path d="M 844 524 L 903 524" fill="none" stroke="#ff2020" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 3"/>
+<path d="M 903 524 L 891.0 518.0 L 891.0 530.0 Z " fill="#ff2020" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="911" y="532" font-family="Times New Roman, Liberation Serif, serif" font-size="21.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="start">Error-carrying dependency</text>
+<rect x="520" y="541" width="673" height="31" rx="5" fill="url(#blue)" stroke="none" stroke-width="1"/>
+<text x="856.5" y="565" font-family="Times New Roman, Liberation Serif, serif" font-size="24.000" font-weight="bold" font-style="italic" fill="#0000ed" text-anchor="middle">An erroneous step can contain a valid output.</text>
+</g>
+<g id="supervision-construction">
+<rect x="1250" y="114" width="263" height="47" rx="6" fill="url(#blue)" stroke="#59aeff" stroke-width="1"/>
+<text x="1381.5" y="146" font-family="Times New Roman, Liberation Serif, serif" font-size="25.000" font-weight="normal" font-style="normal" fill="#0000ed" text-anchor="middle">Structural consistency</text>
+<rect x="1250" y="198" width="263" height="47" rx="6" fill="url(#blue)" stroke="#59aeff" stroke-width="1"/>
+<text x="1381.5" y="230" font-family="Times New Roman, Liberation Serif, serif" font-size="25.000" font-weight="normal" font-style="normal" fill="#0000ed" text-anchor="middle">Fully evaluable traces</text>
+<path d="M 1382 162 L 1382 195" fill="none" stroke="#ababab" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 1382 195 L 1390.0 179.0 L 1374.0 179.0 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 1382 246 L 1382 282" fill="none" stroke="#ababab" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 1382 282 L 1390.0 266.0 L 1374.0 266.0 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="1224" y="285" width="417" height="149" rx="6" fill="url(#red)" stroke="#ff9fa4" stroke-width="1"/>
+<text x="1243" y="316" font-family="Times New Roman, Liberation Serif, serif" font-size="27.000" font-weight="bold" font-style="italic" fill="#0000ed" text-anchor="start">Target for each step:</text>
+<text x="1265" y="350" font-family="Times New Roman, Liberation Serif, serif" font-size="25.000" font-weight="bold" font-style="normal" fill="#000000" text-anchor="start">Correctness:</text>
+<text x="1416" y="350" font-family="Times New Roman, Liberation Serif, serif" font-size="23.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="start">correct / incorrect</text>
+<text x="1265" y="385" font-family="Times New Roman, Liberation Serif, serif" font-size="25.000" font-weight="bold" font-style="normal" fill="#000000" text-anchor="start">Role:</text>
+<text x="1416" y="385" font-family="Times New Roman, Liberation Serif, serif" font-size="20.116" font-weight="normal" font-style="normal" fill="#000000" text-anchor="start">correct / new / propagated</text>
+<text x="1265" y="417" font-family="Times New Roman, Liberation Serif, serif" font-size="25.000" font-weight="bold" font-style="normal" fill="#000000" text-anchor="start">Type:</text>
+<text x="1416" y="417" font-family="Times New Roman, Liberation Serif, serif" font-size="22.707" font-weight="normal" font-style="normal" fill="#000000" text-anchor="start">known new errors only</text>
+<rect x="1224" y="462" width="417" height="76" rx="7" fill="url(#blue)" stroke="none" stroke-width="1"/>
+<text x="1432.5" y="491" font-family="Times New Roman, Liberation Serif, serif" font-size="27.000" font-weight="bold" font-style="italic" fill="#0000ed" text-anchor="middle">Recovery → correct role</text>
+<text x="1432.5" y="523" font-family="Times New Roman, Liberation Serif, serif" font-size="24.000" font-weight="bold" font-style="italic" fill="#0000ed" text-anchor="middle">Unknown type → type loss masked</text>
+</g>
+</g>
+<g id="hierarchical-prm-training">
+<rect x="13" y="591" width="1103" height="335" rx="7" fill="none" stroke="#777777" stroke-width="1"/>
+<text x="22" y="627" font-family="Times New Roman, Liberation Serif, serif" font-size="34.000" font-weight="bold" font-style="normal" fill="#000000" text-anchor="start">(b) Hierarchical PRM Training</text>
+<path d="M 45 659 L 151 659 L 180 689 L 180 795 C 180 802 177 802 172 802 L 46 802 C 39 802 39 799 39 794 L 39 665 C 39 659 41 659 45 659 Z " fill="#e6f4ff" stroke="#59aeff" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 151 659 L 151 689 L 180 689" fill="#d0eaff" stroke="#59aeff" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<g id="target-step-document">
+<path d="M 61 674 L 87.5 674 L 98 684.5 L 98 712 C 98 717 96 717 93 717 L 61 717 C 56 717 56 715 56 712 L 56 679 C 56 674 58 674 61 674 Z " fill="#ffffff" stroke="#263d99" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 87.5 674 L 87.5 684.5 L 98 684.5" fill="#d6ecff" stroke="#263d99" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 64.82 693.78 L 86.66 693.78" fill="none" stroke="#263d99" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 64.82 701.95 L 86.66 701.95" fill="none" stroke="#263d99" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 64.82 709.69 L 79.94 709.69" fill="none" stroke="#263d99" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<text x="106" y="743" font-family="Times New Roman, Liberation Serif, serif" font-size="26.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="middle">Problem +</text>
+<text x="106" y="767" font-family="Times New Roman, Liberation Serif, serif" font-size="26.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="middle">prefix +</text>
+<text x="106" y="791" font-family="Times New Roman, Liberation Serif, serif" font-size="26.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="middle">target step</text>
+<text x="120" y="829" font-family="Times New Roman, Liberation Serif, serif" font-size="22.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="middle">Text-only student input</text>
+<path d="M 184 727 L 228 727" fill="none" stroke="#ababab" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 228 727 L 213.0 719.5 L 213.0 734.5 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="231" y="657" width="167" height="153" rx="7" fill="url(#blue)" stroke="none" stroke-width="1"/>
+<g id="training-robot">
+<path d="M 314.58 673.28 L 314.58 683.29" fill="none" stroke="#263d99" stroke-width="3.64" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="314.58" cy="672.37" r="4.55" fill="#263d99" stroke="none" stroke-width="1"/>
+<rect x="280.91" y="692.39" width="9.1" height="18.2" rx="2.73" fill="#367ac5" stroke="#263d99" stroke-width="1.82"/>
+<rect x="339.15" y="692.39" width="9.1" height="18.2" rx="2.73" fill="#367ac5" stroke="#263d99" stroke-width="1.82"/>
+<rect x="290.01" y="684.2" width="50.050000000000004" height="40.04" rx="7.28" fill="#c5def6" stroke="none" stroke-width="1"/>
+<rect x="288.19" y="682.38" width="50.96" height="39.13" rx="7.28" fill="#ffffff" stroke="#263d99" stroke-width="2.4570000000000003"/>
+<circle cx="302.75" cy="698.76" r="3.2760000000000002" fill="#263d99" stroke="none" stroke-width="1"/>
+<circle cx="324.59000000000003" cy="698.76" r="3.2760000000000002" fill="#263d99" stroke="none" stroke-width="1"/>
+<path d="M 306.39 708.77 C 310.03 712.41 317.31 712.41 320.95 708.77" fill="none" stroke="#263d99" stroke-width="2.275" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<text x="314.5" y="745" font-family="Times New Roman, Liberation Serif, serif" font-size="27.000" font-weight="bold" font-style="normal" fill="#0000ed" text-anchor="middle">Shared</text>
+<text x="314.5" y="772" font-family="Times New Roman, Liberation Serif, serif" font-size="27.000" font-weight="bold" font-style="normal" fill="#0000ed" text-anchor="middle">Qwen3-4B</text>
+<text x="314.5" y="799" font-family="Times New Roman, Liberation Serif, serif" font-size="27.000" font-weight="bold" font-style="normal" fill="#0000ed" text-anchor="middle">backbone</text>
+<path d="M 400 728 L 434 728" fill="none" stroke="#ababab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 434 728 L 421.0 721.5 L 421.0 734.5 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="437" y="695" width="52" height="68" rx="6" fill="url(#blue)" stroke="#59aeff" stroke-width="1"/>
+<text x="451.9771875" y="741" font-family="Times New Roman, Liberation Serif, serif" font-size="32.000" font-weight="normal" font-style="italic" fill="#000000" text-anchor="start">h</text>
+<text x="467.9771875" y="747.4" font-family="Times New Roman, Liberation Serif, serif" font-size="21.760" font-weight="normal" font-style="italic" fill="#000000" text-anchor="start">i</text>
+<path d="M 490 728 L 519 728 L 519 660 L 549 660" fill="none" stroke="#ababab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 549 660 L 536.0 653.5 L 536.0 666.5 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 490 728 L 549 728" fill="none" stroke="#ababab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 549 728 L 536.0 721.5 L 536.0 734.5 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 519 728 L 519 787 L 549 787" fill="none" stroke="#ababab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 549 787 L 536.0 780.5 L 536.0 793.5 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="552" y="639" width="179" height="43" rx="6" fill="url(#blue)" stroke="#59aeff" stroke-width="1"/>
+<text x="641.5" y="668" font-family="Times New Roman, Liberation Serif, serif" font-size="25.000" font-weight="normal" font-style="normal" fill="#0000ed" text-anchor="middle">Correctness</text>
+<path d="M 734 660 L 763 660" fill="none" stroke="#ababab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 763 660 L 751.0 654.0 L 751.0 666.0 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="552" y="701" width="179" height="43" rx="6" fill="url(#blue)" stroke="#59aeff" stroke-width="1"/>
+<text x="641.5" y="730" font-family="Times New Roman, Liberation Serif, serif" font-size="25.000" font-weight="normal" font-style="normal" fill="#0000ed" text-anchor="middle">Error role</text>
+<path d="M 734 722 L 763 722" fill="none" stroke="#ababab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 763 722 L 751.0 716.0 L 751.0 728.0 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="552" y="766" width="179" height="43" rx="6" fill="url(#blue)" stroke="#59aeff" stroke-width="1"/>
+<text x="641.5" y="795" font-family="Times New Roman, Liberation Serif, serif" font-size="25.000" font-weight="normal" font-style="normal" fill="#0000ed" text-anchor="middle">Intrinsic type</text>
+<path d="M 734 787 L 763 787" fill="none" stroke="#ababab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 763 787 L 751.0 781.0 L 751.0 793.0 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="766" y="639" width="137" height="43" rx="5" fill="#ffffff" stroke="#bbbbbb" stroke-width="1"/>
+<text x="834.5" y="668" font-family="Times New Roman, Liberation Serif, serif" font-size="26.000" font-weight="normal" font-style="italic" fill="#000000" text-anchor="middle">C / I</text>
+<rect x="766" y="701" width="137" height="43" rx="5" fill="#ffffff" stroke="#bbbbbb" stroke-width="1"/>
+<text x="834.5" y="719" font-family="Times New Roman, Liberation Serif, serif" font-size="21.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="middle">correct / new /</text>
+<text x="834.5" y="739" font-family="Times New Roman, Liberation Serif, serif" font-size="21.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="middle">propagated</text>
+<rect x="766" y="766" width="137" height="43" rx="5" fill="#ffffff" stroke="#bbbbbb" stroke-width="1"/>
+<text x="834.5" y="795" font-family="Times New Roman, Liberation Serif, serif" font-size="26.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="middle">8 types</text>
+<rect x="954" y="658" width="146" height="65" rx="6" fill="url(#red)" stroke="#ffb2b2" stroke-width="1"/>
+<text x="1027" y="685" font-family="Times New Roman, Liberation Serif, serif" font-size="19.674" font-weight="bold" font-style="normal" fill="#000000" text-anchor="middle">Targets + masks</text>
+<text x="1027" y="711" font-family="Times New Roman, Liberation Serif, serif" font-size="22.000" font-weight="bold" font-style="italic" fill="#0000ed" text-anchor="middle">(from a)</text>
+<path d="M 954 690 L 930 690 L 930 660 L 906 660" fill="none" stroke="#ababab" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 906 660 L 918.0 666.0 L 918.0 654.0 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 954 690 L 930 690 L 930 722 L 906 722" fill="none" stroke="#ababab" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 906 722 L 918.0 728.0 L 918.0 716.0 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 954 690 L 930 690 L 930 787 L 906 787" fill="none" stroke="#ababab" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 906 787 L 918.0 793.0 L 918.0 781.0 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="1009" y="767" font-family="Times New Roman, Liberation Serif, serif" font-size="23.000" font-weight="normal" font-style="italic" fill="#4d4d70" text-anchor="middle">Supervised</text>
+<text x="1009" y="794" font-family="Times New Roman, Liberation Serif, serif" font-size="23.000" font-weight="normal" font-style="italic" fill="#4d4d70" text-anchor="middle">targets</text>
+<rect x="353" y="831" width="533" height="52" rx="7" fill="url(#blue)" stroke="none" stroke-width="1"/>
+<g id="training-objective">
+<text x="448.7666015625" y="867" font-family="Times New Roman, Liberation Serif, serif" font-size="34.000" font-weight="normal" font-style="italic" fill="#000000" text-anchor="start">ℒ = ℒ</text>
+<text x="536.8544921875" y="874" font-family="Times New Roman, Liberation Serif, serif" font-size="22.000" font-weight="normal" font-style="italic" fill="#000000" text-anchor="start">C</text>
+<text x="551.5283203125" y="867" font-family="Times New Roman, Liberation Serif, serif" font-size="34.000" font-weight="normal" font-style="italic" fill="#000000" text-anchor="start"> + 0.5ℒ</text>
+<text x="658.0439453125" y="874" font-family="Times New Roman, Liberation Serif, serif" font-size="22.000" font-weight="normal" font-style="italic" fill="#000000" text-anchor="start">R</text>
+<text x="671.482421875" y="867" font-family="Times New Roman, Liberation Serif, serif" font-size="34.000" font-weight="normal" font-style="italic" fill="#000000" text-anchor="start"> + 0.5ℒ</text>
+<text x="777.998046875" y="874" font-family="Times New Roman, Liberation Serif, serif" font-size="22.000" font-weight="normal" font-style="italic" fill="#000000" text-anchor="start">T</text>
+</g>
+<text x="619.5" y="909" font-family="Times New Roman, Liberation Serif, serif" font-size="25.000" font-weight="bold" font-style="italic" fill="#0000ed" text-anchor="middle">Type loss: known new errors only</text>
+</g>
+<g id="prm-utilization">
+<rect x="1125" y="591" width="536" height="335" rx="7" fill="none" stroke="#777777" stroke-width="1"/>
+<text x="1134" y="627" font-family="Times New Roman, Liberation Serif, serif" font-size="34.000" font-weight="bold" font-style="normal" fill="#000000" text-anchor="start">(c) PRM Utilization</text>
+<rect x="1134" y="637" width="518" height="125" rx="7" fill="none" stroke="#a6a6a6" stroke-width="1" stroke-dasharray="4 3"/>
+<rect x="1134" y="768" width="518" height="145" rx="7" fill="none" stroke="#a6a6a6" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="1147" y="657" font-family="Times New Roman, Liberation Serif, serif" font-size="28.000" font-weight="bold" font-style="italic" fill="#0000ed" text-anchor="start">Process Diagnosis</text>
+<g id="diagnosis-pages">
+<rect x="1171" y="670" width="71" height="75" rx="8" fill="#ffffff" stroke="#263d99" stroke-width="1.8"/>
+<rect x="1166" y="675" width="71" height="75" rx="8" fill="#ffffff" stroke="#263d99" stroke-width="1.8"/>
+<rect x="1161" y="680" width="71" height="75" rx="8" fill="#ffffff" stroke="#263d99" stroke-width="1.8"/>
+<text x="1188.47923828125" y="699" font-family="Times New Roman, Liberation Serif, serif" font-size="22.000" font-weight="bold" font-style="italic" fill="#000000" text-anchor="start">s</text>
+<text x="1197.04076171875" y="703.4" font-family="Times New Roman, Liberation Serif, serif" font-size="14.960" font-weight="bold" font-style="italic" fill="#000000" text-anchor="start">1</text>
+<text x="1188.47923828125" y="716" font-family="Times New Roman, Liberation Serif, serif" font-size="22.000" font-weight="bold" font-style="italic" fill="#000000" text-anchor="start">s</text>
+<text x="1197.04076171875" y="720.4" font-family="Times New Roman, Liberation Serif, serif" font-size="14.960" font-weight="bold" font-style="italic" fill="#000000" text-anchor="start">2</text>
+<text x="1188.47923828125" y="733" font-family="Times New Roman, Liberation Serif, serif" font-size="22.000" font-weight="bold" font-style="italic" fill="#000000" text-anchor="start">s</text>
+<text x="1197.04076171875" y="737.4" font-family="Times New Roman, Liberation Serif, serif" font-size="14.960" font-weight="bold" font-style="italic" fill="#000000" text-anchor="start">3</text>
+<text x="1196.5" y="750" font-family="Times New Roman, Liberation Serif, serif" font-size="19.000" font-weight="bold" font-style="italic" fill="#000000" text-anchor="middle"><tspan font-family="Segoe UI Symbol, DejaVu Sans, sans-serif" font-style="normal" font-weight="normal">⋯</tspan></text>
+</g>
+<path d="M 1246 706 L 1302 706" fill="none" stroke="#ababab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 1302 706 L 1288.0 699.0 L 1288.0 713.0 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<g id="diagnosis-robot">
+<path d="M 1342.2 677.2 L 1342.2 687.1" fill="none" stroke="#263d99" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="1342.2" cy="676.3" r="4.5" fill="#263d99" stroke="none" stroke-width="1"/>
+<rect x="1308.9" y="696.1" width="9.0" height="18.0" rx="2.7" fill="#367ac5" stroke="#263d99" stroke-width="1.8"/>
+<rect x="1366.5" y="696.1" width="9.0" height="18.0" rx="2.7" fill="#367ac5" stroke="#263d99" stroke-width="1.8"/>
+<rect x="1317.9" y="688.0" width="49.5" height="39.6" rx="7.2" fill="#c5def6" stroke="none" stroke-width="1"/>
+<rect x="1316.1" y="686.2" width="50.4" height="38.7" rx="7.2" fill="#ffffff" stroke="#263d99" stroke-width="2.43"/>
+<circle cx="1330.5" cy="702.4" r="3.24" fill="#263d99" stroke="none" stroke-width="1"/>
+<circle cx="1352.1" cy="702.4" r="3.24" fill="#263d99" stroke="none" stroke-width="1"/>
+<path d="M 1334.1 712.3 C 1337.7 715.9 1344.9 715.9 1348.5 712.3" fill="none" stroke="#263d99" stroke-width="2.25" stroke-linejoin="round" stroke-linecap="round"/>
+</g>
+<text x="1342" y="744" font-family="Times New Roman, Liberation Serif, serif" font-size="25.000" font-weight="bold" font-style="normal" fill="#0000ed" text-anchor="middle">PRM</text>
+<path d="M 1383 705 L 1439 661" fill="none" stroke="#ababab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 1439 661 L 1425.8572506225394 663.6959485902482 L 1433.2711092457223 673.1317686561174 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="1442" y="644" width="196" height="33" rx="5" fill="url(#blue)" stroke="#59aeff" stroke-width="1"/>
+<text x="1540" y="668" font-family="Times New Roman, Liberation Serif, serif" font-size="23.000" font-weight="normal" font-style="normal" fill="#0000ed" text-anchor="middle">Correctness</text>
+<path d="M 1383 705 L 1439 701" fill="none" stroke="#ababab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 1439 701 L 1426.6030133021036 695.8702124008705 L 1427.4579779019587 707.8397167988394 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="1442" y="684" width="196" height="33" rx="5" fill="url(#blue)" stroke="#59aeff" stroke-width="1"/>
+<text x="1540" y="708" font-family="Times New Roman, Liberation Serif, serif" font-size="20.871" font-weight="normal" font-style="normal" fill="#0000ed" text-anchor="middle">Origin or propagation</text>
+<path d="M 1383 705 L 1439 741" fill="none" stroke="#ababab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 1439 741 L 1432.1504038433623 729.4638380519787 L 1425.6613127476003 739.5579797564974 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="1442" y="724" width="196" height="33" rx="5" fill="url(#blue)" stroke="#59aeff" stroke-width="1"/>
+<text x="1540" y="748" font-family="Times New Roman, Liberation Serif, serif" font-size="23.000" font-weight="normal" font-style="normal" fill="#0000ed" text-anchor="middle">Intrinsic type</text>
+<text x="1147" y="792" font-family="Times New Roman, Liberation Serif, serif" font-size="28.000" font-weight="bold" font-style="italic" fill="#0000ed" text-anchor="start">Weighted Answer Voting</text>
+<g id="candidate-pages">
+<rect x="1172" y="802" width="68" height="79" rx="8" fill="#ffffff" stroke="#263d99" stroke-width="1.8"/>
+<rect x="1167" y="807" width="68" height="79" rx="8" fill="#ffffff" stroke="#263d99" stroke-width="1.8"/>
+<rect x="1162" y="812" width="68" height="79" rx="8" fill="#ffffff" stroke="#263d99" stroke-width="1.8"/>
+<text x="1187.97923828125" y="831" font-family="Times New Roman, Liberation Serif, serif" font-size="22.000" font-weight="bold" font-style="italic" fill="#000000" text-anchor="start">s</text>
+<text x="1196.54076171875" y="835.4" font-family="Times New Roman, Liberation Serif, serif" font-size="14.960" font-weight="bold" font-style="italic" fill="#000000" text-anchor="start">1</text>
+<text x="1196.0" y="848" font-family="Times New Roman, Liberation Serif, serif" font-size="19.000" font-weight="bold" font-style="italic" fill="#000000" text-anchor="middle"><tspan font-family="Segoe UI Symbol, DejaVu Sans, sans-serif" font-style="normal" font-weight="normal">⋯</tspan></text>
+<text x="1186.317421875" y="865" font-family="Times New Roman, Liberation Serif, serif" font-size="22.000" font-weight="bold" font-style="italic" fill="#000000" text-anchor="start">s</text>
+<text x="1194.8789453125" y="869.4" font-family="Times New Roman, Liberation Serif, serif" font-size="14.960" font-weight="bold" font-style="italic" fill="#000000" text-anchor="start">N</text>
+<text x="1196.0" y="882" font-family="Times New Roman, Liberation Serif, serif" font-size="19.000" font-weight="bold" font-style="italic" fill="#000000" text-anchor="middle"></text>
+</g>
+<text x="1238" y="905" font-family="Times New Roman, Liberation Serif, serif" font-size="21.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="middle">Shared candidate pool</text>
+<path d="M 1243 834 L 1272 834" fill="none" stroke="#ababab" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 1272 834 L 1259.0 827.5 L 1259.0 840.5 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="1275" y="797" width="127" height="77" rx="5" fill="url(#blue)" stroke="#59aeff" stroke-width="1"/>
+<text x="1338.5" y="829" font-family="Times New Roman, Liberation Serif, serif" font-size="23.000" font-weight="normal" font-style="normal" fill="#0000ed" text-anchor="middle">Correctness</text>
+<text x="1338.5" y="855" font-family="Times New Roman, Liberation Serif, serif" font-size="23.000" font-weight="normal" font-style="normal" fill="#0000ed" text-anchor="middle">scores</text>
+<path d="M 1403 834 L 1416 834" fill="none" stroke="#ababab" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 1416 834 L 1407.0 829.5 L 1407.0 838.5 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="1418" y="797" width="120" height="77" rx="5" fill="url(#blue)" stroke="#59aeff" stroke-width="1"/>
+<text x="1478" y="822" font-family="Times New Roman, Liberation Serif, serif" font-size="22.000" font-weight="normal" font-style="normal" fill="#0000ed" text-anchor="middle">Group by</text>
+<text x="1478" y="845" font-family="Times New Roman, Liberation Serif, serif" font-size="22.000" font-weight="normal" font-style="normal" fill="#0000ed" text-anchor="middle">answer +</text>
+<text x="1478" y="867" font-family="Times New Roman, Liberation Serif, serif" font-size="19.513" font-weight="normal" font-style="normal" fill="#0000ed" text-anchor="middle">weighted vote</text>
+<path d="M 1540 834 L 1555 834" fill="none" stroke="#ababab" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 1555 834 L 1546.0 829.5 L 1546.0 838.5 Z " fill="#ababab" stroke="none" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="1558" y="797" width="83" height="77" rx="5" fill="url(#green)" stroke="#88bd7b" stroke-width="1"/>
+<text x="1599.5" y="830" font-family="Times New Roman, Liberation Serif, serif" font-size="21.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="middle">Selected</text>
+<text x="1599.5" y="855" font-family="Times New Roman, Liberation Serif, serif" font-size="21.000" font-weight="normal" font-style="normal" fill="#000000" text-anchor="middle">answer</text>
+</g>
+</svg>

@@ -30,11 +30,12 @@ answer voting and training-data selection.
 
 ## Method
 
-![Method overview: consumed-input attribution, hierarchical supervision, and process scoring](assets/method_overview.png)
+![Method overview: consumed-input attribution, hierarchical supervision, and process scoring](assets/method_overview.svg)
 
-[View the full-size figure](https://github.com/MKR640/dependency-process-supervision/raw/refs/heads/main/assets/method_overview.png)
+[SVG](assets/method_overview.svg) · [Vector PDF](assets/method_overview.pdf) ·
+[High-resolution PNG](assets/method_overview.png) · [Editable source](scripts/render_method_overview.py)
 
-*Figure 1 from the paper. Input-output dependencies provide evidence for error
+*Vector reconstruction of Figure 1 from the paper. Input-output dependencies provide evidence for error
 attribution and determine the supervision assigned to each step.*
 
 1. **Extract inputs and outputs.** Preserve the solution text, establish step
