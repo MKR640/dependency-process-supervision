@@ -6,8 +6,8 @@
       "sha256": "f3215c1f235df499a101b1f1a259c7a01ba8f244104b65e82cfbe4924442d800"
     },
     "assets/method_overview.png": {
-      "bytes": 1713781,
-      "sha256": "195528e77164afcb54824b312a52c705e6bca23e83d3a90579d4f6bc6b968f18"
+      "bytes": 1724870,
+      "sha256": "9d3daac5be5aa45822d3669b5c3b5565b81d04e2a87d3da4ab39ec5d262799bb"
     },
     "configs/annotation/prompts/cessation_binary_prompt_v1.txt": {
       "bytes": 4009,
@@ -142,8 +142,8 @@
       "sha256": "a0428b420858382318dbd26993172f24c05614edbeac9725b24209aac95e11e1"
     },
     "README.md": {
-      "bytes": 8017,
-      "sha256": "ef5baef1a9e449532a493b747163c577e4474537b48a7833b3050552625ac88b"
+      "bytes": 8153,
+      "sha256": "d200e9e436d2c1c75dc225cc1548282ec9bfe0961aca266ae1db2cfbefe569dc"
     },
     "resources.json": {
       "bytes": 2731,
