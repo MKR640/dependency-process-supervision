@@ -63,10 +63,21 @@
       "included": false,
       "redistribution": "prohibited",
       "used_by": [
-        "private_data_training",
-        "sft_selection"
+        "private_data_training"
       ],
       "locator": null
+    },
+    {
+      "id": "sft_selection_pool",
+      "kind": "training_data",
+      "included": false,
+      "redistribution": "pending_source_review",
+      "used_by": [
+        "sft_selection",
+        "sft_training"
+      ],
+      "locator": null,
+      "note": "Tracked separately from provider_collection; whether they share a source has not been established."
     },
     {
       "id": "teacher_and_sat",

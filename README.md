@@ -119,6 +119,10 @@ annotation and model evaluation use the separate entries below.
 
 ### Reproduce experiments
 
+The example and CPU tests run with this repository alone. Recomputing the paper's
+results requires external prediction bundles, which are not included or currently
+available for download from this repository.
+
 Install the CPU replay dependencies in a separate environment:
 
 ```bash

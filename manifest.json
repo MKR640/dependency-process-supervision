@@ -154,12 +154,12 @@
       "sha256": "a0428b420858382318dbd26993172f24c05614edbeac9725b24209aac95e11e1"
     },
     "README.md": {
-      "bytes": 8233,
-      "sha256": "2518d49767faf0b3a3b529d53181af902d6656cb77e07c7a7496cd970e131bfb"
+      "bytes": 8447,
+      "sha256": "e11184515f60e54844050e25067220d18b0e7279ba2b721310b1afe1b837df34"
     },
     "resources.json": {
-      "bytes": 2731,
-      "sha256": "c95b2501dfe15a5faf8e02d3866c32283cad75999d55df9bc2fb7c028a6a6074"
+      "bytes": 3083,
+      "sha256": "a75a40db0005a076a6e824c61d518c6159340a0ed22e0f2a760041d12aef1b73"
     },
     "scripts/cache_metrics.py": {
       "bytes": 19640,
