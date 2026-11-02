@@ -1,6 +1,8 @@
 # Release status
 
-Local source candidate; not published.
+Code accompanying the anonymous ICLR 2027 submission. The source package has been
+uploaded to the manuscript's GitHub repository. Public access depends on repository
+visibility; uploading source does not make external data or models available.
 
 | Item | Status |
 |---|---|
@@ -17,7 +19,7 @@ Local source candidate; not published.
 | Formal Table 2 cache | Recovered and verified internally; all nine model reports, intervals and contrasts match the historical report; cache not bundled for redistribution |
 | Sequential role baseline | Formal-cache replay passed, including validation threshold, role scores and paired bootstrap interval |
 | Training/inference assets | External data/model access routes and payload checksums incomplete |
-| Versioning | Independent local source snapshot; no private parent history exported; publication pending |
+| Versioning | Independent repository; no private parent history exported |
 
 Validation outcomes for the current source manifest are maintained in the internal
 release audit. Cache replay, fresh inference and training are separate validation levels.

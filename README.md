@@ -1,103 +1,166 @@
-# Dependency-grounded process supervision
+# Tracing Error Origins and Propagation
 
-Code for extracting step inputs and outputs, constructing error-role supervision,
-training hierarchical process reward models, and evaluating mathematical and physical reasoning.
+Code accompanying **Tracing Error Origins and Propagation: Dependency-Grounded
+Process Supervision for Mathematics and Physics**.
 
-The repository contains annotation prompts, target construction, five training
-configurations, and evaluation scripts. Model weights and evaluation caches are
-external resources. Author-code licensing is pending.
+**Anonymous submission to ICLR 2027.** Author information and public citation
+metadata will be added after anonymous review.
 
-## Start here
+[Overview](#overview) · [Method](#method) · [Results](#results) ·
+[Quick start](#quick-start) · [Experiments](docs/EXPERIMENTS.md) ·
+[Reproduction guide](docs/REPRODUCTION.md)
 
-| Task | Entry | Resources |
-|---|---|---|
-| Try target construction | `examples/label_conversion.py` | Python standard library only |
-| Recompute stored results | `scripts/reproduce.py` | Python 3.12, CPU requirements, corresponding external caches |
-| Prepare a training run | `scripts/prepare_training.py` | Frozen data and the common trained initialization |
-| Recreate annotations | `src/annotation/` and `configs/annotation/prompts/` | SaT and Teacher models, input trajectories |
-| Generate fresh model predictions | `src/benchmarks/`, `src/existing_eval/`, `src/downstream/` | Model weights, benchmark inputs, task environment |
+## Overview
 
-### Run a self-contained example
+Mathematical and physical reasoning is central to AI for Science. Process reward
+models (PRMs) support this reasoning by evaluating intermediate steps, but an
+incorrect step can either introduce a mistake or inherit one from an earlier
+step. These cases call for different feedback.
 
+Derivations reuse quantities, equations, and assumptions through identifiable
+input-output dependencies. We use these dependencies to construct supervision
+for **step correctness, error origin or propagation, and intrinsic error type**.
+Attribution follows the content actually consumed: a valid output from a
+partially incorrect step can still support correct reasoning, while a step can
+both inherit an error and introduce a new one.
+
+The study connects this annotation design to PRM training, evaluates detection
+and role diagnosis in mathematics and physics, and examines process scores in
+answer voting and training-data selection.
+
+## Method
+
+![Method overview: consumed-input attribution, hierarchical supervision, and process scoring](assets/method_overview.png)
+
+*Figure 1 from the paper. Input-output dependencies provide evidence for error
+attribution and determine the supervision assigned to each step.*
+
+1. **Extract inputs and outputs.** Preserve the solution text, establish step
+   boundaries, and identify the quantities and premises each step uses and produces.
+2. **Attribute errors through consumed content.** Separate locally introduced
+   mistakes from invalid consequences inherited through the step's inputs.
+3. **Learn hierarchical supervision.** Train a Qwen3-4B PRM with correctness,
+   role, and intrinsic-type heads. At inference, the model evaluates the problem,
+   preceding reasoning, and current step.
+
+| Step situation | Correctness target | Role target | Intrinsic-type supervision |
+|---|---|---|---|
+| Contextually correct | Correct | Correct | Inactive |
+| Introduces a mistake | Incorrect | New error | Active when the type is known |
+| Inherits an error without a new mistake | Incorrect | Propagated error | Inactive |
+| Inherits an error and introduces another | Incorrect | New error; inherited causes retained in annotations | Type of the newly introduced mistake |
+| Recovers valid reasoning | Correct | Correct | Inactive |
+
+Correctness and role supervision cover all evaluable steps. Type supervision
+applies to known new-error types, including mixed errors. The full objective is
+`L = L_correctness + 0.5 L_role + 0.5 L_type`.
+
+The [annotation prompts](configs/annotation/prompts/),
+[target converter](src/annotation/prepare_prm800k_phase2_hierarchical.py), and
+[training configurations](configs/table2/) implement these stages.
+
+## Results
+
+### Error detection in mathematics and physics
+
+Existing-model comparison from Table 1; Error AP is reported in percent.
+
+| Model | PRM800K | Annotated physics subset |
+|---|---:|---:|
+| Binary PRM | 72.85 | 70.66 |
+| Three-class PRM | 75.77 | 75.83 |
+| Hierarchical PRM | **86.33** | **84.23** |
+
+These are comparisons of models with different training histories. The separate
+shared-label study below fixes initialization and dependency-derived labels to
+compare supervision objectives.
+
+### Error-role diagnosis under shared labels
+
+Table 2(b) compares learned role predictions with a sequential rule applied to
+full-trace binary scores. The rule marks the first predicted error as new and
+subsequent predicted errors as propagated.
+
+| Predictor | Role macro-F1 (%) | New-error F1 (%) | Propagated-error F1 (%) |
+|---|---:|---:|---:|
+| Full-trace binary scores + sequential rule | 66.24 | 46.81 | 69.61 |
+| Hierarchical role head | **70.80** | **58.90** | **71.81** |
+
+The role macro-F1 improvement is **4.56 points** (paired 95% CI [3.37, 5.72]).
+Detection AP is similar for full hierarchy and full-trace binary supervision
+(86.58% vs. 86.53%). This comparison measures the diagnostic information added by
+role supervision while holding attribution labels fixed.
+
+The paper also reports reasoning-length and first-error-position analyses,
+ProcessBench evaluation, answer voting, and SFT data selection. The
+[experiment map](docs/EXPERIMENTS.md) connects these studies to their code and
+configurations, including the recorded scorer used for SFT selection.
+
+## Quick start
+
+### Run the label-construction example
+
+Requires Python 3.12; no additional packages, model, API key, or dataset are needed.
 From the repository root:
 
 ```bash
 python examples/label_conversion.py
 ```
 
-This runs the actual target converter on a synthetic ideal-gas derivation with
-supplied labels. It shows a new calculation error, propagation, a correct step
-after an error, a mixed error, and recovery. Correctness and role targets cover
-all steps; type targets are active only for supported new-error types. A mixed
-error retains its inherited cause while receiving a new-error target, and recovery
-maps to the correct training role.
+The example runs the actual target converter on a synthetic ideal-gas derivation
+with supplied labels. It covers new and propagated errors, a correct step after
+an error, a mixed error, and recovery. It writes the input, trajectory targets,
+and per-step training rows to `outputs/example_*` and checks label masks and
+reasoning prefixes. This example demonstrates target construction; automatic
+annotation and model evaluation use the separate entries below.
 
-The script checks targets and input prefixes and writes the input, trajectory,
-and per-step training rows to a new `outputs/example_*` directory. It requires no
-GPU, model, API key or dataset. It demonstrates label conversion, not automatic
-attribution, model predictions or a paper benchmark result.
+### Reproduce experiments
 
-### CPU result replay
-
-Use a separate environment:
+Install the CPU replay dependencies in a separate environment:
 
 ```bash
 python -m venv .venv-cpu
 # Activate .venv-cpu using your platform's activation command.
 python -m pip install -r environments/cpu/requirements.txt
-python scripts/reproduce.py --module existing --resource-root /path/to/assets --verify
-python scripts/reproduce.py --module all --resource-root /path/to/assets --verify --strict
-```
-
-The external asset root follows `configs/resources.json`. No original data or recovery
-archives are bundled in this source candidate. Missing assets produce `blocked` and
-exit code **2**, including with `--module all`. A failed computation returns **1**;
-all requested modules passing returns **0**. Results are written to a fresh `outputs/` directory.
-
-Replay uses stored predictions and judgments. It does not retrain models or call a
-generation/judging API. See [experiment mapping](docs/EXPERIMENTS.md) for what each module establishes.
-
-To run the small CPU checks after installing the CPU requirements:
-
-```bash
 python -m unittest discover -s tests -v
 ```
 
-### Table 2
+Given the corresponding external prediction bundle, replay the shared-label study:
 
 ```bash
 python scripts/reproduce.py --module table2 --table2-bundle /path/to/formal_bundle --verify
 python scripts/reproduce.py --module roles --table2-bundle /path/to/formal_bundle --verify
-python scripts/prepare_training.py --arm M5 \
-  --data-dir /path/to/frozen_data --init-model /path/to/common_three_class_prm \
-  --plan-dir outputs/new_plan --output-root outputs/new_training
 ```
 
-The training command prepares a configuration and a Linux shell command; it does not
-start training. Inputs are checked against the formal data manifest. A freshly
-downloaded base model is not a substitute for the trained common initialization.
+For training, annotation, other evaluation modules, and required assets, see the
+[reproduction guide](docs/REPRODUCTION.md).
 
-## Layout
+## Repository structure
 
-- `examples/`: a self-contained target-conversion example.
-- `src/`: recovered method, training and evaluation implementations.
-- `configs/`: prompts, five supervision conditions, numerical protocols and expected results.
-- `resources.json`: external-resource requirements and access status.
-- `environments/`: separate CPU, training and external-evaluation records.
-- `THIRD_PARTY_NOTICES.md`: available third-party notices and outstanding attribution checks.
-- `docs/`: experiment mapping, data boundaries and release status.
-- `manifest.json`: hashes of the source candidate; excludes outputs, private inputs and environments.
+| Directory | Contents |
+|---|---|
+| [`src/annotation/`](src/annotation/) | Step processing, dependency attribution, and training-target construction |
+| [`src/table2/`](src/table2/) | Shared-label training objectives and result reporting |
+| [`src/existing_eval/`](src/existing_eval/) and [`src/benchmarks/`](src/benchmarks/) | Mathematics, physics, and ProcessBench evaluation |
+| [`src/downstream/`](src/downstream/) | Answer voting, SFT selection, training, and task evaluation |
+| [`configs/`](configs/) | Annotation prompts, training settings, evaluation protocols, and reference metrics |
+| [`scripts/`](scripts/) | Reproduction and training-preparation entry points |
+| [`examples/`](examples/) | Self-contained synthetic example |
+| [`environments/`](environments/) | CPU dependencies and training/evaluation environment records |
+| [`docs/`](docs/) | Experiment mapping, reproduction instructions, and resource availability |
 
-The two Table 2 source views correspond to different formal runs. Their training
-logic is retained; they have not been merged into an unvalidated replacement.
-Path-default changes are recorded in `configs/source_provenance.json`.
+## Resources and availability
 
-For current completion status, see [release status](docs/RELEASE_STATUS.md).
+This release contains source code, prompts, configurations, reference metrics, and
+the synthetic example. Model weights, original datasets, and prediction caches
+are not bundled. Public dataset sources and private-data restrictions are listed
+in [Data access](docs/DATA_ACCESS.md). The provider-supplied problem collection
+cannot be redistributed.
 
-The seven CPU replay modules have been checked internally against recovered
-experiment outputs. Those caches are not included here. Fresh GPU training and
-inference, and execution on Linux, have not been validated for this release.
+All seven CPU replay modules have been checked internally against the stored
+experiment outputs. Fresh GPU training/inference and Linux execution have not
+been validated for this release. See [Release status](docs/RELEASE_STATUS.md) for
+the current scope.
 
-Before adding any data or caches, consult the [data release whitelist](docs/DATA_RELEASE_WHITELIST.md)
-and [third-party notices](THIRD_PARTY_NOTICES.md). The local replay inputs are not
-approved release archives. Author-code licensing remains undecided.
+Author-code licensing is pending. Third-party notices and component-specific
+terms are recorded in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

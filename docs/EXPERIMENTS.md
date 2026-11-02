@@ -1,5 +1,21 @@
 # Experiment-to-code mapping
 
+This guide maps the experiments in *Tracing Error Origins and Propagation:
+Dependency-Grounded Process Supervision for Mathematics and Physics* to the
+implementations and configurations in this repository.
+
+| Paper location | Study | Main code entry |
+|---|---|---|
+| Methods; data, attribution, and training appendices | Annotation and supervision construction | `src/annotation/`, `configs/annotation/prompts/`, `configs/table2/` |
+| Table 1 | Existing-model detection and diagnosis in mathematics and physics | `src/existing_eval/`, `src/benchmarks/trl/mrben_reeval_fixed/` |
+| Table 2(a) | Shared-label supervision objectives | `src/table2/`; `scripts/reproduce.py --module table2` |
+| Table 2(b) | Learned roles versus correctness-based sequential inference | `scripts/replay_role_baseline.py`; `--module roles` |
+| Table 3 | ProcessBench first-error localization and correct-trace acceptance | `src/benchmarks/prm/ProcessBench/processbench_3model_hier_v2/` |
+| Figure 4(a) | Shared-pool answer voting | `src/downstream/prm_3_cls_vote_aligned/` |
+| Figure 4(b); SFT appendix | Training-data selection and downstream evaluation | `src/downstream/prm_sft_selection/`, `sft_training/`, `evaluation_entrypoints/` |
+
+See the [reproduction guide](REPRODUCTION.md) for commands and external inputs.
+
 | Experiment | Implementation / configuration | Reproduction level |
 |---|---|---|
 | Dependency annotation | `src/annotation/pipeline_code/`, prompts in `configs/annotation/prompts/` | Online annotation requires external models. Offline replay fixes their outputs. |

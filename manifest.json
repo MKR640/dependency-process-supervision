@@ -5,6 +5,10 @@
       "bytes": 85,
       "sha256": "f3215c1f235df499a101b1f1a259c7a01ba8f244104b65e82cfbe4924442d800"
     },
+    "assets/method_overview.png": {
+      "bytes": 1713781,
+      "sha256": "195528e77164afcb54824b312a52c705e6bca23e83d3a90579d4f6bc6b968f18"
+    },
     "configs/annotation/prompts/cessation_binary_prompt_v1.txt": {
       "bytes": 4009,
       "sha256": "0b1913235a1d93be1e254073e2ee9ad45da21fe174632c1f2bf3053cd815bbbb"
@@ -110,12 +114,16 @@
       "sha256": "fc8d102883ce9b2b9159391cac749785ddeb27393961aa49c456338482f2ae40"
     },
     "docs/EXPERIMENTS.md": {
-      "bytes": 3210,
-      "sha256": "f5f1935c217dc5b001b8350ec457ac4bd34860ac4bd97a64c7a5b4448668f4a5"
+      "bytes": 4508,
+      "sha256": "8e124053bd29e94f7f666ffeafbb81fffc1efb519fc7a676751cd64ea3a50a0a"
     },
     "docs/RELEASE_STATUS.md": {
-      "bytes": 2159,
-      "sha256": "8b5d8a5e7d010c400f06940e4578d1084e18b3a24404f975408bf6057cb8aef1"
+      "bytes": 2332,
+      "sha256": "3fff7a97b40dc2eccea54413b754aed2d8f26a7acdae155f0b1a6c378cef9f41"
+    },
+    "docs/REPRODUCTION.md": {
+      "bytes": 4590,
+      "sha256": "bc1672a1c9729a284b691786154284b989c260b773bc0acc06c0e02909cf3a0e"
     },
     "environments/cpu/requirements.txt": {
       "bytes": 13,
@@ -134,8 +142,8 @@
       "sha256": "a0428b420858382318dbd26993172f24c05614edbeac9725b24209aac95e11e1"
     },
     "README.md": {
-      "bytes": 5076,
-      "sha256": "1ae1ce7740b366c88252d09c5169bad03661d95d3f565502a7a90b465229bff3"
+      "bytes": 8017,
+      "sha256": "ef5baef1a9e449532a493b747163c577e4474537b48a7833b3050552625ac88b"
     },
     "resources.json": {
       "bytes": 2731,
