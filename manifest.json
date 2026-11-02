@@ -5,21 +5,9 @@
       "bytes": 85,
       "sha256": "f3215c1f235df499a101b1f1a259c7a01ba8f244104b65e82cfbe4924442d800"
     },
-    "assets/method_overview.pdf": {
-      "bytes": 209487,
-      "sha256": "fb29cd5d6e155fe74b06d5f136ee6050082644965316be6bea4fa3f731b97389"
-    },
-    "assets/method_overview.png": {
-      "bytes": 1490466,
-      "sha256": "07f09f5a5bd5e5fb840611524318bee418272dda36bab8c3e7744b32fb7bad46"
-    },
     "assets/method_overview.svg": {
       "bytes": 43554,
       "sha256": "c861afbe5dd502d2270bc19e4492e6a6a42ee4574cd949c1b5eacd3ea8f2d45b"
-    },
-    "assets/README.md": {
-      "bytes": 994,
-      "sha256": "cd308f3c5875e21a52eaeb1353f9963f4162db8501f742a59cf621302bd375a6"
     },
     "configs/annotation/prompts/cessation_binary_prompt_v1.txt": {
       "bytes": 4009,
@@ -154,8 +142,8 @@
       "sha256": "a0428b420858382318dbd26993172f24c05614edbeac9725b24209aac95e11e1"
     },
     "README.md": {
-      "bytes": 8447,
-      "sha256": "e11184515f60e54844050e25067220d18b0e7279ba2b721310b1afe1b837df34"
+      "bytes": 8082,
+      "sha256": "17f0fb3144d416a3f46eecf369b124ebca38f23eb1ba7dc327c989fa6c259389"
     },
     "resources.json": {
       "bytes": 3083,
@@ -168,10 +156,6 @@
     "scripts/prepare_training.py": {
       "bytes": 2721,
       "sha256": "57c860f44b3f17adbbff1befc6e6c56a104dac7f0b28bf52dac586473c9c6f28"
-    },
-    "scripts/render_method_overview.py": {
-      "bytes": 21742,
-      "sha256": "1db41b9381d3cae52eafbe91f230a1dfed39f44ecc269a5d4306df07419075f6"
     },
     "scripts/replay_annotation.py": {
       "bytes": 10555,

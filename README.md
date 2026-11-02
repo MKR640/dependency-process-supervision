@@ -32,12 +32,6 @@ answer voting and training-data selection.
 
 ![Method overview: consumed-input attribution, hierarchical supervision, and process scoring](assets/method_overview.svg)
 
-[SVG](assets/method_overview.svg) · [Vector PDF](assets/method_overview.pdf) ·
-[High-resolution PNG](assets/method_overview.png) · [Editable source](scripts/render_method_overview.py)
-
-*Vector reconstruction of Figure 1 from the paper. Input-output dependencies provide evidence for error
-attribution and determine the supervision assigned to each step.*
-
 1. **Extract inputs and outputs.** Preserve the solution text, establish step
    boundaries, and identify the quantities and premises each step uses and produces.
 2. **Attribute errors through consumed content.** Separate locally introduced
