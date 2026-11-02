@@ -1,0 +1,428 @@
+{
+  "schema_version": 1,
+  "checked_date": "2026-11-02",
+  "publication_status": "local_only",
+  "author_license": "pending",
+  "scope": "Data-like result files; not a blanket source-code or dataset license.",
+  "default_for_unlisted_data": "exclude",
+  "approved_files": [
+    {
+      "path": "configs/expected_existing_metrics.json",
+      "sha256": "faf1a3d2e9ca1cb945c2e14c422498612a79930b4e91b788a1d514edc2cae3c2",
+      "kind": "aggregate_metrics_or_protocol_metadata",
+      "status": "included_in_local_candidate"
+    },
+    {
+      "path": "configs/expected_role_baseline.json",
+      "sha256": "6e3a040de578be1965017327c1e02dcd2f47d732b02996c28fbca735d1cb695c",
+      "kind": "aggregate_metrics_or_protocol_metadata",
+      "status": "included_in_local_candidate"
+    },
+    {
+      "path": "configs/expected_sft_table.json",
+      "sha256": "5ebbb54fb35460451c30fb0e564382258893b7f492ce8d0f48f69056a4a109dc",
+      "kind": "aggregate_metrics_or_protocol_metadata",
+      "status": "included_in_local_candidate"
+    },
+    {
+      "path": "configs/downstream_protocol.json",
+      "sha256": "4cbaf0c5b86993e55d9f7d53fd7a45732be31bf921479e6166f8043fb8c87559",
+      "kind": "aggregate_metrics_or_protocol_metadata",
+      "status": "included_in_local_candidate"
+    }
+  ],
+  "conditional_public_example_export": {
+    "status": "not_exported_or_cleared",
+    "fields": [
+      "public_dataset_id",
+      "source_revision",
+      "public_example_id",
+      "opaque_trajectory_id",
+      "split",
+      "step_index",
+      "source_offsets",
+      "correctness_label",
+      "role_label",
+      "type_label",
+      "validity_masks",
+      "dependency_indices",
+      "numeric_scores",
+      "model_id"
+    ],
+    "requires": [
+      "source identity and license confirmation",
+      "identifier privacy review",
+      "author annotation/output rights and license",
+      "required attribution/notices",
+      "explicit field schema and numeric/cache equivalence validation"
+    ],
+    "private_dataset_export_allowed": false
+  },
+  "excluded_material": [
+    "raw questions/prompts/solutions",
+    "consumed/produced text",
+    "raw teacher/judge outputs",
+    "reference answer text",
+    "annotator identifiers",
+    "private paths and service metadata",
+    "provider records",
+    "unknown-origin SFT pool",
+    "original recovery archives",
+    "model/tokenizer payloads"
+  ],
+  "datasets": [
+    {
+      "id": "prm800k",
+      "name": "PRM800K phase 2",
+      "use": [
+        "annotation",
+        "shared-label training",
+        "mathematics evaluation"
+      ],
+      "local_evidence": [
+        "src/annotation/prepare_prm800k_phase2_hierarchical.py",
+        "configs/table2/arms.json"
+      ],
+      "upstream_license_declaration": "MIT (repository declaration)",
+      "license_evidence": [
+        {
+          "id": "prm800k",
+          "url": "https://raw.githubusercontent.com/openai/prm800k/main/LICENSE",
+          "checked_date": "2026-11-02",
+          "status": "retrieved",
+          "sha256": "22d61a2226e035da51c56149c3358c36d1f61716435866bc6e6fe0e54c7270db"
+        }
+      ],
+      "historical_source_revision_matched": false,
+      "raw_data_included": false,
+      "raw_redistribution_approved_for_this_candidate": false,
+      "release_route": "external_download",
+      "note": "Underlying MATH provenance retained; existing materialized records contain source text. Exact internal frozen data hashes are recorded separately."
+    },
+    {
+      "id": "prmbench_physics",
+      "name": "PRMBench Preview physics subset",
+      "use": [
+        "physics evaluation"
+      ],
+      "local_evidence": [
+        "src/benchmarks/trl/mrben_reeval_fixed",
+        "configs/expected_existing_metrics.json"
+      ],
+      "upstream_license_declaration": "Apache-2.0",
+      "license_evidence": [
+        {
+          "id": "hitsmy/PRMBench_Preview",
+          "url": "https://huggingface.co/api/datasets/hitsmy/PRMBench_Preview",
+          "checked_date": "2026-11-02",
+          "status": "retrieved",
+          "sha256": "81b1df8c1f71226fd1fc459b20eee4dba857047a78f859be16dc989544a5e58d",
+          "upstream_revision": "5cc7683d0ae5797f84d7aeac0607966f277c39e1",
+          "declared_license": "apache-2.0"
+        }
+      ],
+      "historical_source_revision_matched": false,
+      "raw_data_included": false,
+      "raw_redistribution_approved_for_this_candidate": false,
+      "release_route": "external_download",
+      "note": "Public source declaration verified; subset row mapping and generated annotation release review still needed."
+    },
+    {
+      "id": "processbench",
+      "name": "ProcessBench",
+      "use": [
+        "first-error evaluation: gsm8k, math, olympiadbench, omnimath"
+      ],
+      "local_evidence": [
+        "scripts/verify_benchmarks.py"
+      ],
+      "upstream_license_declaration": "Apache-2.0",
+      "license_evidence": [
+        {
+          "id": "Qwen/ProcessBench",
+          "url": "https://huggingface.co/api/datasets/Qwen/ProcessBench",
+          "checked_date": "2026-11-02",
+          "status": "retrieved",
+          "sha256": "d0e7870df4514aeb40585e5a07c87d0706da060f35d46566b914939aeb82cd2c",
+          "upstream_revision": "3bdcd5371ed567559a78f559c01c13a6deee7604",
+          "declared_license": "apache-2.0"
+        }
+      ],
+      "historical_source_revision_matched": false,
+      "raw_data_included": false,
+      "raw_redistribution_approved_for_this_candidate": false,
+      "release_route": "external_download",
+      "note": "Dataset permission is separate from code permission. Preserve constituent-source attribution."
+    },
+    {
+      "id": "gsm8k",
+      "name": "GSM8K",
+      "use": [
+        "answer voting",
+        "SFT evaluation"
+      ],
+      "local_evidence": [
+        "src/downstream/prm_3_cls_vote_aligned",
+        "configs/expected_sft_table.json"
+      ],
+      "upstream_license_declaration": "MIT (repository declaration)",
+      "license_evidence": [
+        {
+          "id": "gsm8k",
+          "url": "https://raw.githubusercontent.com/openai/grade-school-math/master/LICENSE",
+          "checked_date": "2026-11-02",
+          "status": "retrieved",
+          "sha256": "86bbb73e855821d7c401912fd4bf82e34313e6e3b6fd6f909f2b6cc9e209a53b"
+        }
+      ],
+      "historical_source_revision_matched": false,
+      "raw_data_included": false,
+      "raw_redistribution_approved_for_this_candidate": false,
+      "release_route": "external_download",
+      "note": "Generated candidate solutions and reference-bearing caches need separate export review."
+    },
+    {
+      "id": "math",
+      "name": "MATH",
+      "use": [
+        "SFT evaluation",
+        "PRM800K problem source"
+      ],
+      "local_evidence": [
+        "configs/expected_sft_table.json"
+      ],
+      "upstream_license_declaration": "MIT (repository and author-linked data mirror)",
+      "license_evidence": [
+        {
+          "id": "math",
+          "url": "https://raw.githubusercontent.com/hendrycks/math/main/LICENSE",
+          "checked_date": "2026-11-02",
+          "status": "retrieved",
+          "sha256": "8f6401fb0b1fbfcac17aac8d61e4e1b0d2de9aa190d8aa655fedc5fd783b2ace"
+        },
+        {
+          "id": "qwedsacf/competition_math",
+          "url": "https://huggingface.co/api/datasets/qwedsacf/competition_math",
+          "checked_date": "2026-11-02",
+          "status": "retrieved",
+          "sha256": "423540fc1938e985d6caa834436b4b8ee6ba10240847094a9942287e1418c365",
+          "upstream_revision": "e839825f9ec5c6cfa585c654a59610969ec13993",
+          "declared_license": [
+            "mit"
+          ]
+        }
+      ],
+      "historical_source_revision_matched": false,
+      "raw_data_included": false,
+      "raw_redistribution_approved_for_this_candidate": false,
+      "release_route": "external_download",
+      "note": "Recovered config uses opencompass/math. Author-linked mirror declares MIT but its current split is not established as the historical input."
+    },
+    {
+      "id": "omnimath",
+      "name": "Omni-MATH",
+      "use": [
+        "SFT evaluation"
+      ],
+      "local_evidence": [
+        "configs/expected_sft_table.json"
+      ],
+      "upstream_license_declaration": "Apache-2.0",
+      "license_evidence": [
+        {
+          "id": "KbsdJames/Omni-MATH",
+          "url": "https://huggingface.co/api/datasets/KbsdJames/Omni-MATH",
+          "checked_date": "2026-11-02",
+          "status": "retrieved",
+          "sha256": "aa70f000af9c083e579c943d19830a388188f20811fc90ae742f9274d62bccc9",
+          "upstream_revision": "40ba231d8f16e29ecd40e6407e2c8640145a8f62",
+          "declared_license": "apache-2.0"
+        }
+      ],
+      "historical_source_revision_matched": false,
+      "raw_data_included": false,
+      "raw_redistribution_approved_for_this_candidate": false,
+      "release_route": "external_download",
+      "note": "Preserve source/contest attribution supplied upstream."
+    },
+    {
+      "id": "ugphysics",
+      "name": "UGPhysics",
+      "use": [
+        "SFT evaluation: MCQ, true-false, numeric"
+      ],
+      "local_evidence": [
+        "configs/expected_sft_table.json",
+        "src/downstream/opencompass/opencompass/datasets/UGPhysics.py"
+      ],
+      "upstream_license_declaration": "CC-BY-NC-SA-4.0",
+      "license_evidence": [
+        {
+          "id": "UGPhysics/ugphysics",
+          "url": "https://huggingface.co/api/datasets/UGPhysics/ugphysics",
+          "checked_date": "2026-11-02",
+          "status": "retrieved",
+          "sha256": "5721443cd9f6802f245c0f4a3e331f1a871917e895f91e9bab787943cbd4d4fc",
+          "upstream_revision": "523e71bc4e33356bb19de4af38c128796e8a8770",
+          "declared_license": "cc-by-nc-sa-4.0"
+        }
+      ],
+      "historical_source_revision_matched": false,
+      "raw_data_included": false,
+      "raw_redistribution_approved_for_this_candidate": false,
+      "release_route": "external_download",
+      "note": "Attribution, NonCommercial and ShareAlike conditions for licensed data/adaptations. Do not relicense as project code."
+    },
+    {
+      "id": "prost",
+      "name": "PROST",
+      "use": [
+        "SFT evaluation"
+      ],
+      "local_evidence": [
+        "configs/expected_sft_table.json"
+      ],
+      "upstream_license_declaration": "Apache-2.0",
+      "license_evidence": [
+        {
+          "id": "corypaik/prost",
+          "url": "https://huggingface.co/api/datasets/corypaik/prost",
+          "checked_date": "2026-11-02",
+          "status": "retrieved",
+          "sha256": "c3659535b9eb333d5b904f61c2874970c779b839f6a6e4e016588c8a65c47c1a",
+          "upstream_revision": "b3efebf08969fc19335ba894353316878b6fa493",
+          "declared_license": [
+            "apache-2.0"
+          ]
+        }
+      ],
+      "historical_source_revision_matched": false,
+      "raw_data_included": false,
+      "raw_redistribution_approved_for_this_candidate": false,
+      "release_route": "external_download",
+      "note": ""
+    },
+    {
+      "id": "ifeval",
+      "name": "IFEval",
+      "use": [
+        "SFT evaluation"
+      ],
+      "local_evidence": [
+        "configs/expected_sft_table.json"
+      ],
+      "upstream_license_declaration": "Apache-2.0",
+      "license_evidence": [
+        {
+          "id": "google/IFEval",
+          "url": "https://huggingface.co/api/datasets/google/IFEval",
+          "checked_date": "2026-11-02",
+          "status": "retrieved",
+          "sha256": "b14572a18400a997d116fb51590a7ef346cdd18484e7db620bc2287d87ea9ed6",
+          "upstream_revision": "966cd89545d6b6acfd7638bc708b98261ca58e84",
+          "declared_license": "apache-2.0"
+        }
+      ],
+      "historical_source_revision_matched": false,
+      "raw_data_included": false,
+      "raw_redistribution_approved_for_this_candidate": false,
+      "release_route": "external_download",
+      "note": ""
+    },
+    {
+      "id": "arc",
+      "name": "ARC Easy and Challenge",
+      "use": [
+        "SFT evaluation"
+      ],
+      "local_evidence": [
+        "configs/expected_sft_table.json"
+      ],
+      "upstream_license_declaration": "CC-BY-SA-4.0",
+      "license_evidence": [
+        {
+          "id": "allenai/ai2_arc",
+          "url": "https://huggingface.co/api/datasets/allenai/ai2_arc",
+          "checked_date": "2026-11-02",
+          "status": "retrieved",
+          "sha256": "4a57ffd40b5ba514499d2263c3d78a877d897cf3842923e87142fda464d394a9",
+          "upstream_revision": "210d026faf9955653af8916fad021475a3f00453",
+          "declared_license": [
+            "cc-by-sa-4.0"
+          ]
+        }
+      ],
+      "historical_source_revision_matched": false,
+      "raw_data_included": false,
+      "raw_redistribution_approved_for_this_candidate": false,
+      "release_route": "external_download",
+      "note": "Attribution and ShareAlike for distributed adaptations; exact local split remains to be pinned."
+    },
+    {
+      "id": "lambada",
+      "name": "LAMBADA OpenAI English default test, OpenCompass prompt/label format",
+      "use": [
+        "SFT evaluation"
+      ],
+      "local_evidence": [
+        "configs/expected_sft_table.json",
+        "src/downstream/opencompass/opencompass/datasets/lambada.py"
+      ],
+      "upstream_license_declaration": "MIT (matched EleutherAI distribution declaration)",
+      "license_evidence": [
+        {
+          "id": "EleutherAI/lambada_openai",
+          "url": "https://huggingface.co/api/datasets/EleutherAI/lambada_openai",
+          "checked_date": "2026-11-02",
+          "status": "retrieved",
+          "sha256": "f75f9d8005b3bf7037f9d655e2ee7edae2f69556deef8d706eb1dfab4c286cd8",
+          "upstream_revision": "900124bf3b8235c6daf21033af9948b3f07346c4",
+          "declared_license": "mit"
+        }
+      ],
+      "historical_source_revision_matched": false,
+      "raw_data_included": false,
+      "raw_redistribution_approved_for_this_candidate": false,
+      "release_route": "external_download",
+      "note": "All 5,153 prompts and reference words match the pinned OpenAI variant in each of four recovered runs. Older paper Base run has matching configuration only. Historical download route/local file bytes remain unknown; raw caches stay excluded.",
+      "content_variant_verified": true,
+      "content_identity_evidence": "configs/asset_provenance_checks.json"
+    },
+    {
+      "id": "provider_collection",
+      "name": "Provider mathematics/physics collection",
+      "use": [
+        "private data preparation/annotation"
+      ],
+      "local_evidence": [
+        "docs/DATA_ACCESS.md"
+      ],
+      "upstream_license_declaration": "NO REDISTRIBUTION: provider confirmation",
+      "license_evidence": [],
+      "historical_source_revision_matched": false,
+      "raw_data_included": false,
+      "raw_redistribution_approved_for_this_candidate": false,
+      "release_route": "withhold_prohibited",
+      "note": "User confirmed provider prohibition. No row-level data or source-derived excerpts are whitelisted."
+    },
+    {
+      "id": "sft_selection_pool",
+      "name": "Private SFT selection pool",
+      "use": [
+        "all/random/selected SFT training"
+      ],
+      "local_evidence": [
+        "configs/downstream_protocol.json",
+        "src/downstream/prm_sft_selection/select_prm_sft.py"
+      ],
+      "upstream_license_declaration": "UNRESOLVED",
+      "license_evidence": [],
+      "historical_source_revision_matched": false,
+      "raw_data_included": false,
+      "raw_redistribution_approved_for_this_candidate": false,
+      "release_route": "withhold_pending_provenance",
+      "note": "Internal name Quizlet; no verified public source or permission. Do not assume it is identical to the provider collection."
+    }
+  ],
+  "not_covered": "Optional framework imports are not reported-experiment evidence. No raw data export or license grant is performed."
+}

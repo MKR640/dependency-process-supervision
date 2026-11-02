@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "id": "cached_evaluations",
+      "kind": "predictions_and_references",
+      "included": false,
+      "redistribution": "pending_source_review",
+      "used_by": [
+        "annotation",
+        "existing",
+        "benchmarks",
+        "voting",
+        "sft"
+      ],
+      "locator": "user-supplied resource root matching configs/resources.json"
+    },
+    {
+      "id": "formal_table2",
+      "kind": "predictions_and_references",
+      "included": false,
+      "redistribution": "pending_source_review",
+      "used_by": [
+        "table2",
+        "roles"
+      ],
+      "locator": "user-supplied formal bundle directory; exact identities in configs/table2/formal_identities.json",
+      "local_verification": "passed; exact frozen-cache replay; asset remains external"
+    },
+    {
+      "id": "table2_training_data",
+      "kind": "frozen_data",
+      "included": false,
+      "redistribution": "pending_source_review",
+      "used_by": [
+        "M0",
+        "M1",
+        "M3",
+        "M4",
+        "M5"
+      ],
+      "manifest_sha256": "ab189303052ed33acf3f6ec31135e2e98b244cec26c09e2d7e94ae5828c150da",
+      "locator": "user-supplied data directory; manifest and train/validation/test JSONL"
+    },
+    {
+      "id": "common_three_class_prm",
+      "kind": "initialization_weights",
+      "included": false,
+      "redistribution": "pending_author_decision",
+      "used_by": [
+        "M0",
+        "M1",
+        "M3",
+        "M4",
+        "M5",
+        "sft_selection"
+      ],
+      "locator": "author-trained common initialization; base-model replacement is not equivalent"
+    },
+    {
+      "id": "provider_collection",
+      "kind": "training_data",
+      "included": false,
+      "redistribution": "prohibited",
+      "used_by": [
+        "private_data_training",
+        "sft_selection"
+      ],
+      "locator": null
+    },
+    {
+      "id": "teacher_and_sat",
+      "kind": "annotation_models",
+      "included": false,
+      "redistribution": "external_models",
+      "used_by": [
+        "online_annotation"
+      ],
+      "locator": "exact model revisions remain to be recorded"
+    },
+    {
+      "id": "evaluation_model_weights",
+      "kind": "inference_and_judge_models",
+      "included": false,
+      "redistribution": "pending_author_decision",
+      "used_by": [
+        "fresh_inference",
+        "fresh_llm_judging"
+      ],
+      "locator": "exact model payload identities and access routes remain to be recorded"
+    }
+  ],
+  "data_release_policy": "configs/data_release_policy.json",
+  "third_party_licenses": "configs/third_party_licenses.json"
+}

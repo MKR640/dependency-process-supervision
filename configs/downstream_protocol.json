@@ -1,0 +1,98 @@
+{
+  "voting_actual_source": "src/downstream/prm_3_cls_vote_aligned",
+  "n8_paired_weighted_vote": {
+    "wins": 15,
+    "losses": 12,
+    "ties": 1292,
+    "delta_pp": 0.22744503411675512,
+    "bootstrap_samples": 2000,
+    "resampling_unit": "problem",
+    "ci_method": "paired percentile bootstrap",
+    "delta_pp_ci95": [
+      -0.530705079605762,
+      0.9855951478392722
+    ]
+  },
+  "sft_actual_scorer": "common_three_class_prm",
+  "sft_selection_config": {
+    "command": "select",
+    "output_dir": "outputs/sft_selection",
+    "selection_dir": "outputs/sft_selection/selected",
+    "mix_weight": 0.5,
+    "min_step_q": 0.5,
+    "min_score": 0.6,
+    "top_fraction": null,
+    "require_full_prefix": false,
+    "seed": 42,
+    "review_size": 50
+  },
+  "sft_split_stats": {
+    "seed": 42,
+    "test_size": 5000,
+    "dedup_key": "normalized_prompt_sha256",
+    "input": {
+      "selected_sft": 67652,
+      "random_matched_sft": 67652,
+      "all_sft": 480350
+    },
+    "candidate": {
+      "not_in_selected_or_random": 354444,
+      "duplicate_prompts_removed": 338,
+      "unique_candidate_prompts": 354106
+    },
+    "output": {
+      "common_test": 5000,
+      "selected_train": 67652,
+      "random_matched_train": 67652,
+      "all_sft_train": 475347
+    },
+    "removed_by_test_prompt": {
+      "selected": 0,
+      "random_matched": 0,
+      "all_sft": 5003
+    },
+    "overlap_after_split": {
+      "test_vs_selected": 0,
+      "test_vs_random_matched": 0,
+      "test_vs_all_sft": 0
+    },
+    "paths": {
+      "common_test": "data/sft/common_test_5000.jsonl",
+      "selected_train": "data/sft/selected_sft_train.jsonl",
+      "random_matched_train": "data/sft/random_matched_sft_train.jsonl",
+      "all_sft_train": "data/sft/all_sft_train.jsonl"
+    }
+  },
+  "sft_model_training_states": {
+    "all": {
+      "epoch": 1.0,
+      "global_step": 14855,
+      "max_steps": 14855,
+      "num_train_epochs": 1,
+      "best_model_checkpoint": null,
+      "best_metric": null,
+      "train_batch_size": 1,
+      "reported_total_flos": 6.745053139851805e+18
+    },
+    "random-matched": {
+      "epoch": 2.0,
+      "global_step": 4230,
+      "max_steps": 4230,
+      "num_train_epochs": 2,
+      "best_model_checkpoint": null,
+      "best_metric": null,
+      "train_batch_size": 1,
+      "reported_total_flos": 1.9172132209263903e+18
+    },
+    "selected": {
+      "epoch": 2.0,
+      "global_step": 4230,
+      "max_steps": 4230,
+      "num_train_epochs": 2,
+      "best_model_checkpoint": null,
+      "best_metric": null,
+      "train_batch_size": 1,
+      "reported_total_flos": 1.0318046710579855e+18
+    }
+  }
+}

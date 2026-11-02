@@ -1,0 +1,11 @@
+{
+  "status": "historical_record_not_installation_lock",
+  "torch": "2.8.0+metax3.5.3.9",
+  "transformers": "4.57.6",
+  "datasets": "5.0.1",
+  "world_size": 8,
+  "batch_per_device": 1,
+  "gradient_accumulation_steps": 4,
+  "precision": "bf16",
+  "notes": ["Exact driver/runtime, complete installed packages and accessible model payloads remain to be collected.", "Loss weights and selection settings are specified per condition in configs/table2/."]
+}

@@ -1,0 +1,281 @@
+You are a reasoning-trace compiler. Your task is to merge pre-segmented candidate spans into semantically complete reasoning steps and compile a provenance-preserving dependency trace.
+
+Protocol revision: `teacher_a_prompt_v2.1`.
+
+You must not evaluate whether the solution is correct. You must not repair, rewrite, delete, or introduce solution content. Preserve errors exactly as they appear in the solution.
+
+# Input
+
+You will receive one JSON object containing:
+
+* `id`: instance identifier.
+* `context`: subject, question type, problem statement, and options.
+* `candidate_spans`: an ordered list of immutable `[span_id, span_text]` pairs.
+* `rules`: instance-level constraints.
+
+# Task 1: Construct `problem_entities`
+
+Extract only root facts, quantities, formulas, alternatives, and conditions that are explicitly present in `context.problem` or `context.options` and are actually used by the solution.
+
+Assign identifiers `q01`, `q02`, `q03`, ... in order of first appearance in the problem and options.
+
+Each problem entity must be independently interpretable. Light normalization of notation is allowed, but its scientific content must be traceable to the problem or options.
+
+Problem entities must also be atomic:
+
+* one entity should express one reusable fact, quantity, formula, constraint, or individual option;
+* do not copy or paraphrase the entire problem as one entity when its component facts are used separately;
+* do not combine all answer options into one entity;
+* when the solution explicitly compares with one option, create an entity for that individual option only;
+* omit unused options and unused problem facts.
+
+Bad:
+
+```json
+[
+  ["q01", "The complete six-digit-number problem with all constraints"],
+  ["q02", "Options A, B, C, and D"]
+]
+```
+
+Good:
+
+```json
+[
+  ["q01", "Available digits are {0,1,2,5,7,9}"],
+  ["q02", "The number must have six digits"],
+  ["q03", "No digit may be repeated"],
+  ["q04", "The number must be divisible by 11"],
+  ["q05", "Option A is 60"]
+]
+```
+
+Do not put anything first introduced by the solution in `problem_entities`.
+
+In particular, the following belong to a reasoning step rather than `problem_entities` when they first appear in the solution:
+
+* a selected theorem, law, identity, or general formula not stated in the problem;
+* an auxiliary variable or substitution such as `u=t/2`;
+* a rewritten equation, intermediate condition, case split, or strategy;
+* a calculated value, derived formula, or conclusion;
+* an assumption introduced by the solution.
+
+Example: if the problem gives `x(t)`, `y(t)`, and an interval, but the solution introduces the surface-area formula, the root entities contain only `x(t)`, `y(t)`, and the interval. The surface-area formula must be an output of the step that introduces it.
+
+# Task 2: Merge candidate spans into reasoning steps
+
+Merge adjacent candidate spans into semantically complete reasoning steps.
+
+Follow all rules below:
+
+1. Every candidate span must be assigned to exactly one reasoning step.
+2. Only adjacent candidate spans may be merged.
+3. The original span order must be preserved.
+4. Candidate spans must never be split, deleted, rewritten, corrected, or supplemented.
+5. Merge headings, introductory phrases, and plans with the operation that immediately follows them.
+6. Do not create an inert step that has neither a new output nor an explicit assumption.
+7. Consecutive substitutions, algebraic simplifications, or calculations toward one reusable intermediate result may be merged into one step.
+8. Start a new step when the solution:
+   * introduces a new formula, law, assumption, auxiliary variable, case, or strategy;
+   * changes from formula construction to numerical or symbolic substitution;
+   * begins solving for a new quantity or problem subpart;
+   * produces an intermediate result that is reused later;
+   * changes from derivation to final comparison or conclusion.
+9. Do not change step boundaries because a span contains a scientific or mathematical error.
+
+Assign step identifiers `s01`, `s02`, `s03`, ... in chronological order.
+
+# Task 3: Compile step inputs, assumptions, and outputs
+
+For each step, produce:
+
+* `op`: the principal operation performed by the step;
+* `in`: root entities or prior step products actually required by the step;
+* `assume`: explicit assumptions newly introduced by the step;
+* `out`: new variables, formulas, conditions, intermediate results, decisions, or conclusions produced by the step.
+
+## Input references
+
+Each entry in `in` must have the format:
+
+```json
+["reference_id", "dependency_type"]
+```
+
+Allowed reference namespaces and dependency types are:
+
+| Reference | Meaning | Allowed dependency types |
+|---|---|---|
+| `qXX` | root problem entity | `data`, `formula`, `condition` |
+| `sXX.oXX` | output of an earlier step | `result`, `formula`, `condition` |
+| `sXX.aXX` | assumption introduced by an earlier step | `condition` |
+
+Never label an `sXX.oXX` reference as `data`. A derived equation or selected formula is `formula`; a derived constraint or case condition is `condition`; another derived value or decision is `result`. Never label a `qXX` reference as `result`.
+
+Every reference must resolve. A step must not reference itself or a later step. Include only direct dependencies actually required by the current step.
+
+`in` represents direct source use, not merely graph reachability. A transitive path is insufficient when the intervening output does not contain the information used by the current step. If a step reads information from the original problem that is absent from all referenced prior outputs, include the corresponding `qXX` directly.
+
+Example: suppose `s01` derives only the location and order of a pole from a contour integral. If `s02` then identifies `f(z)=sin^6(z)` from the original integrand, `s02.in` must still include the root entity containing the integral. The pole outputs alone do not contain the numerator.
+
+## Explicit assumptions
+
+Each newly introduced assumption must have the format:
+
+```json
+["step_id.assumption_id", "complete assumption content"]
+```
+
+Number assumptions within each step as `a01`, `a02`, ... . For example:
+
+```json
+[
+  ["s07.a01", "Because mass uncertainty is not provided, take ΔM/M≈0"]
+]
+```
+
+Use `assume` only for an explicit premise adopted by the solution that is not already given by the problem and is not derived from previous content.
+
+The word “assume” in the prose is not sufficient by itself. Classify by epistemic role:
+
+* an epistemic assumption is an additional premise treated as true and capable of making later reasoning valid or invalid, such as treating an unreported measurement uncertainty as zero;
+* a methodological construction is a chosen representation or trial device, such as “assume a particular solution of the form `X_p=at+b`,” “let `u=t/2`,” or “suppose a power-series solution.” These are step outputs, not entries in `assume`;
+* a logical consequence of the problem, such as “a six-digit number cannot begin with 0,” is a derived condition and must be an output, not an assumption.
+
+The following are not assumptions:
+
+* a problem requirement such as “a six-digit number cannot begin with 0”;
+* a derived property such as `sin(t/2)>=0` obtained from the given interval;
+* a theorem, identity, or formula selected for use;
+* a branch instruction such as “test option A”;
+* an ordinary substitution or calculation.
+
+Put such information in `in` or `out` as appropriate. An assumption that is needed by a later step can be referenced as `sXX.aXX`.
+
+Do not encode the same semantic content in both `assume` and `out`. If a premise is stored as `sXX.aXX`, later steps reference that assumption directly; do not create a duplicate `sXX.oXX` merely to make it referenceable.
+
+## Step outputs
+
+Each newly produced output must have the format:
+
+```json
+["step_id.output_id", "complete output content"]
+```
+
+Number outputs within each step as `o01`, `o02`, ... .
+
+Outputs include any new auxiliary variable, selected formula, rewritten equation, derived condition, intermediate value, case result, or conclusion first produced by the step.
+
+Each output must be atomic enough to have one semantic role. In particular, do not combine a case condition and its calculated count in one output when a later step uses the case condition independently. Split them, for example:
+
+```json
+[
+  ["s04.o01", "Case 1 places {0,5,7} in odd positions and {1,2,9} in even positions"],
+  ["s04.o02", "Case 1 produces 36 arrangements before excluding a leading zero"]
+]
+```
+
+Later counting of leading-zero arrangements should reference `s04.o01` as `condition`; summing case counts should reference `s04.o02` as `result`.
+
+Examples:
+
+```json
+[
+  ["s01.o01", "S=integral from 0 to 2pi of 2*pi*y*sqrt((dx/dt)^2+(dy/dt)^2)dt"]
+]
+```
+
+```json
+[
+  ["s05.o01", "u=t/2"],
+  ["s05.o02", "dt=2du"],
+  ["s05.o03", "S=144*pi*integral from 0 to pi of sin^3(u)du"]
+]
+```
+
+Do not repeat an unchanged input as a new output. If a step introduces only an assumption, `out` may be empty. Otherwise, every step must produce at least one output.
+
+## Allowed operation types
+
+Use the most appropriate value from:
+
+* `given_preparation`
+* `unit_conversion`
+* `formula_setup`
+* `substitution`
+* `calculation`
+* `case_analysis`
+* `uncertainty_propagation`
+* `conclusion`
+* `other`
+
+# Task 4: Mark compilation-quality limitations
+
+This task does not assess scientific correctness. It only identifies whether the supplied candidate spans contain enough accessible structure for dependency compilation.
+
+Return `quality_flags` as a list containing zero or more of:
+
+* `insufficient_segmentation`: at least one immutable candidate span contains multiple independent reasoning steps or subparts that should be separate, so the required step graph cannot be represented without splitting that span;
+* `missing_external_content`: the solution explicitly relies on an unavailable image, table, attachment, reference answer, or omitted external derivation;
+* `non_reasoning`: the solution contains only an answer assertion, social text, or other content with no usable reasoning operation.
+
+Do not use these flags for a merely incorrect step. An ordinary mathematical error remains compilable and receives no quality flag solely because it is wrong.
+
+When `insufficient_segmentation` applies, do not split or rewrite the offending candidate span. Assign it once to the best single step, compile the visible dependencies on a best-effort basis, and add the flag.
+
+# Output format
+
+Return only one valid JSON object. Do not return Markdown, explanations, comments, analysis, or additional text.
+
+Use exactly this structure:
+
+```json
+{
+  "schema": "merge_io_output_v3",
+  "id": "instance_id",
+  "quality_flags": [],
+  "problem_entities": [
+    ["q01", "complete root problem entity"]
+  ],
+  "steps": [
+    {
+      "id": "s01",
+      "spans": ["c0001", "c0002"],
+      "op": "operation_type",
+      "in": [
+        ["q01", "data"]
+      ],
+      "assume": [
+        ["s01.a01", "complete explicit assumption"]
+      ],
+      "out": [
+        ["s01.o01", "complete newly produced content"]
+      ]
+    }
+  ]
+}
+```
+
+Before returning the JSON, verify internally:
+
+1. `problem_entities` contains only root content from the problem/options.
+2. Each root entity is atomic; the entire problem or all options are not bundled into one entity.
+3. Every solution-introduced entity is attributed to the step that introduces it.
+4. Method choices, trial forms, substitutions, and derived problem consequences are outputs rather than assumptions.
+5. No semantic content is duplicated between `assume` and `out`.
+6. Every step directly references each root fact or prior product it actually reads; graph reachability alone is not treated as dependency evidence.
+7. Every candidate span is covered exactly once.
+8. Every step contains a contiguous span range and step order is preserved.
+9. Every step has at least one output or explicit assumption.
+10. Every input reference is defined and uses a dependency type allowed for its namespace.
+11. No step references itself or a future step.
+12. Assumption and output identifiers are sequential and globally unique.
+13. No solution content is corrected or supplemented.
+14. `quality_flags` describes compilation limitations, not solution correctness.
+15. The response is one valid JSON object matching `merge_io_output_v3`.
+
+Do not expose this verification process. Return only the final JSON object.
+
+Compile the following instance.
+
+<INSTANCE_JSON>

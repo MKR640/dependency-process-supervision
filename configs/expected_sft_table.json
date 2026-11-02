@@ -1,0 +1,79 @@
+[
+  {
+    "task": "MATH",
+    "paper_base": 54.04,
+    "random": 54.72,
+    "selected": 57.66,
+    "all": 53.56
+  },
+  {
+    "task": "GSM8K",
+    "paper_base": 84.84,
+    "random": 83.32,
+    "selected": 84.76,
+    "all": 83.02
+  },
+  {
+    "task": "OmniMath",
+    "paper_base": 28.5,
+    "random": 29.56,
+    "selected": 29.13,
+    "all": 27.35
+  },
+  {
+    "task": "UGPhysics MCQ",
+    "paper_base": 43.24,
+    "random": 39.86,
+    "selected": 46.62,
+    "all": 36.49
+  },
+  {
+    "task": "UGPhysics True/False",
+    "paper_base": 45.95,
+    "random": 50.0,
+    "selected": 55.41,
+    "all": 51.35
+  },
+  {
+    "task": "UGPhysics Numeric",
+    "paper_base": 0.95,
+    "random": 0.8,
+    "selected": 1.9,
+    "all": 1.9
+  },
+  {
+    "task": "PROST",
+    "paper_base": 71.33,
+    "random": 68.26,
+    "selected": 66.63,
+    "all": 59.57
+  },
+  {
+    "task": "IFEval",
+    "paper_base": 35.86,
+    "random": 31.05,
+    "selected": 32.16,
+    "all": 28.65
+  },
+  {
+    "task": "LAMBADA",
+    "paper_base": 68.54,
+    "random": 58.51,
+    "selected": 56.63,
+    "all": 62.9
+  },
+  {
+    "task": "ARC-Easy",
+    "paper_base": 61.2,
+    "random": 60.67,
+    "selected": 65.43,
+    "all": 62.08
+  },
+  {
+    "task": "ARC-Challenge",
+    "paper_base": 42.03,
+    "random": 43.73,
+    "selected": 46.1,
+    "all": 43.39
+  }
+]

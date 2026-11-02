@@ -1,0 +1,52 @@
+[
+  {
+    "id": "M0",
+    "arm": "M0-first-error-R2-weighted",
+    "seed": 42,
+    "source_view": "original",
+    "entry": "train.py",
+    "data_manifest_sha256": "ab189303052ed33acf3f6ec31135e2e98b244cec26c09e2d7e94ae5828c150da",
+    "config": "configs/table2/M0.json",
+    "historical_code_sha256": "0cb5edb947995f1cda463e43d593fc139061a567e66220d6723c188d824a32c9"
+  },
+  {
+    "id": "M1",
+    "arm": "M1-BFE-R2-weighted",
+    "seed": 42,
+    "source_view": "supplement",
+    "entry": "train_expanded.py",
+    "data_manifest_sha256": "ab189303052ed33acf3f6ec31135e2e98b244cec26c09e2d7e94ae5828c150da",
+    "config": "configs/table2/M1.json",
+    "historical_code_sha256": "39a4c911b9b3f089b1b15e1505f1159eb817f4e3a3b18f9b3ad2b265f7402285"
+  },
+  {
+    "id": "M3",
+    "arm": "M3-correctness-type-R2-weighted",
+    "seed": 42,
+    "source_view": "supplement",
+    "entry": "train_expanded.py",
+    "data_manifest_sha256": "ab189303052ed33acf3f6ec31135e2e98b244cec26c09e2d7e94ae5828c150da",
+    "config": "configs/table2/M3.json",
+    "historical_code_sha256": "39a4c911b9b3f089b1b15e1505f1159eb817f4e3a3b18f9b3ad2b265f7402285"
+  },
+  {
+    "id": "M4",
+    "arm": "M4-correctness-role-R2-weighted",
+    "seed": 42,
+    "source_view": "supplement",
+    "entry": "train_expanded.py",
+    "data_manifest_sha256": "ab189303052ed33acf3f6ec31135e2e98b244cec26c09e2d7e94ae5828c150da",
+    "config": "configs/table2/M4.json",
+    "historical_code_sha256": "39a4c911b9b3f089b1b15e1505f1159eb817f4e3a3b18f9b3ad2b265f7402285"
+  },
+  {
+    "id": "M5",
+    "arm": "M5-full-R2-weighted",
+    "seed": 42,
+    "source_view": "original",
+    "entry": "train.py",
+    "data_manifest_sha256": "ab189303052ed33acf3f6ec31135e2e98b244cec26c09e2d7e94ae5828c150da",
+    "config": "configs/table2/M5.json",
+    "historical_code_sha256": "0cb5edb947995f1cda463e43d593fc139061a567e66220d6723c188d824a32c9"
+  }
+]

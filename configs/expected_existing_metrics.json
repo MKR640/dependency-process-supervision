@@ -1,0 +1,328 @@
+{
+  "math_existing": {
+    "Binary_PRM": {
+      "metrics": {
+        "error_ap": 0.7285390642689955,
+        "error_f1": 0.7168247737433213,
+        "balanced_accuracy": 0.7241130543622463,
+        "error_recall": 0.8162403774521977,
+        "false_positive_rate": 0.36801426872770515,
+        "first_error_accuracy": 0.4103122730573711,
+        "first_error_accuracy_error_traces": 0.5026014568158168,
+        "no_error_trace_accuracy": 0.1971153846153846
+      },
+      "diagnostics": {}
+    },
+    "Three_class_v2": {
+      "metrics": {
+        "error_ap": 0.7577298711744723,
+        "error_f1": 0.7275261324041812,
+        "balanced_accuracy": 0.7450978438150491,
+        "error_recall": 0.7777501862428607,
+        "false_positive_rate": 0.2875544986127626,
+        "first_error_accuracy": 0.4734931009440813,
+        "first_error_accuracy_error_traces": 0.5494276795005203,
+        "no_error_trace_accuracy": 0.2980769230769231
+      },
+      "diagnostics": {}
+    },
+    "Full_hierarchy": {
+      "metrics": {
+        "error_ap": 0.8632506127472959,
+        "error_f1": 0.7898516036381044,
+        "balanced_accuracy": 0.8077723434592954,
+        "error_recall": 0.8194685870374969,
+        "false_positive_rate": 0.20392390011890604,
+        "first_error_accuracy": 0.5591866376180101,
+        "first_error_accuracy_error_traces": 0.5411030176899063,
+        "no_error_trace_accuracy": 0.6009615384615384,
+        "new_error_ap": 0.6252031884068062,
+        "new_error_recall": 0.4955017301038062,
+        "role_macro_f1": 0.6991755594606114,
+        "type_macro_f1_supported": 0.32767999177222695,
+        "type_macro_f1_fixed8": 0.2457599938291702
+      },
+      "diagnostics": {
+        "role": {
+          "labels": [
+            "correct",
+            "new_error",
+            "propagated_error"
+          ],
+          "confusion_matrix": [
+            [
+              4125,
+              305,
+              616
+            ],
+            [
+              394,
+              716,
+              335
+            ],
+            [
+              454,
+              130,
+              1998
+            ]
+          ],
+          "recall": [
+            0.8174791914387634,
+            0.4955017301038062,
+            0.7738187451587917
+          ],
+          "f1": [
+            0.8234354726020561,
+            0.551617873651772,
+            0.7224733321280058
+          ]
+        },
+        "type": {
+          "labels": [
+            "calculation",
+            "derivation_or_logic",
+            "method_or_formula",
+            "problem_understanding",
+            "assumption_or_condition",
+            "answer_mismatch",
+            "missing_evidence",
+            "unit"
+          ],
+          "support": [
+            473,
+            707,
+            134,
+            61,
+            56,
+            13,
+            0,
+            0
+          ],
+          "recall": [
+            0.6553911205073996,
+            0.7892503536067893,
+            0.31343283582089554,
+            0.14754098360655737,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "f1": [
+            0.6638115631691649,
+            0.7072243346007605,
+            0.3700440528634361,
+            0.225,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    }
+  },
+  "physics_fixed": {
+    "Binary_PRM": {
+      "metrics": {
+        "error_ap": 0.7065979486416383,
+        "error_f1": 0.6451909802116889,
+        "balanced_accuracy": 0.7432488499196919,
+        "error_recall": 0.6431192660550459,
+        "false_positive_rate": 0.15662156621566214,
+        "first_error_accuracy": 0.5637795275590551,
+        "first_error_accuracy_error_traces": 0.5548780487804879,
+        "no_error_trace_accuracy": 0.5732899022801303
+      },
+      "diagnostics": {}
+    },
+    "Three_class_v2": {
+      "metrics": {
+        "error_ap": 0.758325402982298,
+        "error_f1": 0.7105492589363557,
+        "balanced_accuracy": 0.7941074135511997,
+        "error_recall": 0.7477064220183486,
+        "false_positive_rate": 0.1594915949159491,
+        "first_error_accuracy": 0.6110236220472441,
+        "first_error_accuracy_error_traces": 0.600609756097561,
+        "no_error_trace_accuracy": 0.6221498371335505
+      },
+      "diagnostics": {}
+    },
+    "Full_hierarchy": {
+      "metrics": {
+        "error_ap": 0.8423051473185896,
+        "error_f1": 0.7326932794340576,
+        "balanced_accuracy": 0.7989484711360875,
+        "error_recall": 0.6651376146788991,
+        "false_positive_rate": 0.06724067240672404,
+        "first_error_accuracy": 0.6834645669291338,
+        "first_error_accuracy_error_traces": 0.5152439024390244,
+        "no_error_trace_accuracy": 0.8631921824104235,
+        "new_error_ap": 0.6649574360792969,
+        "new_error_recall": 0.44344703770197486,
+        "role_macro_f1": 0.6874567839513999,
+        "type_macro_f1_supported": 0.1734815376965954,
+        "type_macro_f1_fixed8": 0.15179634548452098
+      },
+      "diagnostics": {
+        "role": {
+          "labels": [
+            "correct",
+            "new_error",
+            "propagated_error"
+          ],
+          "confusion_matrix": [
+            [
+              2302,
+              54,
+              83
+            ],
+            [
+              225,
+              247,
+              85
+            ],
+            [
+              176,
+              43,
+              314
+            ]
+          ],
+          "recall": [
+            0.9438294382943829,
+            0.44344703770197486,
+            0.5891181988742964
+          ],
+          "f1": [
+            0.8953714507973551,
+            0.5482796892341842,
+            0.6187192118226601
+          ]
+        },
+        "type": {
+          "labels": [
+            "calculation",
+            "derivation_or_logic",
+            "method_or_formula",
+            "problem_understanding",
+            "assumption_or_condition",
+            "answer_mismatch",
+            "missing_evidence",
+            "unit"
+          ],
+          "support": [
+            69,
+            331,
+            95,
+            19,
+            25,
+            17,
+            0,
+            1
+          ],
+          "recall": [
+            0.7536231884057971,
+            0.7552870090634441,
+            0.031578947368421054,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "f1": [
+            0.4642857142857143,
+            0.6934812760055479,
+            0.05660377358490566,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    }
+  },
+  "processbench": {
+    "Qwen3-4B-base-PRM800K-final-fixed": {
+      "gsm8k": {
+        "error_acc": 0.6570048309178744,
+        "correct_acc": 0.8756476683937824,
+        "f1": 0.7507308389541246,
+        "overall_acc": 0.7625
+      },
+      "math": {
+        "error_acc": 0.5454545454545454,
+        "correct_acc": 0.5689655172413793,
+        "f1": 0.5569620253164557,
+        "overall_acc": 0.555
+      },
+      "olympiadbench": {
+        "error_acc": 0.46444780635400906,
+        "correct_acc": 0.2949852507374631,
+        "f1": 0.3608092940713274,
+        "overall_acc": 0.407
+      },
+      "omnimath": {
+        "error_acc": 0.46772068511198944,
+        "correct_acc": 0.33195020746887965,
+        "f1": 0.3883096906511707,
+        "overall_acc": 0.435
+      }
+    },
+    "Qwen3-4B-base-PRM800K-final-three-class-v2": {
+      "gsm8k": {
+        "error_acc": 0.6714975845410628,
+        "correct_acc": 0.8704663212435233,
+        "f1": 0.7581448955408017,
+        "overall_acc": 0.7675
+      },
+      "math": {
+        "error_acc": 0.6212121212121212,
+        "correct_acc": 0.6600985221674877,
+        "f1": 0.6400652414516224,
+        "overall_acc": 0.637
+      },
+      "olympiadbench": {
+        "error_acc": 0.529500756429652,
+        "correct_acc": 0.40412979351032446,
+        "f1": 0.45839766355810274,
+        "overall_acc": 0.487
+      },
+      "omnimath": {
+        "error_acc": 0.5349143610013175,
+        "correct_acc": 0.44813278008298757,
+        "f1": 0.487693111924279,
+        "overall_acc": 0.514
+      }
+    },
+    "Qwen3-4B-hierarchical-PRM800K-phase2-from-3class-8gpu": {
+      "gsm8k": {
+        "error_acc": 0.5410628019323671,
+        "correct_acc": 0.917098445595855,
+        "f1": 0.6805939404342974,
+        "overall_acc": 0.7225
+      },
+      "math": {
+        "error_acc": 0.5791245791245792,
+        "correct_acc": 0.7783251231527094,
+        "f1": 0.6641088927445565,
+        "overall_acc": 0.66
+      },
+      "olympiadbench": {
+        "error_acc": 0.5446293494704992,
+        "correct_acc": 0.5899705014749262,
+        "f1": 0.5663939584644431,
+        "overall_acc": 0.56
+      },
+      "omnimath": {
+        "error_acc": 0.5454545454545454,
+        "correct_acc": 0.5809128630705395,
+        "f1": 0.5626255860683188,
+        "overall_acc": 0.554
+      }
+    }
+  }
+}

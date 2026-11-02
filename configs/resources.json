@@ -1,0 +1,16 @@
+{
+  "prm800k_upstream_recovery.zip": "inputs/archives/prm800k_upstream_recovery.zip",
+  "prm_model_metadata_checked.zip": "inputs/archives/prm_model_metadata_checked.zip",
+  "prm_evaluation_predictions_recovery.zip": "inputs/archives/prm_evaluation_predictions_recovery.zip",
+  "prm_evaluation_records_recovery.zip": "inputs/archives/prm_evaluation_records_recovery.zip",
+  "prm_downstream_records_recovery.zip": "inputs/archives/prm_downstream_records_recovery.zip",
+  "prm_sft_benchmark_records_20261102T060645526206Z.zip": "inputs/archives/prm_sft_benchmark_records_20261102T060645526206Z.zip",
+  "prm_sft_task_results_20261102T061101369402Z.zip": "inputs/archives/prm_sft_task_results_20261102T061101369402Z.zip",
+  "prm_sft_evaluator_sources_20261102T061439991002Z.zip": "inputs/archives/prm_sft_evaluator_sources_20261102T061439991002Z.zip",
+  "phase2_test.checked.jsonl": "inputs/annotation/phase2_test.checked.jsonl",
+  "prm800k_phase2_test.prm_materialized.cessation_merged.jsonl": "inputs/annotation/prm800k_phase2_test.prm_materialized.cessation_merged.jsonl",
+  "prm800k_phase2_test.prm_materialized.cessation_refined.cessation_audits.jsonl": "inputs/annotation/prm800k_phase2_test.prm_materialized.cessation_refined.cessation_audits.jsonl",
+  "prm800k_phase2_hierarchical_prm_trajectory_test.jsonl": "inputs/annotation/prm800k_phase2_hierarchical_prm_trajectory_test.jsonl",
+  "prm800k_phase2_hierarchical_prm_label_map.json": "inputs/annotation/prm800k_phase2_hierarchical_prm_label_map.json",
+  "prm800k_phase2_hierarchical_prm_statistics.json": "inputs/annotation/prm800k_phase2_hierarchical_prm_statistics.json"
+}

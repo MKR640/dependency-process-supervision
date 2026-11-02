@@ -1,0 +1,29 @@
+{
+  "arms": [
+    "M1-BFE-R2-weighted",
+    "M5-full-R2-weighted",
+    "M0-first-error-R2-weighted"
+  ],
+  "seeds": [
+    42
+  ],
+  "data_dir": "data/table2",
+  "init_model": "models/common_three_class",
+  "init_kind": "prm",
+  "initialization_history": "Existing common three-class PRM; training/test overlap history must be audited before paper claims.",
+  "output_root": "outputs/training",
+  "world_size": 8,
+  "batch_per_device": 1,
+  "eval_batch_per_device": 1,
+  "gradient_accumulation_steps": 4,
+  "epochs": 2,
+  "learning_rate": 5e-06,
+  "warmup_ratio": 0.03,
+  "weight_decay": 0.01,
+  "classifier_dropout": 0.1,
+  "max_length": 4096,
+  "prefix_policy": "contiguous",
+  "eval_steps": 500,
+  "bf16": true,
+  "trust_remote_code": false
+}

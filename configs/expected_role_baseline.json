@@ -1,0 +1,98 @@
+{
+  "fixed_0.5": {
+    "threshold": 0.5,
+    "macro_f1": 0.6613067441837965,
+    "classes": [
+      {
+        "class": 0,
+        "support": 5046,
+        "f1": 0.8211933947928275
+      },
+      {
+        "class": 1,
+        "support": 1445,
+        "f1": 0.46653306613226453
+      },
+      {
+        "class": 2,
+        "support": 2582,
+        "f1": 0.6961937716262976
+      }
+    ]
+  },
+  "existing_validation_balanced_accuracy": {
+    "threshold": 0.45810626362947604,
+    "macro_f1": 0.6616073271934954,
+    "classes": [
+      {
+        "class": 0,
+        "support": 5046,
+        "f1": 0.8159851301115242
+      },
+      {
+        "class": 1,
+        "support": 1445,
+        "f1": 0.4714285714285714
+      },
+      {
+        "class": 2,
+        "support": 2582,
+        "f1": 0.6974082800403905
+      }
+    ]
+  },
+  "hierarchical_role_argmax": {
+    "macro_f1": 0.7080186134818448,
+    "classes": [
+      {
+        "class": 0,
+        "support": 5046,
+        "f1": 0.8169853999588731
+      },
+      {
+        "class": 1,
+        "support": 1445,
+        "f1": 0.5889902060114826
+      },
+      {
+        "class": 2,
+        "support": 2582,
+        "f1": 0.7180802344751787
+      }
+    ]
+  },
+  "validation_role_macro_f1_calibrated": {
+    "threshold": 0.511,
+    "validation_role_macro_f1": 0.6999832338341797,
+    "threshold_grid": "0 to 1 inclusive in increments of 0.001; ties closest to 0.5 then smaller",
+    "macro_f1": 0.6624491040457067,
+    "classes": [
+      {
+        "class": 0,
+        "support": 5046,
+        "f1": 0.8231854838709678
+      },
+      {
+        "class": 1,
+        "support": 1445,
+        "f1": 0.46808510638297873
+      },
+      {
+        "class": 2,
+        "support": 2582,
+        "f1": 0.6960767218831735
+      }
+    ]
+  },
+  "hierarchy_minus_role_calibrated_heuristic": {
+    "macro_f1_delta_pp": 4.556950943613813,
+    "paired_ci95_pp": [
+      3.366955271278564,
+      5.721219263797986
+    ],
+    "bootstrap_replicates": 2000,
+    "bootstrap_unit": "normalized problem ID",
+    "groups": 410,
+    "interpretation": "Post hoc test-sampling interval conditional on the trained models and the validation-chosen threshold; not training-seed uncertainty."
+  }
+}

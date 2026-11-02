@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "checked_date": "2026-11-02",
+  "author_code_license": "pending",
+  "scope": "Selected direct/configured components, not a full transitive SBOM or per-file clearance.",
+  "components": [
+    {
+      "id": "opencompass",
+      "license_declaration": "Apache-2.0",
+      "relationship": "selected_source",
+      "local_evidence": "src/downstream/opencompass",
+      "source": {
+        "id": "opencompass",
+        "url": "https://raw.githubusercontent.com/open-compass/opencompass/main/LICENSE",
+        "checked_date": "2026-11-02",
+        "status": "retrieved",
+        "sha256": "ba92da766daca067645bd126edb60c63ff55079316bacc91d4831e61fed6d7b0"
+      },
+      "note": "historical commit and modification mapping pending",
+      "retained_notice": {
+        "path": "src/downstream/opencompass/LICENSE",
+        "sha256": "ba92da766daca067645bd126edb60c63ff55079316bacc91d4831e61fed6d7b0",
+        "matches_current_upstream_bytes": true
+      }
+    },
+    {
+      "id": "processbench-code",
+      "license_declaration": "UNRESOLVED",
+      "relationship": "local_integration_not_identical_to_official_repository",
+      "local_evidence": "src/benchmarks/prm/ProcessBench",
+      "source": {
+        "id": "processbench-code",
+        "url": "https://raw.githubusercontent.com/QwenLM/ProcessBench/main/LICENSE",
+        "checked_date": "2026-11-02",
+        "status": "unresolved",
+        "error": "HTTP Error 404: Not Found"
+      },
+      "note": "Seven recovered local integration files have no exact file/AST match in 12 official commits; local interface specification and repeated local versions establish a local development lineage, not exclusive authorship. Official code license absent in inspected history; local authorship/adaptation rights remain pending.",
+      "provenance_check": "configs/asset_provenance_checks.json"
+    },
+    {
+      "id": "transformers",
+      "license_declaration": "Apache-2.0",
+      "relationship": "external_runtime",
+      "local_evidence": "src/table2",
+      "source": {
+        "id": "transformers",
+        "url": "https://raw.githubusercontent.com/huggingface/transformers/main/LICENSE",
+        "checked_date": "2026-11-02",
+        "status": "retrieved",
+        "sha256": "77fd4710def9ec3c0f6225800e0235f15a425abd4a8b03559127fcd782612049"
+      },
+      "note": "historical 4.57.6; wrapper authorship not inferred from imports"
+    },
+    {
+      "id": "trl",
+      "license_declaration": "Apache-2.0",
+      "relationship": "external_runtime",
+      "local_evidence": "src/downstream/sft_training",
+      "source": {
+        "id": "trl",
+        "url": "https://raw.githubusercontent.com/huggingface/trl/main/LICENSE",
+        "checked_date": "2026-11-02",
+        "status": "retrieved",
+        "sha256": "1bf614b1fdc40fbd344aa58d00d17d5fd0d252ea333a05be018a38959c8b2998"
+      },
+      "note": "installed revision and adapted-file provenance pending"
+    },
+    {
+      "id": "datasets",
+      "license_declaration": "Apache-2.0",
+      "relationship": "external_runtime",
+      "local_evidence": "environments/training/recorded.json",
+      "source": {
+        "id": "datasets",
+        "url": "https://raw.githubusercontent.com/huggingface/datasets/main/LICENSE",
+        "checked_date": "2026-11-02",
+        "status": "retrieved",
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+      },
+      "note": "historical 5.0.1"
+    },
+    {
+      "id": "accelerate",
+      "license_declaration": "Apache-2.0",
+      "relationship": "external_runtime",
+      "local_evidence": "src/downstream/sft_training",
+      "source": {
+        "id": "accelerate",
+        "url": "https://raw.githubusercontent.com/huggingface/accelerate/main/LICENSE",
+        "checked_date": "2026-11-02",
+        "status": "retrieved",
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      "note": "version pending"
+    },
+    {
+      "id": "wtpsplit",
+      "license_declaration": "MIT",
+      "relationship": "external_runtime",
+      "local_evidence": "src/annotation/pipeline_code",
+      "source": {
+        "id": "wtpsplit",
+        "url": "https://raw.githubusercontent.com/segment-any-text/wtpsplit/main/LICENSE",
+        "checked_date": "2026-11-02",
+        "status": "retrieved",
+        "sha256": "97015b5bfd5a13384a52bd5f950a470a96f5df89ec0fab048e0cd11801d4a6a8"
+      },
+      "note": "version pending"
+    },
+    {
+      "id": "vllm",
+      "license_declaration": "Apache-2.0",
+      "relationship": "configured_runtime",
+      "local_evidence": "src/downstream/evaluation_entrypoints",
+      "source": {
+        "id": "vllm",
+        "url": "https://raw.githubusercontent.com/vllm-project/vllm/main/LICENSE",
+        "checked_date": "2026-11-02",
+        "status": "retrieved",
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      "note": "version pending"
+    },
+    {
+      "id": "deepspeed",
+      "license_declaration": "Apache-2.0",
+      "relationship": "configured_runtime",
+      "local_evidence": "src/downstream/sft_training",
+      "source": {
+        "id": "deepspeed",
+        "url": "https://raw.githubusercontent.com/deepspeedai/DeepSpeed/master/LICENSE",
+        "checked_date": "2026-11-02",
+        "status": "retrieved",
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      "note": "version pending"
+    },
+    {
+      "id": "numpy",
+      "license_declaration": "BSD-3-Clause",
+      "relationship": "external_runtime",
+      "local_evidence": "environments/cpu/requirements.txt",
+      "source": {
+        "id": "numpy",
+        "url": "https://raw.githubusercontent.com/numpy/numpy/v2.3.5/LICENSE.txt",
+        "checked_date": "2026-11-02",
+        "status": "retrieved",
+        "sha256": "1be1df33863f97a7bc1c4d67980bd6c69c9a6fef0a5ee76e6ad6cb91e56e8491"
+      },
+      "note": "2.3.5; wheel component notices separate"
+    },
+    {
+      "id": "pytorch",
+      "license_declaration": "BSD-style with additional component notices",
+      "relationship": "external_runtime",
+      "local_evidence": "environments/training/recorded.json",
+      "source": {
+        "id": "pytorch",
+        "url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.8.0/LICENSE",
+        "checked_date": "2026-11-02",
+        "status": "retrieved",
+        "sha256": "a8a2c6b67cf8a597ffaa5c82380a6bd1b82629c0417e00673d8013d662eb500a"
+      },
+      "note": "upstream v2.8.0 declaration does not clear the vendor-specific build"
+    }
+  ],
+  "models": [
+    {
+      "id": "Qwen/Qwen3-4B",
+      "relationship": "external_model_or_tokenizer",
+      "source": {
+        "id": "Qwen/Qwen3-4B",
+        "url": "https://huggingface.co/api/models/Qwen/Qwen3-4B",
+        "checked_date": "2026-11-02",
+        "status": "retrieved",
+        "sha256": "d360afb7f2f995e4c77f5d0563162e73395ad567587ed7c306e180d8911a31e9",
+        "upstream_revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+        "declared_license": "apache-2.0"
+      },
+      "included": false,
+      "historical_payload_matched": false
+    },
+    {
+      "id": "Qwen/Qwen3-4B-Base",
+      "relationship": "external_model_or_tokenizer",
+      "source": {
+        "id": "Qwen/Qwen3-4B-Base",
+        "url": "https://huggingface.co/api/models/Qwen/Qwen3-4B-Base",
+        "checked_date": "2026-11-02",
+        "status": "retrieved",
+        "sha256": "aefe16bedb876c212a3cd4ae6283c4d39a0544c97626cdfa93fe4a67eb61285b",
+        "upstream_revision": "906bfd4b4dc7f14ee4320094d8b41684abff8539",
+        "declared_license": "apache-2.0"
+      },
+      "included": false,
+      "historical_payload_matched": false
+    },
+    {
+      "id": "segment-any-text/sat-3l-sm",
+      "relationship": "external_model_or_tokenizer",
+      "source": {
+        "id": "segment-any-text/sat-3l-sm",
+        "url": "https://huggingface.co/api/models/segment-any-text/sat-3l-sm",
+        "checked_date": "2026-11-02",
+        "status": "retrieved",
+        "sha256": "d82ba9635bc951b1191e83abce55b7fe4415e7ea421154c73c94a27554986774",
+        "upstream_revision": "137da054051ad9f1eac42025f758db4ac9f22535",
+        "declared_license": "mit"
+      },
+      "included": false,
+      "historical_payload_matched": false
+    },
+    {
+      "id": "BAAI/bge-m3",
+      "relationship": "external_model_or_tokenizer",
+      "source": {
+        "id": "BAAI/bge-m3",
+        "url": "https://huggingface.co/api/models/BAAI/bge-m3",
+        "checked_date": "2026-11-02",
+        "status": "retrieved",
+        "sha256": "279f3e6178a6e770abb0b0b3c5ef675dcbe13939e36357a8d9bc8f6e69164d94",
+        "upstream_revision": "5617a9f61b028005a4858fdac845db406aefb181",
+        "declared_license": "mit"
+      },
+      "included": false,
+      "historical_payload_matched": false
+    },
+    {
+      "id": "annotation_service_and_author_trained_weights",
+      "included": false,
+      "status": "exact model/provider terms and author release decision pending"
+    }
+  ]
+}

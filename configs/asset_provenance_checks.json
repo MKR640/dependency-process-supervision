@@ -1,0 +1,128 @@
+{
+  "checked_date": "2026-11-02",
+  "findings": {
+    "lambada": {
+      "status": "content_variant_confirmed_for_four_recovered_runs",
+      "rows_per_run": 5153,
+      "verified_runs": 4,
+      "matching_historical_configurations": 6,
+      "upstream_comparison": {
+        "url": "https://huggingface.co/datasets/EleutherAI/lambada_openai/resolve/900124bf3b8235c6daf21033af9948b3f07346c4/data/lambada_test.jsonl",
+        "revision": "900124bf3b8235c6daf21033af9948b3f07346c4",
+        "file_sha256": "4aa8d02cd17c719165fc8a7887fddd641f43fcafa4b1c806ca8abc31fabdb226",
+        "rows": 5153,
+        "conversion": "Split each text at its last ASCII space into prompt context and target word.",
+        "ordered_context_reference_sha256": "76810eec3affe1c94a47ee1c55f123bdf26a8a18ee503ef727b266bee2b9023e",
+        "declared_license_source": "https://huggingface.co/datasets/EleutherAI/lambada_openai",
+        "declared_license": "MIT"
+      },
+      "configuration": {
+        "abbr": "lambada",
+        "eval_cfg": {
+          "evaluator": {
+            "type": "opencompass.datasets.LambadaEvaluator"
+          }
+        },
+        "infer_cfg": {
+          "inferencer": {
+            "max_out_len": 5,
+            "type": "opencompass.openicl.icl_inferencer.GenInferencer"
+          },
+          "prompt_template": {
+            "template": {
+              "round": [
+                {
+                  "prompt": "Please complete the following sentence:\n{prompt}",
+                  "role": "HUMAN"
+                }
+              ]
+            },
+            "type": "opencompass.openicl.icl_prompt_template.PromptTemplate"
+          },
+          "retriever": {
+            "type": "opencompass.openicl.icl_retriever.ZeroRetriever"
+          }
+        },
+        "path": "opencompass/lambada",
+        "reader_cfg": {
+          "input_columns": [
+            "prompt"
+          ],
+          "output_column": "label",
+          "test_split": "test",
+          "train_split": "test"
+        },
+        "type": "opencompass.datasets.lambadaDataset"
+      },
+      "limits": [
+        "Historical local JSONL bytes and download route are not recovered.",
+        "Old Base used in the paper (20260814) has a matching config, but no per-example result in these archives; its content identity is not independently confirmed.",
+        "Content identity does not establish legal title to underlying book passages or authorize redistribution of internal generated outputs."
+      ]
+    },
+    "processbench_code": {
+      "upstream_url": "https://github.com/QwenLM/ProcessBench",
+      "upstream_head": "e8024636bcabdf8bd514440551b531d3f90dd18b",
+      "commits_checked": 12,
+      "license_notice_paths": [],
+      "license_declaration_lines": [],
+      "upstream_has_local_prm_eval_layout": false,
+      "conclusion": "Recovered release is a local evaluation integration, not an identical official repository export. No applicable official code license or exact upstream file/AST match established. Local authorship remains to be confirmed; absence of an exact match is not proof of independence.",
+      "release_files": [
+        {
+          "release_path": "src/benchmarks/prm/ProcessBench/processbench_3model_hier_v2/hierarchical_rescore.py",
+          "release_sha256": "085bdf821d9419bb51c311ae8ffa3bf02f3df4de1a94295f753999de72124ddf",
+          "exact_upstream_files": [],
+          "exact_ast_upstream_file": null
+        },
+        {
+          "release_path": "src/benchmarks/prm/ProcessBench/processbench_3model_hier_v2/main.py",
+          "release_sha256": "c50c9120b2ca111f1bdc6efbc19266bde2fe225f62c0aedc235e99195917eb7b",
+          "exact_upstream_files": [],
+          "exact_ast_upstream_file": null
+        },
+        {
+          "release_path": "src/benchmarks/prm/ProcessBench/processbench_3model_hier_v2/prm_eval/__init__.py",
+          "release_sha256": "6bf482e7f2ad632e00cbd10ce36d0a61c6c11479b389230da1cf1b9d7cf11bcf",
+          "exact_upstream_files": [],
+          "exact_ast_upstream_file": null
+        },
+        {
+          "release_path": "src/benchmarks/prm/ProcessBench/processbench_3model_hier_v2/prm_eval/base_prm.py",
+          "release_sha256": "93ffa2ff5791a0f6e5c505f519a227f76117c9a8feb9c3f96eb8e31618d019b6",
+          "exact_upstream_files": [],
+          "exact_ast_upstream_file": null
+        },
+        {
+          "release_path": "src/benchmarks/prm/ProcessBench/processbench_3model_hier_v2/prm_eval/qwen3_math_prm.py",
+          "release_sha256": "0af26a6d3c835cadab7ffb04d5665fd44c766a8af59974957115cb2a052defef",
+          "exact_upstream_files": [],
+          "exact_ast_upstream_file": null
+        },
+        {
+          "release_path": "src/benchmarks/prm/ProcessBench/processbench_3model_hier_v2/summarize_processbench_3models.py",
+          "release_sha256": "09f2c5d6b9ed387df9cbd4b08fe888b7fd091b574b270204d7cab1421c7fd748",
+          "exact_upstream_files": [],
+          "exact_ast_upstream_file": null
+        },
+        {
+          "release_path": "src/benchmarks/prm/ProcessBench/processbench_3model_hier_v2/threshold_sweep.py",
+          "release_sha256": "7a732ff61c3a61193b150a663f3d915268339feca4f6419206434fffe07ce7f2",
+          "exact_upstream_files": [],
+          "exact_ast_upstream_file": null
+        }
+      ],
+      "server_followup": {
+        "archive_sha256": "822c0f6abbf4fe22a6e9ce6c4e170217bd31bc1b31208294f02e6736b9583501",
+        "server_repositories_found": 0,
+        "server_manifest_files": 38,
+        "final_release_source_files_matched": 7,
+        "git_history_in_archive": false,
+        "status": "local_lineage_supported_authorship_license_unresolved",
+        "scope": "No .git found by the supplied collector in inspected source locations/ancestors; not a claim that no history exists elsewhere.",
+        "new_evidence": "Three local version READMEs; no explicit authorship or license grant established."
+      }
+    }
+  },
+  "scope": "Source/content identity evidence; not a grant to redistribute data or code."
+}

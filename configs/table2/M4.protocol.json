@@ -1,0 +1,83 @@
+{
+  "active_heads": [
+    "correctness",
+    "role"
+  ],
+  "loss_reduction": "weighted sum / input rows",
+  "correctness_weights": [
+    1.0208703940003807,
+    0.9791296059996192
+  ],
+  "role_weights": [
+    0.7349853881354518,
+    1.3260139384742147,
+    0.9390006733903332
+  ],
+  "type_weights": null,
+  "prefix_policy": "contiguous",
+  "max_length": 4096,
+  "selection": "shared validation Error AP",
+  "truncation": {
+    "train": {
+      "problem_tokens_dropped": {
+        "sum": 0,
+        "affected_rows": 0
+      },
+      "current_tokens_dropped": {
+        "sum": 0,
+        "affected_rows": 0
+      },
+      "prefix_steps_dropped": {
+        "sum": 0,
+        "affected_rows": 0
+      },
+      "input_tokens": 112930698,
+      "supervised_correctness_rows": 267361,
+      "supervised_role_rows": 267361,
+      "supervised_type_rows": 0
+    },
+    "validation": {
+      "problem_tokens_dropped": {
+        "sum": 0,
+        "affected_rows": 0
+      },
+      "current_tokens_dropped": {
+        "sum": 0,
+        "affected_rows": 0
+      },
+      "prefix_steps_dropped": {
+        "sum": 0,
+        "affected_rows": 0
+      },
+      "input_tokens": 5678187,
+      "supervised_correctness_rows": 13930,
+      "supervised_role_rows": 13930,
+      "supervised_type_rows": 0
+    },
+    "test": {
+      "problem_tokens_dropped": {
+        "sum": 0,
+        "affected_rows": 0
+      },
+      "current_tokens_dropped": {
+        "sum": 0,
+        "affected_rows": 0
+      },
+      "prefix_steps_dropped": {
+        "sum": 0,
+        "affected_rows": 0
+      },
+      "input_tokens": 3622284,
+      "supervised_correctness_rows": 9073,
+      "supervised_role_rows": 9073,
+      "supervised_type_rows": 0
+    }
+  },
+  "global_batch": 32,
+  "software": {
+    "torch": "2.8.0+metax3.5.3.9",
+    "transformers": "4.57.6",
+    "datasets": "5.0.1"
+  },
+  "initialization_history": "Existing common three-class PRM; training/test overlap history must be audited before paper claims."
+}
