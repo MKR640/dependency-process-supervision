@@ -54,8 +54,8 @@
       "sha256": "aa4c41415db22b2dd6739248a24609a45a46756d639ca56bc9552db974dadc3b"
     },
     "configs/source_provenance.json": {
-      "bytes": 43384,
-      "sha256": "644767cd5a73db9a32f9acb98f5af2d64ad022dd0ed078a1ab1f7b6bf627bfa9"
+      "bytes": 43473,
+      "sha256": "495ccacc246e9d2ecb0a1098a5b4abc276893cfb6d1cdd70755ffab85a765e1c"
     },
     "configs/table2/arms.json": {
       "bytes": 1938,
@@ -118,24 +118,24 @@
       "sha256": "2d3c02114c8f88b5f5cbe9a43f47b2b8aa72c21fd4e316568ad1bb1c2b1d7cbc"
     },
     "docs/EXPERIMENTS.md": {
-      "bytes": 4612,
-      "sha256": "e012f4a0812e4ab5a99e961c8dbbe40eab5418dc9db97eaade4029609f937d27"
+      "bytes": 4596,
+      "sha256": "8f0006a21ede2fd295f9b203e95db4449fb6ed8c3422f9758d32823a9533c8cd"
     },
     "docs/RELEASE_STATUS.md": {
       "bytes": 960,
       "sha256": "fe7c736527418764c08d5da73402cc34972854dbac274e0ca4bb16a3874ff1e0"
     },
     "docs/REPRODUCTION.md": {
-      "bytes": 5563,
-      "sha256": "48bca65a3aa7f0f33073362ded30065fe3d29a6d5ecada3895d069d19e9480f2"
+      "bytes": 6307,
+      "sha256": "3f2a8e41386830b82b9df186d79caa9fd7dbae27d0bc1aba31817a9877693498"
     },
     "environments/cpu/requirements.txt": {
       "bytes": 13,
       "sha256": "7bd6b8946940b79948c548c8048e545684b91c8edc9444d8dfc0c8f76a97c0a7"
     },
     "environments/README.md": {
-      "bytes": 1294,
-      "sha256": "f4e97ae1ec48e55bec7d1b75ec82f3fa38748799c3227147ec6c70956b0d9d12"
+      "bytes": 1290,
+      "sha256": "fff9c53d9ed0d5a33a41110c113ac839bd23dadfcc377b9cf57e98aa919018e0"
     },
     "environments/training/recorded.json": {
       "bytes": 452,
@@ -146,8 +146,8 @@
       "sha256": "9b3bc46dc850d213c06ad70a64046e4a2ec73b167b432f6f07dccbb0b1502705"
     },
     "README.md": {
-      "bytes": 8119,
-      "sha256": "fbddc12c0f0e7e4b07d5196c29337e558409598078b6951bcccc26dfb79ca468"
+      "bytes": 8326,
+      "sha256": "6183e81e1600768bcc35e99f29b7a97c54310138e11553e5d8ea0ec04eed062f"
     },
     "reproduction/table2/data/test.npz": {
       "bytes": 1744546,
@@ -218,8 +218,8 @@
       "sha256": "ecd1e40fba92248d9a70d702a9a8db920486d02f3f1a52186df51abda88ab26a"
     },
     "scripts/reproduce.py": {
-      "bytes": 15095,
-      "sha256": "1ef0625c064c672c270b361a13e296389f92aac20aaedc4788aa647c3316c343"
+      "bytes": 16141,
+      "sha256": "787d34e258245096d83f38450402c8d71b8f4e0ad3cf94d41f9054b3a468bfb9"
     },
     "scripts/role_baseline_functions.py": {
       "bytes": 1228,
@@ -786,8 +786,8 @@
       "sha256": "9cf96c5d563a8312e4b1ec7051ed07a7f6924ddfce1354c59b5503da4cf95aa7"
     },
     "tests/test_release.py": {
-      "bytes": 2126,
-      "sha256": "4ff2fb5ec0e8e22b392fa92d906635191c9414e960a8045c74d3b09ace3c183b"
+      "bytes": 3851,
+      "sha256": "0d01092b445672771a393d365a09eaed7385dd740817f9cc674e1ba9f4d49718"
     },
     "THIRD_PARTY_NOTICES.md": {
       "bytes": 5699,

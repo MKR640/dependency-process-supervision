@@ -125,8 +125,15 @@ python reproduce.py
 
 With Python 3.12, this recomputes both Table 2 panels and paired confidence
 intervals, verifies them against archived results, and writes Markdown, CSV and
-JSON outputs under `results/`. The same files are in `reproduction/table2/` for
-users who clone the repository. No problem statements or reasoning text are included.
+JSON outputs under `results/`. From a repository clone, use the root entry instead:
+
+```bash
+python -m pip install -r environments/cpu/requirements.txt
+python scripts/reproduce.py --module table2
+```
+
+This writes the same results under `outputs/<run>/table2/`. The `roles` module
+also uses the included package. No problem statements or reasoning text are included.
 This replays fixed model outputs; it does not retrain the models.
 
 ### Training and other experiments

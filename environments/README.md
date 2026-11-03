@@ -4,7 +4,7 @@ Use separate environments; these dependency sets are not intended to be merged.
 
 | Purpose | Record | Verification |
 |---|---|---|
-| CPU cache replay | Python 3.12; `cpu/requirements.txt` | Clean Windows/Python 3.12.14 venv: seven cached modules verified across recorded runs, including restored Table 2/roles; four guard/semantic tests passed; Linux untested |
+| CPU cache replay | Python 3.12; `cpu/requirements.txt` | Windows/Python 3.12.14: bundled Table 2/roles and external-cache metrics checked; CPU tests cover role semantics, resource routing and missing inputs; Linux untested |
 | Shared-label PRM training | `training/recorded.json` | Historical version record, not an installation lock or tested port |
 | External benchmark evaluation | `../src/downstream/opencompass/requirements/` | Recovered framework declarations, not a fully locked historical environment |
 

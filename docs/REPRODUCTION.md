@@ -14,20 +14,23 @@ and metric replay. Choose the entry that matches the resources available to you.
 
 ## Table 2: self-contained replay
 
-Download the [standalone ZIP](https://github.com/MKR640/dependency-process-supervision/raw/refs/heads/main/artifacts/table2-role-replay-v1.zip)
-and follow its [README](../reproduction/table2/README.md). Alternatively, from a
-repository clone:
+From the repository root, install the CPU dependencies and run:
 
 ```bash
-cd reproduction/table2
-python -m pip install -r requirements.txt
-python reproduce.py
+python -m pip install -r environments/cpu/requirements.txt
+python scripts/reproduce.py --module table2
 ```
 
-This package includes the numeric inputs for Table 2(a), Table 2(b), validation
-threshold selection and paired bootstrap intervals. It uses a compact NPZ format;
-it is not an input to the original `scripts/reproduce.py --table2-bundle` command.
-All values match the historical reference within absolute tolerance `1e-12`.
+The command uses the included numeric inputs to compute Table 2(a), Table 2(b),
+validation thresholds and paired bootstrap intervals. `--module roles` uses the
+same package and also produces both panels. Results go to `outputs/<run>/table2/`.
+When `--module all` requests both modules, this calculation runs once; other
+modules still require their external assets.
+
+The [standalone ZIP](https://github.com/MKR640/dependency-process-supervision/raw/refs/heads/main/artifacts/table2-role-replay-v1.zip)
+remains available with its own [instructions](../reproduction/table2/README.md).
+It produces the same values, checked against the reference within absolute
+tolerance `1e-12`.
 
 ## CPU environment
 
@@ -65,6 +68,12 @@ python scripts/reproduce.py --module table2 --table2-bundle /path/to/formal_bund
 python scripts/reproduce.py --module roles --table2-bundle /path/to/formal_bundle --verify
 ```
 
+Explicit `--table2-bundle` selects that external bundle. If only `--resource-root`
+is provided, these modules use its `inputs/table2/formal` directory. Missing or
+invalid explicitly requested assets return a nonzero exit; they never silently
+fall back to the included numeric package. The standalone NPZ package is not an
+external formal bundle.
+
 | Module | Computation |
 |---|---|
 | `annotation` | Offline annotation/target-construction replay |
@@ -79,6 +88,10 @@ Each command writes results to a new directory under `outputs/`. Exit code `0`
 means all requested modules passed; `1` indicates a failed computation and `2`
 indicates missing resources. Missing resources also produce a nonzero exit when
 running `--module all`.
+
+SFT replay writes `selection_scorer` to both `sft.json` and `run_summary.json`,
+using the value in `configs/downstream_protocol.json`. The recorded experiment
+uses `common_three_class_prm`.
 
 ## Shared-label PRM training
 

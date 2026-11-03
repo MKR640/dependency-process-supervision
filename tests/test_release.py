@@ -5,11 +5,13 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 import numpy as np
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 from role_baseline_functions import sequential_roles, confusion, macro_from_cm
+import reproduce
 
 class ReleaseTests(unittest.TestCase):
     def test_sequential_rule_keeps_error_history_across_correct_steps(self):
@@ -38,5 +40,31 @@ class ReleaseTests(unittest.TestCase):
                 '--init-model',td,'--plan-dir',str(target),'--output-root',str(Path(td)/'train')],capture_output=True,text=True,encoding='utf-8')
             self.assertEqual(result.returncode,2)
             self.assertFalse(target.exists())
+
+    def test_default_table2_and_roles_share_bundled_calculation(self):
+        def calculate(script,args,log):
+            self.assertEqual(script,ROOT/'reproduction/table2/reproduce.py')
+            dest=Path(args[1]);dest.mkdir()
+            (dest/'metrics.json').write_text('{}',encoding='utf-8')
+            (dest/'verification.json').write_text('{"status":"passed"}',encoding='utf-8')
+        with tempfile.TemporaryDirectory() as td, patch.object(reproduce,'TABLE2_BUNDLE',None), \
+                patch.object(reproduce,'child',side_effect=calculate) as calculation:
+            out=Path(td)
+            results=[reproduce.table2(out),reproduce.roles(out)]
+            self.assertTrue(all(r['status']=='passed' for r in results))
+            self.assertTrue(all(r['source']=='bundled_numeric_predictions' for r in results))
+            self.assertEqual(calculation.call_count,1)
+
+    def test_explicit_missing_bundle_does_not_fall_back(self):
+        with tempfile.TemporaryDirectory() as td:
+            for module in ['table2','roles']:
+                with self.subTest(module=module):
+                    result=subprocess.run([sys.executable,str(ROOT/'scripts/reproduce.py'),
+                        '--module',module,'--table2-bundle',td],capture_output=True,text=True,encoding='utf-8')
+                    self.assertEqual(result.returncode,2,result.stderr)
+                    path=Path(result.stdout.split('Summary: ',1)[1].strip())
+                    report=json.loads(path.read_text(encoding='utf-8'))
+                    self.assertEqual(report['modules'][module]['status'],'blocked')
+                    self.assertFalse((path.parent/'table2').exists())
 
 if __name__=='__main__':unittest.main()

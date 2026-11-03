@@ -32,8 +32,8 @@
   {
     "path": "scripts/reproduce.py",
     "source_sha256": "6f0f71ac61600be04227bd1ecfb8474c0f0e3284cf44617e636b7a641cd48457",
-    "release_sha256": "1ef0625c064c672c270b361a13e296389f92aac20aaedc4788aa647c3316c343",
-    "change": "Reader-facing docstrings/comments updated; executable AST unchanged."
+    "release_sha256": "787d34e258245096d83f38450402c8d71b8f4e0ad3cf94d41f9054b3a468bfb9",
+    "change": "Route default Table 2/roles to bundled numeric replay; preserve explicit external bundle routing; include configured SFT selection scorer in result metadata."
   },
   {
     "path": "scripts/verify_benchmarks.py",

@@ -135,6 +135,7 @@ def evaluator_functions():
 
 def sft(out):
     env=evaluator_functions();rows=[];checks={}
+    selection_scorer=read(ROOT/'configs/downstream_protocol.json')['sft_actual_scorer']
     for archive in ['prm_sft_evaluator_sources_20261102T061439991002Z.zip','prm_sft_task_results_20261102T061101369402Z.zip']:
         with zipfile.ZipFile(resource(archive)) as z:
             for name in z.namelist():
@@ -160,14 +161,27 @@ def sft(out):
         for group in ['paper_base','random','selected','all']:
             got=next(r['value'] for r in rows if r['group']==group and r['task']==TASKS[row['task']])
             checks[f'paper:{group}:{row["task"]}']=round(got,2)==row[group]
-    save(out/'sft.json',{'checks':checks,'recomputed':rows,'paper_table':table})
+    save(out/'sft.json',{'selection_scorer':selection_scorer,'checks':checks,'recomputed':rows,'paper_table':table})
     with (out/'sft_table.csv').open('w',encoding='utf-8-sig',newline='') as f:
         w=csv.DictWriter(f,fieldnames=list(table[0]));w.writeheader();w.writerows(table)
     assert all(checks.values())
-    return {'status':'passed','report':'sft.json','scope':'44 paper cells plus separate recent Base; cached semantic judgments retained'}
+    return {'status':'passed','report':'sft.json','selection_scorer':selection_scorer,
+            'scope':'44 paper cells plus separate recent Base; cached semantic judgments retained'}
+
+def bundled_table2(out):
+    dest=out/'table2'
+    # Both modules use the same calculation when requested together.
+    if not (dest/'verification.json').is_file():
+        child(ROOT/'reproduction/table2/reproduce.py',['--output',dest],out/'table2.log')
+    if read(dest/'verification.json')['status']!='passed' or not (dest/'metrics.json').is_file():
+        raise ValueError('Bundled Table 2 calculation did not complete')
+    return {'status':'passed','report':'table2/metrics.json','source':'bundled_numeric_predictions',
+            'scope':'Table 2(a), role diagnosis in Table 2(b), and paired intervals from frozen predictions; no new inference'}
 
 def table2(out):
-    bundle=TABLE2_BUNDLE or RESOURCE_ROOT/'inputs/table2/formal'
+    if TABLE2_BUNDLE is None:
+        return bundled_table2(out)
+    bundle=TABLE2_BUNDLE
     if not (bundle/'bundle_manifest.json').is_file():
         return {'status':'blocked','reason':'Formal prediction bundle is required; pass --table2-bundle. See resources.json.'}
     identities=read(ROOT/'configs/table2/formal_identities.json')
@@ -190,7 +204,9 @@ def verify_files():
     return len(manifest['files'])
 
 def roles(out):
-    bundle=TABLE2_BUNDLE or RESOURCE_ROOT/'inputs/table2/formal'
+    if TABLE2_BUNDLE is None:
+        return bundled_table2(out)
+    bundle=TABLE2_BUNDLE
     if not (bundle/'bundle_manifest.json').is_file():
         return {'status':'blocked','reason':'Formal prediction bundle required for role baseline replay; pass --table2-bundle.'}
     child(ROOT/'scripts/replay_role_baseline.py',['--bundle',bundle,'--output',out/'role_baseline.json'],out/'roles.log')
@@ -203,11 +219,12 @@ def main():
     p.add_argument('--output',type=Path)
     p.add_argument('--verify',action='store_true',help='Check bundled immutable file hashes before execution')
     p.add_argument('--strict',action='store_true',help='Compatibility flag; blocked modules always return nonzero')
-    p.add_argument('--resource-root',type=Path,help='External asset root matching configs/resources.json')
-    p.add_argument('--table2-bundle',type=Path,help='Exact formal prediction bundle directory')
+    p.add_argument('--resource-root',type=Path,help='External asset root; selects its inputs/table2/formal for Table 2/roles')
+    p.add_argument('--table2-bundle',type=Path,help='External formal prediction bundle; otherwise Table 2/roles use bundled numeric inputs')
     args=p.parse_args()
     RESOURCE_ROOT=args.resource_root.resolve() if args.resource_root else ROOT
-    TABLE2_BUNDLE=args.table2_bundle.resolve() if args.table2_bundle else None
+    TABLE2_BUNDLE=(args.table2_bundle.resolve() if args.table2_bundle else
+                   RESOURCE_ROOT/'inputs/table2/formal' if args.resource_root else None)
     if args.verify:print('Verified immutable files:',verify_files(),flush=True)
     out=args.output.resolve() if args.output else ROOT/'outputs'/datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
     if out.exists():p.error('Output must be a new directory; existing results are never overwritten')
