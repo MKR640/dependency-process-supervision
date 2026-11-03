@@ -32,21 +32,19 @@ Table 2(a), Table 2(b), and their paired contrasts can be recomputed using the
 | SFT data selection | `src/downstream/prm_sft_selection/select_prm_sft.py` | Recorded scorer: **three-class PRM**. See `configs/downstream_protocol.json`. |
 | SFT training / external benchmarks | `src/downstream/sft_training/`, `evaluation_entrypoints/`, `opencompass/` | Cached results available internally; private selection pool and model weights are external. |
 
-## Objective and historical conditions
+## Supervision objectives
 
 The shared-label loss is weighted CE summed over eligible targets, divided by the
 number of input rows. Masked rows remain in that denominator. Role/type coefficients
-and class weights are preserved in the five protocol files. Changing normalization
-would define a new experiment.
+and class weights are preserved in the five protocol files.
 
 The shared-label comparison holds dependency-derived labels fixed; it tests coverage
 and auxiliary objectives, not an annotation-method ablation. Existing-model comparisons
 use their recorded model histories. Voting and SFT selection consume correctness scores.
 
-## SFT scorer provenance
+## SFT selection scorer
 
-Recovered selection records identify the common three-class PRM as the SFT scorer.
-The archived submitted manuscript describes this scorer as hierarchical; this source
-candidate follows the actual recovered run rather than substituting another model.
-The cached result values are unchanged. Manuscript clarification is tracked separately
-and is not an edit performed by this code release.
+The SFT selection experiment uses the common three-class PRM recorded in
+`configs/downstream_protocol.json`. The submitted manuscript identifies this
+scorer as hierarchical; the implementation and configuration here correspond to
+the recorded three-class run. The reported result values are unchanged.

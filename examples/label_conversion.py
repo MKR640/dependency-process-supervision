@@ -47,8 +47,7 @@ def main():
         ],
     }
     trajectory, rows = converter.convert_record(record, "demo", "demo", Path("synthetic_example.json"))
-    # The historical converter stamps a dataset name. This fixture is authored
-    # for the demonstration and is not a PRM800K example.
+    # Mark this authored fixture as synthetic.
     for item in [trajectory, *rows]:
         item["source"] = "synthetic_example"
         item["phase"] = "demo"

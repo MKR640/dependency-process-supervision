@@ -9,7 +9,7 @@ It separates the upstream license declaration, evidence of local use, and the
 decision to include an asset. A current upstream revision is not necessarily the
 revision used in the experiments.
 
-## What may accompany this candidate
+## Included and external materials
 
 | Material | Decision | Conditions |
 |---|---|---|
@@ -17,7 +17,7 @@ revision used in the experiments.
 | Download/conversion code, public source links, label definitions | Include as source/configuration | Follow code licenses; a download helper does not grant rights to the downloaded data |
 | Table 2 numeric labels, probabilities and integer grouping codes | Included in `reproduction/table2/` and the standalone ZIP | Explicit field whitelist; no free text, original IDs or per-question hashes; hash-checked and numerically equivalent |
 | Other public-example IDs, split membership and derived annotations | Not included; assess separately | The Table 2 export does not authorize other caches or private collections |
-| Original questions, solutions, model reasoning, judge explanations, retrieved input/output content | Not included in this candidate | Upstream permission may allow a future release, but text-containing derivatives need source-specific attribution and checks |
+| Original questions, solutions, model reasoning, judge explanations, retrieved input/output content | Not included in this repository | Upstream permission may allow a future release, but text-containing derivatives need source-specific attribution and checks |
 | Provider collection, unknown-origin SFT pool, internal recovery archives | Withhold | See dataset decisions below; internal bundles are not release packages |
 | Model weights or tokenizers | External assets | Separate model-license and exact-version review; see third-party notices |
 
@@ -53,37 +53,9 @@ The CC conditions are described by the licensors in
 licensed material and relevant adaptations, not automatically to independent code
 merely because it evaluates that material.
 
-## Minimal future per-example export
-
-A public-data-only export may contain dataset/revision IDs, public example ID,
-opaque trajectory ID, split, step ordinal/offsets, numeric correctness/role/type
-targets, validity masks, dependency indices, numeric predictions and model IDs.
-These are candidate fields, not permission to export existing dictionaries verbatim.
-
-Exclude question/prompt/solution text, consumed/produced content strings, rationales,
-reference answer text, raw model responses, annotator IDs, API/service metadata,
-timestamps tied to private runs, and absolute paths. Hashing a private problem does
-not by itself make it publishable. Private collections have no per-example export
-permission under this policy.
-
-Before releasing such an export, verify its source and license, retain required
-notices, choose the authors' annotation license where applicable, and verify that
-the exported fields reproduce the intended metrics. No current replay command is a
-sanitizer: runtime outputs and original recovery ZIP/TAR files remain excluded.
-
-## Remaining release work
-
-1. Resolve the SFT pool's origin/permissions. LAMBADA's content variant is confirmed
-   for four recovered runs; obtain the older paper Base per-example records if exact
-   historical coverage of that run is required.
-2. Match public source revisions and split/example IDs to the historical local data.
-3. Produce and verify a text-free public-data cache if offline replay is to be offered.
-4. Select the author-code/annotation license and complete the per-file third-party
-   provenance review described in [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md).
-
-Optional dataset imports in the recovered evaluation framework are not evidence
-that those datasets were used in the reported experiments. The inventory follows
-the recovered experiment configurations and result records.
+The included Table 2 export is described in its [schema](../reproduction/table2/SCHEMA.md).
+Other row-level exports are not included. The restrictions above continue to
+apply to private collections, raw text and model outputs.
 
 The LAMBADA comparison uses the ordered English default test file at revision
 `900124bf3b8235c6daf21033af9948b3f07346c4`. Each source text is split at its last

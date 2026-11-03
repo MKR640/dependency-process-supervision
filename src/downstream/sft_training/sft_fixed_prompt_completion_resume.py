@@ -236,7 +236,7 @@ def main(script_args, training_args, model_args, dataset_args):
 
         trainer = SFTTrainer(
             model=model_args.model_name_or_path,
-            processing_class=tokenizer, # <-- 显式传入修正后的 tokenizer
+            processing_class=tokenizer,
             args=training_args,
             train_dataset=dataset[script_args.dataset_train_split],
             eval_dataset=(

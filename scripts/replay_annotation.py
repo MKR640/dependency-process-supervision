@@ -1,8 +1,6 @@
-"""Replay materialization and cessation processing from frozen outputs, offline.
+"""Reconstruct step labels and training targets from saved annotation outputs.
 
-Source inputs are read only. Historical timestamps are restored solely from
-provenance metadata to permit original record/file hash comparisons. No target
-labels, text, inputs, outputs, or audit flags are copied into generated results.
+Inputs are read-only. Recorded timestamps are retained for exact output comparison.
 """
 import argparse
 from collections import Counter, defaultdict

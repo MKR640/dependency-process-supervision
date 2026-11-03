@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Merge only the explicit completed ranking shards from one manifest (no glob)."""
-# 【修改】不再使用 *_rank*.jsonl 通配符合并，避免混入旧分片。
-# 【新增】按 manifest 明确进程数，逐分片检查完成标记、哈希、题目和候选。
-# 【修改】单卡同样走严格合并；输出顺序与候选输入一致。
-# 【说明】本脚本合并 PRM 推理分片，不用于原生成器的候选分片。
+# Merge only the shards listed in the manifest.
+# Validate shard completion and alignment with the candidate pool.
+# Preserve candidate order for both single- and multi-device runs.
+# This merger consumes PRM ranking shards.
 import argparse
 from pathlib import Path
 from evaluate import (atomic_write, complete, file_hash, read_json, read_jsonl,

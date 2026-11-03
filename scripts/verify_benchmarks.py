@@ -1,8 +1,6 @@
-"""Validate recovered benchmark source against frozen caches using CPU only.
+"""Recompute physics statistics and ProcessBench decoding metrics on the CPU.
 
-Runs the recovered physics statistics entry, never its inference shell. For
-ProcessBench, executes only AST-selected metric/mapping definitions and the
-lightweight BasePRM score decoder; torch and model constructors are not loaded.
+Uses saved predictions and scoring functions; models are not loaded.
 """
 import argparse
 import ast
@@ -118,7 +116,7 @@ def main():
                         physics_differences[row['model']+':'+metric] = {'recorded': old['metrics'][metric], 'recomputed': item}
             physics_log = log.getvalue().splitlines()
     candidates = {}
-    # Only the selected historical implementation is included in this minimal package.
+    # Use the implementation associated with these benchmark outputs.
     for variant in ['processbench_3model_hier_v2']:
         path = root / 'prm/ProcessBench' / variant / 'prm_eval/qwen3_math_prm.py'
         content = path.read_text(encoding='utf-8-sig')

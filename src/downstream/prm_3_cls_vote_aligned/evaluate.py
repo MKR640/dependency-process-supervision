@@ -1,29 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""五脚本版：评测、加权投票、离线重排、验证集选参和流程调度。
+"""Evaluate answer selection, weighted voting and validation-selected policies.
 
-【修改说明】与用户原 evaluate.py 相比：
-  A. 原答案抽取、纯 PRM / Majority / Oracle 计算保留。
-  B. 新增加权答案投票，独立报告 selected_strategy_accuracy。
-  C. 新增 Role 融合、最低部分步骤均值、CPU 离线重排。
-  D. 新增验证集选参/冻结配置，拦截验证与测试的相同题目。
-  E. 新增完整性校验及流程入口，不再依赖其他辅助 Python 文件。
+Examples:
+  python evaluate.py --ranked result.jsonl --output metrics.json
+  python evaluate.py rerank --scores scores.jsonl --candidates candidates.jsonl --allow-legacy --output reranked.jsonl
+  python evaluate.py tune --validation-ranked val.jsonl --split validation --allow-legacy --output policy.json
 
-用法（同目录只需本次提供的五个脚本）：
-  python3 evaluate.py --ranked result.jsonl --output metrics.json
-  python3 evaluate.py rerank --scores old.jsonl --candidates candidates.jsonl --allow-legacy --output new.jsonl
-  python3 evaluate.py tune --validation-ranked val.jsonl --split validation --allow-legacy --output policy.json
-  python3 evaluate.py run --candidates candidates.jsonl --scores old.jsonl --allow-legacy --output-dir results
-  bash run_best_of_n_hierarchical_prm.sh
-
-只有 GPU 推理/生成需要 Torch；评测/离线重排/选参仅需标准库。
+Scoring, offline reranking and policy selection use the Python standard library.
+GPU generation and inference require PyTorch.
 """
 from __future__ import annotations
 
 
 
 # ======================================================================
-# 【新增 A】公共校验、内容哈希、原子写入和评分公式
+# 公共校验、内容哈希、原子写入和评分公式
 # ======================================================================
 import hashlib
 
@@ -150,7 +142,7 @@ def validate_ranked(rows, candidates=None, require_steps=False, allow_empty=Fals
                     if step.get('step_index') != i or step.get('step_text') != texts[i]:
                         raise ValueError("Step order/text mismatch")
                     probability(step.get('correct_probability'))
-                    # 【对齐新增】三分类无 Role/Type；明确缺失，不填伪造概率。
+                    # 三分类无 Role/Type；明确缺失，不填伪造概率。
                     if row.get('prm_model_type') == 'three_class_prm':
                         if step.get('role_probabilities') is not None or step.get('predicted_role') is not None:
                             raise ValueError('Three-class PRM must not fabricate Role outputs')
@@ -187,7 +179,7 @@ def scoring_config(mode='correctness', alpha=0.0, aggregation='min_gmean_mix', m
 
 def step_score(step, config):
     c = probability(step['correct_probability'])
-    # 【对齐修改】correctness 模式不读取不存在的 Role 概率。
+    # correctness 模式不读取不存在的 Role 概率。
     if config['score_mode'] == 'correctness':
         return c
     if not step.get('role_probabilities'):
@@ -249,7 +241,7 @@ def model_hash(path):
 
 
 # ======================================================================
-# 【保留】原答案抽取与基线指标函数：判分口径不变
+# Answer extraction and baseline metrics.
 # ======================================================================
 import argparse
 
@@ -851,7 +843,7 @@ def evaluate_n(data, n, seed=42, classification_threshold=0.5):
 
 
 # ======================================================================
-# 【新增 B】PRM 加权答案投票与冻结配置；选择函数不读取参考答案
+# PRM 加权答案投票与冻结配置；选择函数不读取参考答案
 # ======================================================================
 import math
 
@@ -935,7 +927,7 @@ def load_policy(path, target_rows=None, target_scores=None, enforce_disjoint=Tru
 
 
 # ======================================================================
-# 【新增 C】CPU 离线重排，复用步骤概率
+# CPU 离线重排，复用步骤概率
 # ======================================================================
 import argparse
 
@@ -1007,7 +999,7 @@ def config_from_args(a):
 
 
 # ======================================================================
-# 【新增 D】仅用独立验证集选参，保留原配置参与比较
+# 仅用独立验证集选参，保留原配置参与比较
 # ======================================================================
 import argparse
 
@@ -1093,7 +1085,7 @@ def fit(path, output, target_n=8, allow_legacy=False, alphas=(0., .15, .3),
 
 
 # ======================================================================
-# 【修改 E】严格评测及新旧策略分列比较
+# Evaluate and report each selection strategy separately.
 # ======================================================================
 import argparse
 
@@ -1265,7 +1257,7 @@ def evaluate(ranked, output, n_values, threshold=.5, seed=42, details_output=Non
 
 
 # ======================================================================
-# 【新增 F】完整流程已合并到本文件，无需 pipeline.py
+# End-to-end evaluation entry.
 # ======================================================================
 import argparse
 
@@ -1280,9 +1272,9 @@ import subprocess
 import sys
 
 def execute(a):
-    # 【修改】延迟导入合并器，避免模块循环依赖。
+    # 延迟导入合并器，避免模块循环依赖。
     from merge_candidates import merge
-    # 【对齐新增】可读取分层实际 latest_run.json，而非猜测历史参数。
+    # Read inference settings from latest_run.json.
     matched = match_reference_run(a) if a.match_run else None
     config = config_from_args(a)
     selection = selection_config(a.selection_method, a.vote_beta, a.vote_temperature)
@@ -1345,7 +1337,7 @@ def execute(a):
     # Content+config-derived directory names prevent different variants colliding.
     if a.policy:
         load_policy(a.policy, data, raw, enforce_disjoint=(a.split == 'test'))
-    # 【修复】不再把自身 raw 缓存伪装为 Reference PRM。
+    # Reference PRM comparisons require a separate reference prediction file.
     reference = a.baseline_ranked
     identity = dict(scores_sha256=file_hash(raw), scoring=config, selection=selection,
                     code_sha256=code_hash(), n_values=n_values, split=a.split, seed=a.seed,
@@ -1449,7 +1441,7 @@ def tune_cli(argv):
 
 ORIGINAL_ATTACHMENT_CODE_HASH = '32ba5c8472e243d5fdf1b3639519c13f535939842ab9ec528e29de04a2dab9f0'
 
-# 【对齐新增】实际运行参数继承与两模型×两策略比较；不从历史百分数填表。
+# Compare two models and two selection strategies using their saved predictions.
 def source_manifest(path):
     meta = read_json(str(path) + '.meta.json')
     while isinstance(meta, dict):
@@ -1622,7 +1614,7 @@ def compare_cli(argv):
     print(text)
 
 
-# 【新增 G】默认兼容原 evaluate.py --ranked ...；扩展功能使用子命令。
+# Use --ranked for direct evaluation or a subcommand for other tasks.
 if __name__ == '__main__':
     arguments = sys.argv[1:]
     commands = {'run': pipeline_cli, 'rerank': rerank_cli, 'tune': tune_cli, 'report': evaluation_cli, 'compare': compare_cli}

@@ -11,7 +11,7 @@
       ],
       "locator": "reproduction/table2/",
       "download": "artifacts/table2-role-replay-v1.zip",
-      "sha256": "978109fcdcf2530fde1ccd4f62a92477de54ca5140d18e5dd2b5d00c70fd86da",
+      "sha256": "648f87eab0af0215c1c637a78563fa951a7842c649212f9d0fdc38cfbccd6945",
       "scope": "Five shared-label conditions; metric replay only; no text, original example IDs, or question hashes."
     },
     {

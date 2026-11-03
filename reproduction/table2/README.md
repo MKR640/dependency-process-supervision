@@ -26,9 +26,8 @@ python reproduce.py
 Only NumPy is required. No GPU, model weights, API key, or external dataset
 is needed. After installing NumPy, the calculation runs offline.
 
-The program verifies package hashes, computes the results from the numeric
-data, checks them against the archived reference at absolute tolerance
-`1e-12`, and prints both tables. A successful run exits with code `0` and writes:
+The program computes both tables from the numeric data and checks them against
+the reference results. A successful run exits with code `0` and writes:
 
 | Output | Contents |
 |---|---|
@@ -36,7 +35,7 @@ data, checks them against the archived reference at absolute tolerance
 | `results/table2a.csv`, `results/table2b.csv` | Unrounded table values, expressed as percentages |
 | `results/contrasts.csv` | Paired supervision contrasts and 95% CIs, in percentage points |
 | `results/metrics.json` | Full metrics, per-class scores, confusion matrices, thresholds and intervals |
-| `results/verification.json` | Execution environment, data hashes and successful reference comparison |
+| `results/verification.json` | Execution environment and result-check status |
 
 Existing output directories are never overwritten. To run again:
 
@@ -81,10 +80,7 @@ no private mathematics/physics collection is included.
 `expected.json` is used only to check already-computed results. It does not
 supply thresholds, predictions or metric outputs to the calculation.
 
-## Source and scope
+## Implementation
 
-The numerical functions are retained from the accompanying code repository at
-commit `39ee6d3b3a3837b88767a359b72bde3f91df6107`. The standalone entry adapts
-loading to the text-free numeric files and restricts reporting to Table 2's
-five conditions. `manifest.json` records the hashes of all package inputs and
-code. See [NOTICES.md](NOTICES.md).
+The package uses the paper's evaluation functions with numeric inputs for the
+five Table 2 conditions. See [NOTICES.md](NOTICES.md) for licensing information.

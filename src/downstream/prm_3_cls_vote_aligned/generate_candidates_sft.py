@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# 【保留】生成、采样、格式清洗和答案提取逻辑与上传版本一致。
-# 【说明】仅添加本段注释；评测入口优先复用已生成候选，不自动重生成。
-# 原生成器单卡也写入 *_rank0.jsonl，成功完成后可直接作为 CANDIDATES。
-# 所有 PRM 对比实验必须共享同一候选文件。
+# Generate one candidate pool shared by all PRM comparisons.
+# Single-device output uses the *_rank0.jsonl filename convention.
 
 import os
 import re

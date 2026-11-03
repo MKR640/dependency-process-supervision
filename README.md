@@ -1,10 +1,11 @@
 # Tracing Error Origins and Propagation
 
-Code accompanying **Tracing Error Origins and Propagation: Dependency-Grounded
-Process Supervision for Mathematics and Physics**.
+**Dependency-Grounded Process Supervision for Mathematics and Physics**
 
-**Anonymous submission to ICLR 2027.** Author information and public citation
-metadata will be added after anonymous review.
+Code and reproducibility materials for the paper, including training and
+evaluation scripts and a runnable reproduction package for Table 2.
+
+*Anonymous submission to ICLR 2027.*
 
 [Overview](#overview) · [Method](#method) · [Results](#results) ·
 [Quick start](#quick-start) · [Experiments](docs/EXPERIMENTS.md) ·
@@ -91,7 +92,7 @@ role supervision while holding attribution labels fixed.
 The paper also reports reasoning-length and first-error-position analyses,
 ProcessBench evaluation, answer voting, and SFT data selection. The
 [experiment map](docs/EXPERIMENTS.md) connects these studies to their code and
-configurations, including the recorded scorer used for SFT selection.
+configurations.
 
 ## Quick start
 
@@ -104,18 +105,14 @@ From the repository root:
 python examples/label_conversion.py
 ```
 
-The example runs the actual target converter on a synthetic ideal-gas derivation
-with supplied labels. It covers new and propagated errors, a correct step after
-an error, a mixed error, and recovery. It writes the input, trajectory targets,
-and per-step training rows to `outputs/example_*` and checks label masks and
-reasoning prefixes. This example demonstrates target construction; automatic
-annotation and model evaluation use the separate entries below.
+The example converts supplied labels for a synthetic ideal-gas derivation into
+training targets, covering new errors, propagation, mixed errors and recovery.
+Outputs are saved under `outputs/example_*`.
 
 ### Reproduce Table 2 and role diagnosis
 
 [Download the standalone replay package (about 2 MB)](https://github.com/MKR640/dependency-process-supervision/raw/refs/heads/main/artifacts/table2-role-replay-v1.zip)
 · [Instructions and source](reproduction/table2/README.md)
-· [SHA-256](artifacts/table2-role-replay-v1.zip.sha256)
 
 The package includes text-free numeric predictions, reference labels, and anonymous
 group codes for all five shared-label conditions. No GPU, model weights, API key,
@@ -132,29 +129,10 @@ JSON outputs under `results/`. The same files are in `reproduction/table2/` for
 users who clone the repository. No problem statements or reasoning text are included.
 This replays fixed model outputs; it does not retrain the models.
 
-### Other experiments and original-bundle replay
+### Training and other experiments
 
-The example and CPU tests also run with this repository alone. Other experiment
-replays and the original full-bundle commands below require external assets.
-
-Install the CPU replay dependencies in a separate environment:
-
-```bash
-python -m venv .venv-cpu
-# Activate .venv-cpu using your platform's activation command.
-python -m pip install -r environments/cpu/requirements.txt
-python -m unittest discover -s tests -v
-```
-
-Given the corresponding external prediction bundle, replay the shared-label study:
-
-```bash
-python scripts/reproduce.py --module table2 --table2-bundle /path/to/formal_bundle --verify
-python scripts/reproduce.py --module roles --table2-bundle /path/to/formal_bundle --verify
-```
-
-For training, annotation, other evaluation modules, and required assets, see the
-[reproduction guide](docs/REPRODUCTION.md).
+See the [reproduction guide](docs/REPRODUCTION.md) for annotation, training,
+other evaluation commands and their required data or model weights.
 
 ## Repository structure
 
@@ -179,10 +157,8 @@ weights, original datasets, and other prediction caches are not bundled. Public 
 in [Data access](docs/DATA_ACCESS.md). The provider-supplied problem collection
 cannot be redistributed.
 
-All seven CPU replay modules have been checked internally against the stored
-experiment outputs. Fresh GPU training/inference and Linux execution have not
-been validated for this release. See [Release status](docs/RELEASE_STATUS.md) for
-the current scope.
+Table 2 replay has been tested on Windows with Python 3.12 and NumPy 2.3.5.
+See [execution coverage](docs/RELEASE_STATUS.md) for other evaluation and training entries.
 
 Author-code licensing is pending. Third-party notices and component-specific
 terms are recorded in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

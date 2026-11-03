@@ -20,26 +20,26 @@
   {
     "path": "scripts/cache_metrics.py",
     "source_sha256": "ecf6de289dd2a999a2b36b26bd89eab25e5be364cc7e7e50083a8c88346f35f9",
-    "release_sha256": "ecf6de289dd2a999a2b36b26bd89eab25e5be364cc7e7e50083a8c88346f35f9",
-    "change": "none"
+    "release_sha256": "e61e9c2f889425cd62eb4544d7a8288723f4b74ce802257047b3b3ce9120b34b",
+    "change": "Reader-facing docstrings/comments updated; executable AST unchanged."
   },
   {
     "path": "scripts/replay_annotation.py",
     "source_sha256": "c36fbac1b5bb233ddb3b6cbcb7930b63e96aa9f0d2a938ac1e16a27e84afff21",
-    "release_sha256": "c36fbac1b5bb233ddb3b6cbcb7930b63e96aa9f0d2a938ac1e16a27e84afff21",
-    "change": "none"
+    "release_sha256": "d45dbb73c7caad72e001d7b7b24b4a5c81e801a79cfb58eb109ae6e4da91d683",
+    "change": "Reader-facing docstrings/comments updated; executable AST unchanged."
   },
   {
     "path": "scripts/reproduce.py",
     "source_sha256": "6f0f71ac61600be04227bd1ecfb8474c0f0e3284cf44617e636b7a641cd48457",
-    "release_sha256": "6056e31ea85f1363a49c6478f00a87cb4ce51cd35c9e5c40bac938aac56ad274",
-    "change": "External resource-root interface, formal bundle identity checks and nonzero blocked exit"
+    "release_sha256": "1ef0625c064c672c270b361a13e296389f92aac20aaedc4788aa647c3316c343",
+    "change": "Reader-facing docstrings/comments updated; executable AST unchanged."
   },
   {
     "path": "scripts/verify_benchmarks.py",
     "source_sha256": "a61130f1389f8f66c2b22b22863485d8bb393bc1e5c4c3937d42e4b229915f2b",
-    "release_sha256": "a61130f1389f8f66c2b22b22863485d8bb393bc1e5c4c3937d42e4b229915f2b",
-    "change": "none"
+    "release_sha256": "4cd7c32dccaac240289123ca71442c15e4e6346ad428f2bdb67985876ae1d721",
+    "change": "Reader-facing docstrings/comments updated; executable AST unchanged."
   },
   {
     "path": "configs/annotation/prompts/cessation_binary_prompt_v1.txt",
@@ -266,26 +266,26 @@
   {
     "path": "src/downstream/prm_3_cls_vote_aligned/evaluate.py",
     "source_sha256": "dd00cdd5e179500584899187b24cf00674fba566800273deb105d321551793e1",
-    "release_sha256": "dd00cdd5e179500584899187b24cf00674fba566800273deb105d321551793e1",
-    "change": "none"
+    "release_sha256": "7221aa82e2e87da438b9bfee4ddd08017f323b7de77853f506b15242c2cc7fc3",
+    "change": "Reader-facing docstrings/comments updated; executable AST unchanged."
   },
   {
     "path": "src/downstream/prm_3_cls_vote_aligned/generate_candidates_sft.py",
     "source_sha256": "06df100cb71bfb00b4aaa7d044540ce988a17c51b251ce865baf395373d5ca3a",
-    "release_sha256": "100bfaeff9901e30401fec0b6be8ac2d3637e3800d88c7c918298d4381b207ae",
-    "change": "Internal model/data path defaults or institutional service endpoint replaced; numerical and parsing logic unchanged"
+    "release_sha256": "fd295005431a75b3fbb91635d9fdc6ef821c98b595e1b8c1f2f3245d96d25d8b",
+    "change": "Reader-facing docstrings/comments updated; executable AST unchanged."
   },
   {
     "path": "src/downstream/prm_3_cls_vote_aligned/hierarchical_prm_rank.py",
     "source_sha256": "f78da2c329345664650ae12483fe8c05c96f75fa3036542baaa5dea014218fbf",
-    "release_sha256": "f78da2c329345664650ae12483fe8c05c96f75fa3036542baaa5dea014218fbf",
-    "change": "none"
+    "release_sha256": "2e4ee1cbbc1c5bf5fafb7d3fd9ac2ec484dca7b1c126a7fbc6928ba83d65a111",
+    "change": "Reader-facing docstrings/comments updated; executable AST unchanged."
   },
   {
     "path": "src/downstream/prm_3_cls_vote_aligned/merge_candidates.py",
     "source_sha256": "672d88db76d8963b457a86e95bbc961e90bf11ae3d37b746ee6d5d17e05a64f5",
-    "release_sha256": "672d88db76d8963b457a86e95bbc961e90bf11ae3d37b746ee6d5d17e05a64f5",
-    "change": "none"
+    "release_sha256": "bddcd4c42b4a029219db4571b687b157d108ee65662dbcd90faafdcafbaec2c1",
+    "change": "Reader-facing docstrings/comments updated; executable AST unchanged."
   },
   {
     "path": "src/downstream/prm_sft_selection/select_prm_sft.py",
@@ -308,14 +308,14 @@
   {
     "path": "src/downstream/sft_training/sft_fixed_prompt_completion.py",
     "source_sha256": "8c30dd6c438d0bb5ad06bfb15219f8e601daf05a511c25982f180cd1d31501b1",
-    "release_sha256": "3d0a938a412b5b9ed87fdc2737a0db4112a10729f30a33cec8d2a00105234002",
-    "change": "Internal model/data path defaults or institutional service endpoint replaced; numerical and parsing logic unchanged"
+    "release_sha256": "8e3d3864aa24b7a6e959d0b8e3f217a603f91ba1ed9b8f1800fb407376a954ad",
+    "change": "Reader-facing docstrings/comments updated; executable AST unchanged."
   },
   {
     "path": "src/downstream/sft_training/sft_fixed_prompt_completion_resume.py",
     "source_sha256": "8bd0044fdae9c22da70db51af59586b924500eb024a32afd2a609f073e39f047",
-    "release_sha256": "e2df569a7b154e2e9b3b92008f6fa94732142265bad157aaedf3ed0a623360cd",
-    "change": "Internal model/data path defaults or institutional service endpoint replaced; numerical and parsing logic unchanged"
+    "release_sha256": "17df082aaaa9c703cbea837ba0c19de24b90ca0ea2e460ffcbf3fa20f9feebcb",
+    "change": "Reader-facing docstrings/comments updated; executable AST unchanged."
   },
   {
     "path": "src/downstream/opencompass/requirements/agent.txt",

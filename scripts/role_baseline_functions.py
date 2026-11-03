@@ -1,4 +1,4 @@
-"""Recovered numerical functions; sorted contiguous traces required. No data is bundled."""
+"""Role metrics for rows sorted by trajectory and step."""
 import numpy as np
 
 def score(y, p, classes=(0,1,2)):

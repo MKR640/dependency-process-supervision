@@ -1,4 +1,4 @@
-"""Recompute the historical correctness-derived sequential role comparison."""
+"""Evaluate the sequential role rule and the learned role head."""
 import argparse
 import hashlib
 import json

@@ -1,8 +1,7 @@
-"""Recompute historical metrics and labelled post-hoc diagnostics from caches.
+"""Compute metrics and stratified diagnostics from saved predictions.
 
-No model loads, training, threshold fitting, or external requests. New analyses
-use fixed 0.5 decisions and the manuscript's density strata. Bootstrap units
-are normalized questions, with paired resampling across model/decoder outputs.
+Diagnostics use a fixed 0.5 threshold and the paper's error-density strata.
+Paired bootstrap samples are drawn at the normalized-question level.
 """
 import argparse
 from collections import defaultdict

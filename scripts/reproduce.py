@@ -1,4 +1,4 @@
-"""Offline reproduction entry. No training, network, weights or historical shell execution."""
+"""Recompute experiment metrics from saved predictions and reference labels."""
 import argparse
 import ast
 import csv

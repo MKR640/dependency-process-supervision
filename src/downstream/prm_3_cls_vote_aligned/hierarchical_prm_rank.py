@@ -1,13 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""【对齐新增】分层/三分类共用输入构造及推理流程。
-分层 PRM 三头推理。
-【保留】原模型结构、双换行切分、训练一致的截断与最后 token 打分。
-【新增】步骤长度/截断诊断、完整步骤概率输出。
-【修改】按 manifest 分片、原子写入、完成标记、已完成分片恢复。
-【修改】加载时检查缺失/多余参数，避免随机任务头被静默使用。
-【修改】通过同目录 evaluate.py 共享校验函数，不需要其他辅助模块。
-由 run_best_of_n_hierarchical_prm.sh 启动；独立调用使用 --manifest。
+"""Score candidates with hierarchical or three-class PRMs using shared input packing.
+
+Matches training-time truncation and scores the final token of each step.
+Writes per-step probabilities and truncation statistics for each manifest shard.
 """
 from __future__ import annotations
 
@@ -107,7 +103,7 @@ class HierarchicalPRMModel(PreTrainedModel):
             error_type_logits=self.error_type_head(hidden),
         )
 
-# 【对齐新增】三分类模型只投影 ERROR/CORRECT logits；没有 Role/Type 头。
+# 三分类模型只投影 ERROR/CORRECT logits；没有 Role/Type 头。
 def resolve_threeclass_ids(config, explicit):
     if int(config.num_labels) != 3:
         raise ValueError(f'Expected 3 labels, got {config.num_labels}')
@@ -315,7 +311,7 @@ def score_trajectory(
         for step_index, step in enumerate(steps)
     ]
 
-    # 【新增】截断诊断；以下统计不改变模型实际输入。
+    # 截断诊断；以下统计不改变模型实际输入。
     # Diagnostic only: keep the original training-compatible packing unchanged.
     sep_length = len(tokenizer.encode(separator, add_special_tokens=False))
     cumulative = (int(tokenizer.bos_token_id is not None)
@@ -342,7 +338,7 @@ def score_trajectory(
         correctness_probs = torch.softmax(
             outputs.correctness_logits[batch_indices, last_positions].float(), dim=-1
         ).cpu()
-        # 【对齐新增】双头概率 softmax 等价于 p(C)/(p(C)+p(E))，更数值稳定。
+        # 双头概率 softmax 等价于 p(C)/(p(C)+p(E))，更数值稳定。
         is_threeclass = outputs.three_class_logits is not None
         if is_threeclass:
             if score_mode != 'correctness':
@@ -453,7 +449,7 @@ def score_trajectory(
         "first_predicted_new_error_step": first_new_error,
     }
 
-# 【修改】原 main 已替换为可校验、可恢复的分片入口。
+# Manifest-based shard execution with resume support.
 import argparse
 import os
 from pathlib import Path
@@ -481,7 +477,7 @@ def main():
     shard = rows[rank::world]
     output = Path(manifest['shard_dir']) / f'rank{rank}.jsonl'
     identity = dict(run_id=manifest['run_id'], rank=rank, world_size=world)
-    # 【新增】仅复用内容哈希与身份都匹配的完整分片。
+    # 仅复用内容哈希与身份都匹配的完整分片。
     if verified(output, identity):
         validate_ranked(read_jsonl(output), shard, require_steps=True, allow_empty=True)
         print(f'[rank {rank}] reuse verified completed shard', flush=True)
@@ -505,7 +501,7 @@ def main():
     dtype = getattr(torch, manifest['dtype'])
     path = manifest['model']['path']
     config = AutoConfig.from_pretrained(path, trust_remote_code=True)
-    # 【修改】显式读取 config，并核验三头模型参数完整性。
+    # 显式读取 config，并核验三头模型参数完整性。
     kind = manifest.get('model_kind', 'hierarchical')
     model_class = AutoModelForTokenClassification if kind == 'threeclass' else HierarchicalPRMModel
     model, loading = model_class.from_pretrained(
@@ -527,7 +523,7 @@ def main():
         tokenizer.pad_token = tokenizer.eos_token
     correctness, role, error_type = (resolve_label_maps(config) if kind == 'hierarchical'
                                      else (CORRECTNESS_ID2LABEL, ROLE_ID2LABEL, ERROR_TYPE_ID2LABEL))
-    # 【对齐新增】词表语义和实际 token 序列都留存，供两模型输入一致性检查。
+    # 词表语义和实际 token 序列都留存，供两模型输入一致性检查。
     tokenizer_fingerprint = digest(dict(vocab=tokenizer.get_vocab(), bos=tokenizer.bos_token_id,
                                         eos=tokenizer.eos_token_id, pad=tokenizer.pad_token_id))
     resolved_ids = ids if kind == 'threeclass' else correctness
@@ -554,7 +550,7 @@ def main():
             if position % 20 == 0 or position == len(shard):
                 print(f'[rank {rank}] {position}/{len(shard)} questions', flush=True)
 
-    # 【修改】原子写入 + 完成标记，半写结果不会进入后续合并。
+    # 原子写入 + 完成标记，半写结果不会进入后续合并。
     atomic_write(output, outputs(), jsonl=True)
     validate_ranked(read_jsonl(output), shard, require_steps=True, allow_empty=True)
     complete(output, identity, len(shard))
