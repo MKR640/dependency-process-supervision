@@ -1,0 +1,58 @@
+{
+  "paper": "Tracing Error Origins and Propagation: Dependency-Grounded Process Supervision for Mathematics and Physics",
+  "source_code_commit": "39ee6d3b3a3837b88767a359b72bde3f91df6107",
+  "scope": "Table 2(a), Table 2(b), and paired shared-label contrasts on PRM800K",
+  "models": {
+    "M0": "First-error mask",
+    "M1": "BFE-style full-trace binary",
+    "M3": "Correctness + type",
+    "M4": "Correctness + role",
+    "M5": "Full hierarchy"
+  },
+  "correctness_labels": {
+    "0": "incorrect",
+    "1": "correct"
+  },
+  "role_labels": {
+    "0": "correct (including recovery)",
+    "1": "new error (including mixed errors)",
+    "2": "propagated error"
+  },
+  "type_order": [
+    "calculation",
+    "derivation_or_logic",
+    "method_or_formula",
+    "problem_understanding",
+    "assumption_or_condition",
+    "answer_mismatch",
+    "missing_evidence",
+    "unit"
+  ],
+  "type_ignore_index": -100,
+  "type_table_average": "six reference-supported classes, evaluated on reference new errors with known types",
+  "detection_threshold": "maximum validation balanced accuracy; ties nearest 0.5 then smaller; include 0.5 as a candidate",
+  "role_threshold": "maximum validation role macro-F1 on grid 0..1 step 0.001; ties nearest 0.5 then smaller",
+  "bootstrap": {
+    "samples": 2000,
+    "detection_seed": 20260923,
+    "role_seed": 20260925,
+    "unit": "paired normalized-problem groups",
+    "interval": "2.5th and 97.5th percentile; conditional on frozen trained models"
+  },
+  "counts": {
+    "validation": {
+      "steps": 13930,
+      "traces": 2120,
+      "problems": 405
+    },
+    "test": {
+      "steps": 9073,
+      "traces": 1377,
+      "problems": 410
+    }
+  },
+  "data_format": "Numeric NPZ arrays; float64 preserves original exported probabilities; allow_pickle=False",
+  "anonymization": "Original identifiers and problem hashes replaced by order-preserving integer codes; no reverse mapping included",
+  "retained_content": "labels, probabilities, within-trace step positions and numeric grouping codes only",
+  "omitted_content": "problem statements, worked solutions, reasoning text, original IDs, original per-question hashes, model paths, credentials, training samples"
+}

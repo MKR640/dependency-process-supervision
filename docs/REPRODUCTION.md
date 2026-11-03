@@ -12,6 +12,23 @@ and metric replay. Choose the entry that matches the resources available to you.
 | Recompute experiment metrics | `scripts/reproduce.py` | CPU environment and corresponding stored predictions/labels |
 | Produce new predictions | `src/existing_eval/`, `src/benchmarks/`, `src/downstream/` | Model weights, evaluation inputs, and task-specific environment |
 
+## Table 2: self-contained replay
+
+Download the [standalone ZIP](https://github.com/MKR640/dependency-process-supervision/raw/refs/heads/main/artifacts/table2-role-replay-v1.zip)
+and follow its [README](../reproduction/table2/README.md). Alternatively, from a
+repository clone:
+
+```bash
+cd reproduction/table2
+python -m pip install -r requirements.txt
+python reproduce.py
+```
+
+This package includes the numeric inputs for Table 2(a), Table 2(b), validation
+threshold selection and paired bootstrap intervals. It uses a compact NPZ format;
+it is not an input to the original `scripts/reproduce.py --table2-bundle` command.
+All values match the historical reference within absolute tolerance `1e-12`.
+
 ## CPU environment
 
 ```bash
@@ -27,6 +44,9 @@ Training and external evaluation use separate environments; see
 [environment records](../environments/README.md).
 
 ## Replay stored experiment outputs
+
+The following commands use the original external bundle format. For the included
+Table 2 package, use the self-contained command above.
 
 The external asset-root layout is specified in
 [`configs/resources.json`](../configs/resources.json). Those assets are not
@@ -93,7 +113,7 @@ normalization are described in the [experiment map](EXPERIMENTS.md).
 ## Data and model access
 
 See [Data access](DATA_ACCESS.md) and the root [`resources.json`](../resources.json)
-for required external assets. The current repository does not provide downloadable
-model weights or prediction bundles. Private-data experiments require the original
+for required external assets. The text-free Table 2 package is downloadable;
+model weights and other prediction bundles remain external. Private-data experiments require the original
 collection, which cannot be redistributed. The synthetic example runs independently
 of these resources.

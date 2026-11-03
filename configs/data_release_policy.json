@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "checked_date": "2026-11-02",
-  "publication_status": "local_only",
+  "checked_date": "2026-11-03",
+  "publication_status": "github_source_and_explicit_table2_numeric_export",
   "author_license": "pending",
   "scope": "Data-like result files; not a blanket source-code or dataset license.",
   "default_for_unlisted_data": "exclude",
@@ -29,10 +29,45 @@
       "sha256": "4cbaf0c5b86993e55d9f7d53fd7a45732be31bf921479e6166f8043fb8c87559",
       "kind": "aggregate_metrics_or_protocol_metadata",
       "status": "included_in_local_candidate"
+    },
+    {
+      "path": "reproduction/table2/data/test.npz",
+      "sha256": "86ddc197c427ae744184af909eefbe64dd4570a24fabe93c037a45da518c0d3b",
+      "kind": "table2_text_free_numeric_replay",
+      "status": "included_author_authorized",
+      "scope": "Only Table 2 numeric export; not raw data or a license grant."
+    },
+    {
+      "path": "reproduction/table2/data/validation.npz",
+      "sha256": "f61180f299d8d32a5483e053b97af1314437265422686d9f5a554f2a116f1d42",
+      "kind": "table2_text_free_numeric_replay",
+      "status": "included_author_authorized",
+      "scope": "Only Table 2 numeric export; not raw data or a license grant."
+    },
+    {
+      "path": "reproduction/table2/expected.json",
+      "sha256": "6936787c173e3caaaec4d04ca5dd5d7530a7097b28e8b35f6e35e2d4bbf9fd54",
+      "kind": "table2_text_free_numeric_replay",
+      "status": "included_author_authorized",
+      "scope": "Only Table 2 numeric export; not raw data or a license grant."
+    },
+    {
+      "path": "reproduction/table2/protocol.json",
+      "sha256": "b31927124fc044d335800af74ba987983fca334ecf9b357b66496975e9a5fdb6",
+      "kind": "table2_text_free_numeric_replay",
+      "status": "included_author_authorized",
+      "scope": "Only Table 2 numeric export; not raw data or a license grant."
+    },
+    {
+      "path": "artifacts/table2-role-replay-v1.zip",
+      "sha256": "978109fcdcf2530fde1ccd4f62a92477de54ca5140d18e5dd2b5d00c70fd86da",
+      "kind": "table2_text_free_numeric_replay",
+      "status": "included_author_authorized",
+      "scope": "Only Table 2 numeric export; not raw data or a license grant."
     }
   ],
   "conditional_public_example_export": {
-    "status": "not_exported_or_cleared",
+    "status": "table2_numeric_subset_included; other exports not approved",
     "fields": [
       "public_dataset_id",
       "source_revision",
@@ -424,5 +459,5 @@
       "note": "Internal name Quizlet; no verified public source or permission. Do not assume it is identical to the provider collection."
     }
   ],
-  "not_covered": "Optional framework imports are not reported-experiment evidence. No raw data export or license grant is performed."
+  "not_covered": "The Table 2 numeric export does not authorize raw data, other caches, model weights, or a new license grant."
 }

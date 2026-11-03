@@ -9,3 +9,9 @@ models/
 *.tar.gz
 .env
 .env.*
+
+# Explicit text-free reviewer replay assets
+!reproduction/table2/data/
+!reproduction/table2/data/*.npz
+!artifacts/table2-role-replay-v1.zip
+reproduction/table2/results*/

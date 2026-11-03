@@ -1,7 +1,10 @@
 # Data and model access
 
-No dataset, prediction archive, private problem text, model payload or internal recovery
-ledger is bundled in this source candidate. `resources.json` lists external assets.
+The [Table 2 package](../reproduction/table2/README.md) includes numeric labels,
+probabilities and anonymous integer group codes for its shared-label evaluation.
+It contains no original IDs, per-question hashes, problem text or reasoning text.
+Original datasets, private collections, model payloads and internal recovery
+archives are not bundled. `resources.json` distinguishes included and external assets.
 
 The [data release whitelist](DATA_RELEASE_WHITELIST.md) records 13 dataset/collection
 groups, their source declarations and release decisions. Exact approved aggregate

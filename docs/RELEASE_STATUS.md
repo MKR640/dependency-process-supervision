@@ -14,9 +14,9 @@ visibility; uploading source does not make external data or models available.
 | CPU / training / evaluation environments | Separated; all seven CPU modules verified across recorded runs in an isolated Windows environment; GPU and Linux unverified |
 | Author-code license | Pending author decision; no license granted by this preparation |
 | Third-party attribution | Eleven component entries and external model declarations reviewed; OpenCompass notice matches upstream; ProcessBench code terms and complete per-file provenance remain unresolved |
-| Dataset/cache release rights | Thirteen dataset/collection groups inventoried; four aggregate/configuration files explicitly whitelisted; raw data and recovery caches excluded; see data release whitelist |
+| Dataset/cache release rights | Thirteen dataset/collection groups inventoried; aggregate/configuration files and the text-free Table 2 export explicitly whitelisted; raw data and recovery caches excluded; see data release whitelist |
 | LAMBADA content identity | Four recovered runs match all 5,153 ordered OpenAI-variant contexts/references; six historical configs agree; older paper Base content not independently recovered |
-| Formal Table 2 cache | Recovered and verified internally; all nine model reports, intervals and contrasts match the historical report; cache not bundled for redistribution |
+| Table 2 reproduction | Five-condition text-free numeric package and standalone ZIP included; both panels and intervals verified after independent extraction; original nine-condition cache remains external |
 | Sequential role baseline | Formal-cache replay passed, including validation threshold, role scores and paired bootstrap interval |
 | Training/inference assets | External data/model access routes and payload checksums incomplete |
 | Versioning | Independent repository; no private parent history exported |

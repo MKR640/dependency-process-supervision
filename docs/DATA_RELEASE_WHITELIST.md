@@ -1,7 +1,7 @@
 # Data release whitelist
 
-Reviewed 2026-11-02. This is the policy for the **local source candidate**, not a
-claim that its external caches have been cleared or published. Author-owned code,
+Updated 2026-11-03. The text-free Table 2 numeric export is included; other
+external caches remain excluded. Author-owned code,
 prompts and new annotations still require an author-selected license.
 
 The machine-readable inventory is [data_release_policy.json](../configs/data_release_policy.json).
@@ -15,7 +15,8 @@ revision used in the experiments.
 |---|---|---|
 | Existing aggregate metrics and protocol metadata | Include the exact files and hashes listed in the policy | No problem text, individual responses, private paths or annotator identities; preserve experiment/model distinctions |
 | Download/conversion code, public source links, label definitions | Include as source/configuration | Follow code licenses; a download helper does not grant rights to the downloaded data |
-| Public-example IDs, split membership, numeric labels/probabilities and dependency indices | Eligible for a separate, reviewed export; **not yet cleared or exported** | Confirm source identity and terms, annotation/output rights, and identifier safety; supply an explicit schema and checksums; no free text |
+| Table 2 numeric labels, probabilities and integer grouping codes | Included in `reproduction/table2/` and the standalone ZIP | Explicit field whitelist; no free text, original IDs or per-question hashes; hash-checked and numerically equivalent |
+| Other public-example IDs, split membership and derived annotations | Not included; assess separately | The Table 2 export does not authorize other caches or private collections |
 | Original questions, solutions, model reasoning, judge explanations, retrieved input/output content | Not included in this candidate | Upstream permission may allow a future release, but text-containing derivatives need source-specific attribution and checks |
 | Provider collection, unknown-origin SFT pool, internal recovery archives | Withhold | See dataset decisions below; internal bundles are not release packages |
 | Model weights or tokenizers | External assets | Separate model-license and exact-version review; see third-party notices |
@@ -27,7 +28,7 @@ is not a replacement for the source manifest or the unresolved author-code licen
 
 | Dataset / collection | Use in this project | Verified public declaration | Current release decision |
 |---|---|---|---|
-| PRM800K, phase 2 | Annotation replay, shared-label training, mathematical evaluation | [Official repository: MIT](https://github.com/openai/prm800k/blob/main/LICENSE); includes problems from MATH | Obtain upstream; provide transformations and later reviewed label-only exports. Do not redistribute the recovered materialized JSONL or teacher bundles as-is. Preserve MATH provenance. |
+| PRM800K, phase 2 | Annotation replay, shared-label training, mathematical evaluation | [Official repository: MIT](https://github.com/openai/prm800k/blob/main/LICENSE); includes problems from MATH | Obtain upstream; provide transformations and the included text-free Table 2 numeric export. Do not redistribute the recovered materialized JSONL or teacher bundles as-is. Preserve MATH provenance. |
 | PRMBench Preview, physics subset | Existing-model physics evaluation | [Dataset card: Apache-2.0](https://huggingface.co/datasets/hitsmy/PRMBench_Preview) | Obtain upstream; identify the selected source rows and annotation conversion. No raw subset bundled. Local historical filename aliases do not identify a different public benchmark. |
 | ProcessBench | First-error evaluation on its four subsets | [Dataset card: Apache-2.0](https://huggingface.co/datasets/Qwen/ProcessBench) | Obtain this benchmark from upstream; retain its constituent-source attribution. Its dataset license does not settle the license of recovered evaluator code. |
 | GSM8K | Answer voting and SFT-model evaluation | [Official repository: MIT](https://github.com/openai/grade-school-math/blob/master/LICENSE) | Obtain upstream; any future repackaging must retain the notice and distinguish original data from generated candidate solutions. |

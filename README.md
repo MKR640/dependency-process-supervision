@@ -111,11 +111,31 @@ and per-step training rows to `outputs/example_*` and checks label masks and
 reasoning prefixes. This example demonstrates target construction; automatic
 annotation and model evaluation use the separate entries below.
 
-### Reproduce experiments
+### Reproduce Table 2 and role diagnosis
 
-The example and CPU tests run with this repository alone. Recomputing the paper's
-results requires external prediction bundles, which are not included or currently
-available for download from this repository.
+[Download the standalone replay package (about 2 MB)](https://github.com/MKR640/dependency-process-supervision/raw/refs/heads/main/artifacts/table2-role-replay-v1.zip)
+· [Instructions and source](reproduction/table2/README.md)
+· [SHA-256](artifacts/table2-role-replay-v1.zip.sha256)
+
+The package includes text-free numeric predictions, reference labels, and anonymous
+group codes for all five shared-label conditions. No GPU, model weights, API key,
+or external dataset is needed. After extracting the ZIP, run from its directory:
+
+```bash
+python -m pip install -r requirements.txt
+python reproduce.py
+```
+
+With Python 3.12, this recomputes both Table 2 panels and paired confidence
+intervals, verifies them against archived results, and writes Markdown, CSV and
+JSON outputs under `results/`. The same files are in `reproduction/table2/` for
+users who clone the repository. No problem statements or reasoning text are included.
+This replays fixed model outputs; it does not retrain the models.
+
+### Other experiments and original-bundle replay
+
+The example and CPU tests also run with this repository alone. Other experiment
+replays and the original full-bundle commands below require external assets.
 
 Install the CPU replay dependencies in a separate environment:
 
@@ -145,16 +165,17 @@ For training, annotation, other evaluation modules, and required assets, see the
 | [`src/existing_eval/`](src/existing_eval/) and [`src/benchmarks/`](src/benchmarks/) | Mathematics, physics, and ProcessBench evaluation |
 | [`src/downstream/`](src/downstream/) | Answer voting, SFT selection, training, and task evaluation |
 | [`configs/`](configs/) | Annotation prompts, training settings, evaluation protocols, and reference metrics |
-| [`scripts/`](scripts/) | Reproduction and training-preparation entry points |
+| [`reproduction/table2/`](reproduction/table2/) | Standalone Table 2 and role-diagnosis replay with numeric inputs |
+| [`scripts/`](scripts/) | Original-bundle reproduction and training-preparation entry points |
 | [`examples/`](examples/) | Self-contained synthetic example |
 | [`environments/`](environments/) | CPU dependencies and training/evaluation environment records |
 | [`docs/`](docs/) | Experiment mapping, reproduction instructions, and resource availability |
 
 ## Resources and availability
 
-This release contains source code, prompts, configurations, reference metrics, and
-the synthetic example. Model weights, original datasets, and prediction caches
-are not bundled. Public dataset sources and private-data restrictions are listed
+This release contains source code, prompts, configurations, reference metrics,
+the synthetic example, and the text-free Table 2 reproduction package. Model
+weights, original datasets, and other prediction caches are not bundled. Public dataset sources and private-data restrictions are listed
 in [Data access](docs/DATA_ACCESS.md). The provider-supplied problem collection
 cannot be redistributed.
 

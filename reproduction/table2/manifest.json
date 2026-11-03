@@ -1,0 +1,16 @@
+{
+  "format": 1,
+  "files": {
+    "data/test.npz": "86ddc197c427ae744184af909eefbe64dd4570a24fabe93c037a45da518c0d3b",
+    "data/validation.npz": "f61180f299d8d32a5483e053b97af1314437265422686d9f5a554f2a116f1d42",
+    "expected.json": "6936787c173e3caaaec4d04ca5dd5d7530a7097b28e8b35f6e35e2d4bbf9fd54",
+    "metrics.py": "fefa15daa868a262e3940074b839494ddf5d5040e8bcab38e66899920dabc928",
+    "NOTICES.md": "e6bc2d5bd341257374dca02bec4238c5d53575b6ff33e406bdbc49c2c89b4bcb",
+    "protocol.json": "b31927124fc044d335800af74ba987983fca334ecf9b357b66496975e9a5fdb6",
+    "README.md": "f9e2398b000b83f8821a9e3b246b49a9673e534e5bd4d8ca719a2844894922ea",
+    "reproduce.py": "b95efa7c7041af933193569115cbfdc4a075b7a63eff03d66b20cb7aef285a4b",
+    "requirements.txt": "b278f1339f69781eefd2f8fc58f11e4c07a5fbd9134324562c8c0f65599b34c5",
+    "role_metrics.py": "3cfb1596527d82cc60e7a95f7dc06bedbe75eed4ac44d04e25622146114d3245",
+    "SCHEMA.md": "4e98822a29919fef73eee4a958bef9cc32c2d618349ea06f83b19dd1ce763776"
+  }
+}
